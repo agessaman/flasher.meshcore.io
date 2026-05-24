@@ -809,7 +809,16 @@ function setup() {
     applyUrlPath(window.location.pathname);
   });
 
-  applyUrlPath(window.location.pathname);
+  const getInitialPath = () => {
+    const params = new URLSearchParams(window.location.search);
+    const redirectPath = params.get('redirect');
+    if (!redirectPath || !redirectPath.startsWith('/')) return window.location.pathname;
+
+    history.replaceState(null, '', redirectPath);
+    return redirectPath;
+  };
+
+  applyUrlPath(getInitialPath());
 
   return {
     snackbar,
