@@ -9,10 +9,14 @@ const configName = searchParams.get('config')?.replaceAll(/[^a-z_-]/g, '') ?? 'c
 const configRes = await fetch(`/${configName}.json`);
 const config = await configRes.json();
 
-const githubRes = await fetch('/releases');
-const github = await githubRes.json();
+let github = [];
+try {
+  const githubRes = await fetch('/releases');
+  if (githubRes.ok) github = await githubRes.json();
+} catch (e) {}
 
 const commandReference  = {
+  // --- General ---
   'time ': 'Set time {epoch-secs}',
   'erase': 'Erase filesystem',
   'advert': 'Send Advertisment packet',
@@ -24,23 +28,185 @@ const commandReference  = {
   'log stop': 'Stop packet logging to file system',
   'log erase': 'Erase the packet logs from file system',
   'ver': 'Show device version',
-  'set freq ': 'Set frequency {Mhz}',
+
+  // --- Radio & Device ---
+  'set freq ': 'Set frequency {MHz}',
   'set af ': 'Set Air-time factor',
   'set tx ': 'Set Tx power {dBm}',
   'set repeat ': 'Set repeater mode {on|off}',
   'set advert.interval ': 'Set advert rebroadcast interval {minutes}',
   'set guest.password ': 'Set guest password',
-  'set name ': 'Set advertisement name',
-  'set lat': 'Set the advertisement map latitude',
-  'set lon': 'Set the advertisement map longitude',
-  'get freq ': 'Get frequency (Mhz)',
+  'set name ': 'Set device name (also sets MQTT origin)',
+  'set lat ': 'Set advertisement map latitude',
+  'set lon ': 'Set advertisement map longitude',
+  'set prv.key ': 'Restore private key for identity migration {64-hex-char-key}',
+  'get freq': 'Get frequency (MHz)',
   'get af': 'Get Air-time factor',
   'get tx': 'Get Tx power (dBm)',
   'get repeat': 'Get repeater mode',
   'get advert.interval': 'Get advert rebroadcast interval (minutes)',
-  'get name': 'Get advertisement name',
-  'get lat': 'Get the advertisement map latitude',
-  'get lon': 'Get the advertisement map longitude',
+  'get name': 'Get device name',
+  'get lat': 'Get advertisement map latitude',
+  'get lon': 'Get advertisement map longitude',
+  'get public.key': 'Get device public key',
+
+  // --- MQTT shared ---
+  'get mqtt.origin': 'Get MQTT origin name',
+  'set mqtt.origin ': 'Set MQTT origin name',
+  'get mqtt.iata': 'Get IATA code',
+  'set mqtt.iata ': 'Set IATA code (auto-uppercased)',
+  'get mqtt.status': 'Get MQTT connection status per slot',
+  'get mqtt.presets': 'List available MQTT presets',
+  'get mqtt.presets ': 'List MQTT presets from index {start}',
+  'get mqtt.packets': 'Get packet message setting (on/off)',
+  'set mqtt.packets ': 'Enable/disable packet messages {on|off}',
+  'get mqtt.raw': 'Get raw message setting (on/off)',
+  'set mqtt.raw ': 'Enable/disable raw messages {on|off}',
+  'get mqtt.rx': 'Get RX packet uplinking setting (on/off)',
+  'set mqtt.rx ': 'Enable/disable RX packet uplinking {on|off}',
+  'get mqtt.tx': 'Get TX packet uplinking setting (on/off/advert)',
+  'set mqtt.tx ': 'Set TX packet uplinking {on|off|advert}',
+  'get mqtt.interval': 'Get status publish interval (minutes)',
+  'set mqtt.interval ': 'Set status publish interval {1-60 minutes}',
+  'get mqtt.owner': 'Get owner public key',
+  'set mqtt.owner ': 'Set owner public key {64-hex-char-key}',
+  'get mqtt.email': 'Get owner email address',
+  'set mqtt.email ': 'Set owner email address',
+
+  // --- MQTT slot 1 ---
+  'get mqtt1.preset': 'Get slot 1 preset name',
+  'set mqtt1.preset ': 'Set slot 1 preset {analyzer-us|analyzer-eu|meshmapper|meshrank|waev|meshomatic|cascadiamesh|tennmesh|nashmesh|chimesh|meshat.se|eastidahomesh|coloradomesh|custom|none}',
+  'get mqtt1.server': 'Get slot 1 server hostname',
+  'set mqtt1.server ': 'Set slot 1 custom server hostname',
+  'get mqtt1.port': 'Get slot 1 server port',
+  'set mqtt1.port ': 'Set slot 1 custom server port {1-65535}',
+  'get mqtt1.username': 'Get slot 1 username',
+  'set mqtt1.username ': 'Set slot 1 custom username',
+  'get mqtt1.password': 'Get slot 1 password',
+  'set mqtt1.password ': 'Set slot 1 custom password',
+  'get mqtt1.token': 'Get slot 1 per-slot token',
+  'set mqtt1.token ': 'Set slot 1 token (required for meshrank preset)',
+  'get mqtt1.topic': 'Get slot 1 custom topic template',
+  'set mqtt1.topic ': 'Set slot 1 custom topic template e.g. {iata}/{device}/{type}',
+  'get mqtt1.audience': 'Get slot 1 JWT audience',
+  'set mqtt1.audience ': 'Set slot 1 JWT audience (enables Ed25519 auth; omit value to clear)',
+
+  // --- MQTT slot 2 ---
+  'get mqtt2.preset': 'Get slot 2 preset name',
+  'set mqtt2.preset ': 'Set slot 2 preset {analyzer-us|analyzer-eu|meshmapper|meshrank|waev|meshomatic|cascadiamesh|tennmesh|nashmesh|chimesh|meshat.se|eastidahomesh|coloradomesh|custom|none}',
+  'get mqtt2.server': 'Get slot 2 server hostname',
+  'set mqtt2.server ': 'Set slot 2 custom server hostname',
+  'get mqtt2.port': 'Get slot 2 server port',
+  'set mqtt2.port ': 'Set slot 2 custom server port {1-65535}',
+  'get mqtt2.username': 'Get slot 2 username',
+  'set mqtt2.username ': 'Set slot 2 custom username',
+  'get mqtt2.password': 'Get slot 2 password',
+  'set mqtt2.password ': 'Set slot 2 custom password',
+  'get mqtt2.token': 'Get slot 2 per-slot token',
+  'set mqtt2.token ': 'Set slot 2 token (required for meshrank preset)',
+  'get mqtt2.topic': 'Get slot 2 custom topic template',
+  'set mqtt2.topic ': 'Set slot 2 custom topic template e.g. {iata}/{device}/{type}',
+  'get mqtt2.audience': 'Get slot 2 JWT audience',
+  'set mqtt2.audience ': 'Set slot 2 JWT audience (enables Ed25519 auth; omit value to clear)',
+
+  // --- MQTT slot 3 ---
+  'get mqtt3.preset': 'Get slot 3 preset name',
+  'set mqtt3.preset ': 'Set slot 3 preset {analyzer-us|analyzer-eu|meshmapper|meshrank|waev|meshomatic|cascadiamesh|tennmesh|nashmesh|chimesh|meshat.se|eastidahomesh|coloradomesh|custom|none}',
+  'get mqtt3.server': 'Get slot 3 server hostname',
+  'set mqtt3.server ': 'Set slot 3 custom server hostname',
+  'get mqtt3.port': 'Get slot 3 server port',
+  'set mqtt3.port ': 'Set slot 3 custom server port {1-65535}',
+  'get mqtt3.username': 'Get slot 3 username',
+  'set mqtt3.username ': 'Set slot 3 custom username',
+  'get mqtt3.password': 'Get slot 3 password',
+  'set mqtt3.password ': 'Set slot 3 custom password',
+  'get mqtt3.token': 'Get slot 3 per-slot token',
+  'set mqtt3.token ': 'Set slot 3 token (required for meshrank preset)',
+  'get mqtt3.topic': 'Get slot 3 custom topic template',
+  'set mqtt3.topic ': 'Set slot 3 custom topic template e.g. {iata}/{device}/{type}',
+  'get mqtt3.audience': 'Get slot 3 JWT audience',
+  'set mqtt3.audience ': 'Set slot 3 JWT audience (enables Ed25519 auth; omit value to clear)',
+
+  // --- MQTT slot 4 ---
+  'get mqtt4.preset': 'Get slot 4 preset name',
+  'set mqtt4.preset ': 'Set slot 4 preset {analyzer-us|analyzer-eu|meshmapper|meshrank|waev|meshomatic|cascadiamesh|tennmesh|nashmesh|chimesh|meshat.se|eastidahomesh|coloradomesh|custom|none}',
+  'get mqtt4.server': 'Get slot 4 server hostname',
+  'set mqtt4.server ': 'Set slot 4 custom server hostname',
+  'get mqtt4.port': 'Get slot 4 server port',
+  'set mqtt4.port ': 'Set slot 4 custom server port {1-65535}',
+  'get mqtt4.username': 'Get slot 4 username',
+  'set mqtt4.username ': 'Set slot 4 custom username',
+  'get mqtt4.password': 'Get slot 4 password',
+  'set mqtt4.password ': 'Set slot 4 custom password',
+  'get mqtt4.token': 'Get slot 4 per-slot token',
+  'set mqtt4.token ': 'Set slot 4 token (required for meshrank preset)',
+  'get mqtt4.topic': 'Get slot 4 custom topic template',
+  'set mqtt4.topic ': 'Set slot 4 custom topic template e.g. {iata}/{device}/{type}',
+  'get mqtt4.audience': 'Get slot 4 JWT audience',
+  'set mqtt4.audience ': 'Set slot 4 JWT audience (enables Ed25519 auth; omit value to clear)',
+
+  // --- MQTT slot 5 ---
+  'get mqtt5.preset': 'Get slot 5 preset name',
+  'set mqtt5.preset ': 'Set slot 5 preset {analyzer-us|analyzer-eu|meshmapper|meshrank|waev|meshomatic|cascadiamesh|tennmesh|nashmesh|chimesh|meshat.se|eastidahomesh|coloradomesh|custom|none}',
+  'get mqtt5.server': 'Get slot 5 server hostname',
+  'set mqtt5.server ': 'Set slot 5 custom server hostname',
+  'get mqtt5.port': 'Get slot 5 server port',
+  'set mqtt5.port ': 'Set slot 5 custom server port {1-65535}',
+  'get mqtt5.username': 'Get slot 5 username',
+  'set mqtt5.username ': 'Set slot 5 custom username',
+  'get mqtt5.password': 'Get slot 5 password',
+  'set mqtt5.password ': 'Set slot 5 custom password',
+  'get mqtt5.token': 'Get slot 5 per-slot token',
+  'set mqtt5.token ': 'Set slot 5 token (required for meshrank preset)',
+  'get mqtt5.topic': 'Get slot 5 custom topic template',
+  'set mqtt5.topic ': 'Set slot 5 custom topic template e.g. {iata}/{device}/{type}',
+  'get mqtt5.audience': 'Get slot 5 JWT audience',
+  'set mqtt5.audience ': 'Set slot 5 JWT audience (enables Ed25519 auth; omit value to clear)',
+
+  // --- MQTT slot 6 ---
+  'get mqtt6.preset': 'Get slot 6 preset name',
+  'set mqtt6.preset ': 'Set slot 6 preset {analyzer-us|analyzer-eu|meshmapper|meshrank|waev|meshomatic|cascadiamesh|tennmesh|nashmesh|chimesh|meshat.se|eastidahomesh|coloradomesh|custom|none}',
+  'get mqtt6.server': 'Get slot 6 server hostname',
+  'set mqtt6.server ': 'Set slot 6 custom server hostname',
+  'get mqtt6.port': 'Get slot 6 server port',
+  'set mqtt6.port ': 'Set slot 6 custom server port {1-65535}',
+  'get mqtt6.username': 'Get slot 6 username',
+  'set mqtt6.username ': 'Set slot 6 custom username',
+  'get mqtt6.password': 'Get slot 6 password',
+  'set mqtt6.password ': 'Set slot 6 custom password',
+  'get mqtt6.token': 'Get slot 6 per-slot token',
+  'set mqtt6.token ': 'Set slot 6 token (required for meshrank preset)',
+  'get mqtt6.topic': 'Get slot 6 custom topic template',
+  'set mqtt6.topic ': 'Set slot 6 custom topic template e.g. {iata}/{device}/{type}',
+  'get mqtt6.audience': 'Get slot 6 JWT audience',
+  'set mqtt6.audience ': 'Set slot 6 JWT audience (enables Ed25519 auth; omit value to clear)',
+
+  // --- WiFi ---
+  'get wifi.ssid': 'Get WiFi SSID',
+  'set wifi.ssid ': 'Set WiFi SSID (spaces allowed, no quotes)',
+  'get wifi.pwd': 'Get WiFi password',
+  'set wifi.pwd ': 'Set WiFi password (spaces allowed; use trailing space only for open networks)',
+  'get wifi.status': 'Get WiFi connection status, IP, RSSI, and uptime',
+  'get wifi.powersave': 'Get WiFi power save mode (none/min/max)',
+  'set wifi.powersave ': 'Set WiFi power save mode {none|min|max}',
+
+  // --- Timezone ---
+  'get timezone': 'Get timezone string e.g. America/Los_Angeles',
+  'set timezone ': 'Set timezone {IANA string|abbreviation|UTC offset}',
+  'get timezone.offset': 'Get timezone offset in hours',
+  'set timezone.offset ': 'Set timezone offset in hours {-12 to +14}',
+
+  // --- Bridge ---
+  'get bridge.source': 'Get packet source (rx/tx)',
+  'set bridge.source ': 'Set packet source {rx|tx}',
+  'get bridge.enabled': 'Get bridge enabled status (on/off)',
+  'set bridge.enabled ': 'Enable/disable bridge {on|off}',
+
+  // --- SNMP ---
+  'get snmp': 'Get SNMP agent status (on/off)',
+  'set snmp ': 'Enable/disable SNMP agent {on|off} (restart required)',
+  'get snmp.community': 'Get SNMP community string',
+  'set snmp.community ': 'Set SNMP community string (restart required)',
 };
 
 async function delay(milis) {
@@ -586,7 +752,7 @@ function setup() {
   };
 
   const devices = computed(() => {
-    const classes = ['ripple', 'meshos', 'community'];
+    const classes = ['ripple', 'meshos', 'community', 'observer'];
     const deviceGroups = {};
 
     let index = 0;

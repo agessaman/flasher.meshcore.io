@@ -222,7 +222,7 @@
           <nav>
             <i>bolt</i>
             <h5 class="small max logo-top">
-              <img src="/img/meshcore.svg"> <span>flasher</span>
+              <img src="/img/meshcore.svg"> <span>observer flasher</span>
             </h5>
             <button class="transparent hide-mobile" @click="openSerialGUI()">
               <i>manufacturing</i>
@@ -234,6 +234,10 @@
               <span>Console</span>
               <div class="tooltip left max">Open serial console to manage Routers and Room servers</div>
             </button>
+            <a class="button transparent hide-mobile" href="/docs.html" target="_blank">
+              <i>menu_book</i>
+              <span>Setup Guide</span>
+            </a>
           </nav>
           <nav class="no-margin">
             <h6 class="small max">Choose device</h6>
@@ -252,6 +256,7 @@
                   <strong v-if="type === 'ripple'">Ripple Firmware</strong>
                   <strong v-else-if="type === 'meshos'">MeshOS Firmware</strong>
                   <strong v-else-if="type === 'community'">Community Firmware</strong>
+                  <strong v-else-if="type === 'observer'">MQTT Observer Firmware</strong>
                   <div class="tooltip right max">
                     <template v-if="type === 'ripple'">
                       Freemium firmware provided by <a class="inverse-link" target="_blank" href="https://buymeacoffee.com/ripplebiz">Ripple Radios</a>
@@ -261,6 +266,9 @@
                     </template>
                     <template v-else-if="type === 'community'">
                       Open Source <a class="inverse-link" target="_blank" href="https://github.com/meshcore-dev/MeshCore">Community firmware</a>
+                    </template>
+                    <template v-else-if="type === 'observer'">
+                      Experimental MQTT Observer firmware — uplinks mesh traffic to MQTT brokers
                     </template>
                   </div>
                 </div>

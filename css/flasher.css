@@ -131,3 +131,34 @@ body:has([v-cloak]):after {
 .text-wrap {
   text-wrap: auto;
 }
+
+/* Observer flasher — teal accent + teal-tinted dark backgrounds */
+body.dark {
+  /* Accent colors */
+  --primary: #80cbc4;
+  --on-primary: #00363d;
+  --primary-container: #004f56;
+  --on-primary-container: #9df0e7;
+  --inverse-primary: #00695c;
+  --secondary: #89ccc6;
+  --on-secondary: #00302d;
+  --secondary-container: #00504b;
+  --on-secondary-container: #a5ede7;
+
+  /* Background & surface — subtle teal tint */
+  --background: #161d1d;
+  --surface: #111918;
+  --surface-dim: #111918;
+  --surface-bright: #343d3c;
+  --surface-container-lowest: #0c1110;
+  --surface-container-low: #161d1d;
+  --surface-container: #1c2322;
+  --surface-container-high: #262d2c;
+  --surface-container-highest: #313938;
+
+  /* Outlines & variants */
+  --outline: #8e9a99;
+  --outline-variant: #424c4b;
+  --surface-variant: #424c4b;
+  --on-surface-variant: #c2ccca;
+}
