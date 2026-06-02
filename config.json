@@ -36,12 +36,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Heltec_T190_repeater_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "Heltec_T190_repeater_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Heltec_T190_repeater_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "Heltec_T190_repeater_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -56,12 +56,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Heltec_T190_room_server_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "Heltec_T190_room_server_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Heltec_T190_room_server_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "Heltec_T190_room_server_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -86,12 +86,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Heltec_v3_repeater_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "Heltec_v3_repeater_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Heltec_v3_repeater_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "Heltec_v3_repeater_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -106,12 +106,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Heltec_v3_room_server_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "Heltec_v3_room_server_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Heltec_v3_room_server_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "Heltec_v3_room_server_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -136,12 +136,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "heltec_v4_repeater_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "heltec_v4_repeater_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "heltec_v4_repeater_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "heltec_v4_repeater_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -156,12 +156,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "heltec_v4_room_server_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "heltec_v4_room_server_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "heltec_v4_room_server_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "heltec_v4_room_server_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -186,12 +186,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "heltec_v4_expansionkit_repeater_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "heltec_v4_expansionkit_repeater_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "heltec_v4_expansionkit_repeater_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "heltec_v4_expansionkit_repeater_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -206,12 +206,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "heltec_v4_expansionkit_room_server_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "heltec_v4_expansionkit_room_server_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                    "name": "heltec_v4_expansionkit_room_server_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                    "name": "heltec_v4_expansionkit_room_server_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -236,12 +236,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Heltec_WSL3_repeater_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "Heltec_WSL3_repeater_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Heltec_WSL3_repeater_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "Heltec_WSL3_repeater_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -256,12 +256,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Heltec_WSL3_room_server_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "Heltec_WSL3_room_server_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Heltec_WSL3_room_server_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "Heltec_WSL3_room_server_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -286,12 +286,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "LilyGo_T3S3_sx1262_repeater_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "LilyGo_T3S3_sx1262_repeater_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "LilyGo_T3S3_sx1262_repeater_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "LilyGo_T3S3_sx1262_repeater_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -306,12 +306,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "LilyGo_T3S3_sx1262_room_server_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "LilyGo_T3S3_sx1262_room_server_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "LilyGo_T3S3_sx1262_room_server_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "LilyGo_T3S3_sx1262_room_server_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -336,12 +336,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "LilyGo_TBeam_1W_repeater_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "LilyGo_TBeam_1W_repeater_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "LilyGo_TBeam_1W_repeater_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "LilyGo_TBeam_1W_repeater_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -356,12 +356,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "LilyGo_TBeam_1W_room_server_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "LilyGo_TBeam_1W_room_server_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "LilyGo_TBeam_1W_room_server_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "LilyGo_TBeam_1W_room_server_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -386,12 +386,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "LilyGo_TLora_V2_1_1_6_repeater_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "LilyGo_TLora_V2_1_1_6_repeater_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "LilyGo_TLora_V2_1_1_6_repeater_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "LilyGo_TLora_V2_1_1_6_repeater_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -406,12 +406,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "LilyGo_TLora_V2_1_1_6_room_server_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "LilyGo_TLora_V2_1_1_6_room_server_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "LilyGo_TLora_V2_1_1_6_room_server_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "LilyGo_TLora_V2_1_1_6_room_server_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -436,12 +436,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "RAK_3112_repeater_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "RAK_3112_repeater_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "RAK_3112_repeater_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "RAK_3112_repeater_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -456,12 +456,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "RAK_3112_room_server_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "RAK_3112_room_server_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "RAK_3112_room_server_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "RAK_3112_room_server_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -486,12 +486,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Station_G2_repeater_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "Station_G2_repeater_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Station_G2_repeater_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "Station_G2_repeater_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -506,12 +506,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Station_G2_room_server_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "Station_G2_room_server_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Station_G2_room_server_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "Station_G2_room_server_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -536,12 +536,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "T_Beam_S3_Supreme_SX1262_repeater_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "T_Beam_S3_Supreme_SX1262_repeater_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "T_Beam_S3_Supreme_SX1262_repeater_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "T_Beam_S3_Supreme_SX1262_repeater_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -556,12 +556,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "T_Beam_S3_Supreme_SX1262_room_server_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "T_Beam_S3_Supreme_SX1262_room_server_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "T_Beam_S3_Supreme_SX1262_room_server_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "T_Beam_S3_Supreme_SX1262_room_server_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -586,12 +586,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Tbeam_SX1262_repeater_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "Tbeam_SX1262_repeater_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Tbeam_SX1262_repeater_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "Tbeam_SX1262_repeater_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -606,12 +606,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Tbeam_SX1262_room_server_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "Tbeam_SX1262_room_server_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Tbeam_SX1262_room_server_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "Tbeam_SX1262_room_server_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -636,12 +636,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Tbeam_SX1276_repeater_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "Tbeam_SX1276_repeater_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Tbeam_SX1276_repeater_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "Tbeam_SX1276_repeater_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -656,12 +656,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Tbeam_SX1276_room_server_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "Tbeam_SX1276_room_server_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Tbeam_SX1276_room_server_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "Tbeam_SX1276_room_server_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -686,12 +686,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Xiao_S3_WIO_repeater_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "Xiao_S3_WIO_repeater_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Xiao_S3_WIO_repeater_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "Xiao_S3_WIO_repeater_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
@@ -706,12 +706,12 @@
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Xiao_S3_WIO_room_server_observer_mqtt-v1.15.0-dev-c0c845f5-merged.bin",
+                  "name": "Xiao_S3_WIO_room_server_observer_mqtt-v1.15.0-dev-e639dceb-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Xiao_S3_WIO_room_server_observer_mqtt-v1.15.0-dev-c0c845f5.bin",
+                  "name": "Xiao_S3_WIO_room_server_observer_mqtt-v1.15.0-dev-e639dceb.bin",
                   "title": "App firmware (update only)"
                 }
               ],
