@@ -1,5 +1,5 @@
 {
-  "staticPath": "https://files.gessaman.com/meshcore-observer/1.15.0-experimental-mqtt-observer-firmwares",
+  "staticPath": "https://files.gessaman.com/meshcore-observer/1.16.0-experimental-mqtt-observer-firmwares",
   "role": {
     "repeater": {
       "icon": "cell_tower",
@@ -32,40 +32,40 @@
         {
           "role": "repeater",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Heltec_T190_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "Heltec_T190_repeater_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Heltec_T190_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "Heltec_T190_repeater_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         },
         {
           "role": "roomServer",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Heltec_T190_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "Heltec_T190_room_server_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Heltec_T190_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "Heltec_T190_room_server_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         }
@@ -82,40 +82,40 @@
         {
           "role": "repeater",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Heltec_v3_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "Heltec_v3_repeater_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Heltec_v3_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "Heltec_v3_repeater_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         },
         {
           "role": "roomServer",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Heltec_v3_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "Heltec_v3_room_server_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Heltec_v3_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "Heltec_v3_room_server_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         }
@@ -132,40 +132,40 @@
         {
           "role": "repeater",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "heltec_v4_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "heltec_v4_repeater_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "heltec_v4_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "heltec_v4_repeater_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         },
         {
           "role": "roomServer",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "heltec_v4_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "heltec_v4_room_server_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "heltec_v4_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "heltec_v4_room_server_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         }
@@ -182,40 +182,40 @@
         {
           "role": "repeater",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "heltec_v4_expansionkit_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "heltec_v4_expansionkit_repeater_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "heltec_v4_expansionkit_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "heltec_v4_expansionkit_repeater_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         },
         {
           "role": "roomServer",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "heltec_v4_expansionkit_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "heltec_v4_expansionkit_room_server_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                    "name": "heltec_v4_expansionkit_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                    "name": "heltec_v4_expansionkit_room_server_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         }
@@ -232,40 +232,40 @@
         {
           "role": "repeater",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Heltec_WSL3_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "Heltec_WSL3_repeater_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Heltec_WSL3_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "Heltec_WSL3_repeater_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         },
         {
           "role": "roomServer",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Heltec_WSL3_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "Heltec_WSL3_room_server_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Heltec_WSL3_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "Heltec_WSL3_room_server_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         }
@@ -282,40 +282,40 @@
         {
           "role": "repeater",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "LilyGo_T3S3_sx1262_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "LilyGo_T3S3_sx1262_repeater_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "LilyGo_T3S3_sx1262_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "LilyGo_T3S3_sx1262_repeater_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p><b>&#9888; PARTITION TABLE CHANGED:</b> First flash <b>must</b> use &quot;Erase device&quot; (merged firmware). NVS settings will be wiped. After first flash, standard updates work normally.</p><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p><b>&#9888; PARTITION TABLE CHANGED:</b> First flash <b>must</b> use &quot;Erase device&quot; (merged firmware). NVS settings will be wiped. After first flash, standard updates work normally.</p><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         },
         {
           "role": "roomServer",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "LilyGo_T3S3_sx1262_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "LilyGo_T3S3_sx1262_room_server_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "LilyGo_T3S3_sx1262_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "LilyGo_T3S3_sx1262_room_server_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p><b>&#9888; PARTITION TABLE CHANGED:</b> First flash <b>must</b> use &quot;Erase device&quot; (merged firmware). NVS settings will be wiped. After first flash, standard updates work normally.</p><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p><b>&#9888; PARTITION TABLE CHANGED:</b> First flash <b>must</b> use &quot;Erase device&quot; (merged firmware). NVS settings will be wiped. After first flash, standard updates work normally.</p><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         }
@@ -332,40 +332,40 @@
         {
           "role": "repeater",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "LilyGo_TBeam_1W_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "LilyGo_TBeam_1W_repeater_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "LilyGo_TBeam_1W_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "LilyGo_TBeam_1W_repeater_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p><b>&#9888; PARTITION TABLE CHANGED (16MB flash):</b> First flash <b>must</b> use &quot;Erase device&quot; (merged firmware). NVS settings will be wiped. After first flash, standard updates work normally.</p><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p><b>&#9888; PARTITION TABLE CHANGED (16MB flash):</b> First flash <b>must</b> use &quot;Erase device&quot; (merged firmware). NVS settings will be wiped. After first flash, standard updates work normally.</p><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         },
         {
           "role": "roomServer",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "LilyGo_TBeam_1W_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "LilyGo_TBeam_1W_room_server_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "LilyGo_TBeam_1W_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "LilyGo_TBeam_1W_room_server_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p><b>&#9888; PARTITION TABLE CHANGED (16MB flash):</b> First flash <b>must</b> use &quot;Erase device&quot; (merged firmware). NVS settings will be wiped. After first flash, standard updates work normally.</p><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p><b>&#9888; PARTITION TABLE CHANGED (16MB flash):</b> First flash <b>must</b> use &quot;Erase device&quot; (merged firmware). NVS settings will be wiped. After first flash, standard updates work normally.</p><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         }
@@ -382,40 +382,40 @@
         {
           "role": "repeater",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "LilyGo_TLora_V2_1_1_6_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "LilyGo_TLora_V2_1_1_6_repeater_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "LilyGo_TLora_V2_1_1_6_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "LilyGo_TLora_V2_1_1_6_repeater_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p><b>&#9888; NO PSRAM:</b> Only <b>one</b> active WSS/TLS MQTT broker is supported. Configure your preferred broker in slot 1 and set unused slots to <code>none</code>.</p><p><b>&#9888; PARTITION TABLE CHANGED:</b> First flash <b>must</b> use &quot;Erase device&quot; (merged firmware). NVS settings will be wiped. After first flash, standard updates work normally.</p><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p><b>&#9888; NO PSRAM:</b> Only <b>one</b> active WSS/TLS MQTT broker is supported. Configure your preferred broker in slot 1 and set unused slots to <code>none</code>.</p><p><b>&#9888; PARTITION TABLE CHANGED:</b> First flash <b>must</b> use &quot;Erase device&quot; (merged firmware). NVS settings will be wiped. After first flash, standard updates work normally.</p><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         },
         {
           "role": "roomServer",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "LilyGo_TLora_V2_1_1_6_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "LilyGo_TLora_V2_1_1_6_room_server_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "LilyGo_TLora_V2_1_1_6_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "LilyGo_TLora_V2_1_1_6_room_server_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p><b>&#9888; NO PSRAM:</b> Only <b>one</b> active WSS/TLS MQTT broker is supported. Configure your preferred broker in slot 1 and set unused slots to <code>none</code>.</p><p><b>&#9888; PARTITION TABLE CHANGED:</b> First flash <b>must</b> use &quot;Erase device&quot; (merged firmware). NVS settings will be wiped. After first flash, standard updates work normally.</p><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p><b>&#9888; NO PSRAM:</b> Only <b>one</b> active WSS/TLS MQTT broker is supported. Configure your preferred broker in slot 1 and set unused slots to <code>none</code>.</p><p><b>&#9888; PARTITION TABLE CHANGED:</b> First flash <b>must</b> use &quot;Erase device&quot; (merged firmware). NVS settings will be wiped. After first flash, standard updates work normally.</p><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         }
@@ -432,40 +432,40 @@
         {
           "role": "repeater",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "RAK_3112_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "RAK_3112_repeater_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "RAK_3112_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "RAK_3112_repeater_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         },
         {
           "role": "roomServer",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "RAK_3112_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "RAK_3112_room_server_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "RAK_3112_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "RAK_3112_room_server_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         }
@@ -482,40 +482,40 @@
         {
           "role": "repeater",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Station_G2_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "Station_G2_repeater_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Station_G2_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "Station_G2_repeater_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p><b>&#9888; PARTITION TABLE CHANGED (16MB flash):</b> First flash <b>must</b> use &quot;Erase device&quot; (merged firmware). NVS settings will be wiped. After first flash, standard updates work normally.</p><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p><b>&#9888; PARTITION TABLE CHANGED (16MB flash):</b> First flash <b>must</b> use &quot;Erase device&quot; (merged firmware). NVS settings will be wiped. After first flash, standard updates work normally.</p><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         },
         {
           "role": "roomServer",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Station_G2_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "Station_G2_room_server_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Station_G2_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "Station_G2_room_server_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p><b>&#9888; PARTITION TABLE CHANGED (16MB flash):</b> First flash <b>must</b> use &quot;Erase device&quot; (merged firmware). NVS settings will be wiped. After first flash, standard updates work normally.</p><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p><b>&#9888; PARTITION TABLE CHANGED (16MB flash):</b> First flash <b>must</b> use &quot;Erase device&quot; (merged firmware). NVS settings will be wiped. After first flash, standard updates work normally.</p><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         }
@@ -532,40 +532,40 @@
         {
           "role": "repeater",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "T_Beam_S3_Supreme_SX1262_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "T_Beam_S3_Supreme_SX1262_repeater_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "T_Beam_S3_Supreme_SX1262_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "T_Beam_S3_Supreme_SX1262_repeater_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         },
         {
           "role": "roomServer",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "T_Beam_S3_Supreme_SX1262_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "T_Beam_S3_Supreme_SX1262_room_server_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "T_Beam_S3_Supreme_SX1262_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "T_Beam_S3_Supreme_SX1262_room_server_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         }
@@ -582,40 +582,40 @@
         {
           "role": "repeater",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Tbeam_SX1262_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "Tbeam_SX1262_repeater_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Tbeam_SX1262_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "Tbeam_SX1262_repeater_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         },
         {
           "role": "roomServer",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Tbeam_SX1262_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "Tbeam_SX1262_room_server_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Tbeam_SX1262_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "Tbeam_SX1262_room_server_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         }
@@ -632,40 +632,40 @@
         {
           "role": "repeater",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Tbeam_SX1276_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "Tbeam_SX1276_repeater_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Tbeam_SX1276_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "Tbeam_SX1276_repeater_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         },
         {
           "role": "roomServer",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Tbeam_SX1276_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "Tbeam_SX1276_room_server_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Tbeam_SX1276_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "Tbeam_SX1276_room_server_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         }
@@ -682,40 +682,40 @@
         {
           "role": "repeater",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Xiao_S3_WIO_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "Xiao_S3_WIO_repeater_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Xiao_S3_WIO_repeater_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "Xiao_S3_WIO_repeater_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         },
         {
           "role": "roomServer",
           "version": {
-            "v1.15.0-dev": {
+            "v1.16.0": {
               "files": [
                 {
                   "type": "flash-wipe",
-                  "name": "Xiao_S3_WIO_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3-merged.bin",
+                  "name": "Xiao_S3_WIO_room_server_observer_mqtt-v1.16.0-dcc8f826-merged.bin",
                   "title": "Merged firmware (erase + flash)"
                 },
                 {
                   "type": "flash-update",
-                  "name": "Xiao_S3_WIO_room_server_observer_mqtt-v1.15.0-dev-4a4f20a3.bin",
+                  "name": "Xiao_S3_WIO_room_server_observer_mqtt-v1.16.0-dcc8f826.bin",
                   "title": "App firmware (update only)"
                 }
               ],
-              "notes": "<b>MQTT Observer v1.15.0-dev (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
+              "notes": "<b>MQTT Observer v1.16.0 (experimental)</b><ul><li>Up to 6 MQTT broker slots with built-in presets</li><li>Presets: Analyzer, MeshMapper, MeshRank, Waev, Meshomatic, CascadiaMesh, TennMesh, NashMesh, and more</li><li>JWT (Ed25519) and username/password authentication</li><li>Automatic reconnection with exponential backoff</li><li>After flashing, configure via serial console (115200 baud)</li></ul><p>See <a target='_blank' href='https://github.com/agessaman/MeshCore/blob/mqtt-bridge-implementation-flex/MQTT_IMPLEMENTATION.md'>setup guide</a> for configuration instructions.</p>"
             }
           }
         }
