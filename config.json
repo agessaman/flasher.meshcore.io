@@ -1,5 +1,5 @@
 {
-  "staticPath": "https://github.com/agessaman/MeshCore/releases/download/observer-mqtt-latest",
+  "staticPath": "https://observer-fw.gessaman.com",
   "role": {
     "repeater": {
       "icon": "cell_tower",

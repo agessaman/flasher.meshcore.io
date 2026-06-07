@@ -1,0 +1,22 @@
+name = "meshcore-firmware-proxy"
+main = "src/firmware-proxy.js"
+compatibility_date = "2025-01-01"
+
+# Where the Worker is reachable. Pick ONE and point config.json staticPath at it.
+#
+# Recommended: a dedicated custom domain (set the DNS record up in Cloudflare
+# first, then deploy). staticPath then = "https://observer-fw.gessaman.com".
+routes = [
+  { pattern = "observer-fw.gessaman.com", custom_domain = true }
+]
+#
+# Alternative: mount on a subpath of an existing zone, e.g.
+#   routes = [ { pattern = "files.gessaman.com/observer/*", zone_name = "gessaman.com" } ]
+# staticPath then = "https://files.gessaman.com/observer".
+#
+# Or skip routes entirely to use the free workers.dev URL printed on deploy;
+# staticPath = "https://meshcore-firmware-proxy.<your-subdomain>.workers.dev".
+
+# The rolling release the Worker proxies. Change here if the repo/tag changes.
+[vars]
+RELEASE_BASE = "https://github.com/agessaman/MeshCore/releases/download/observer-mqtt-latest"
