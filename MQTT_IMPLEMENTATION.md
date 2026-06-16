@@ -515,6 +515,8 @@ Minimal raw packet data for map integration.
   "stats": {
     "battery_mv": 4100,
     "uptime_secs": 3600,
+    "packets_sent": 42,
+    "packets_received": 128,
     "errors": 0,
     "queue_len": 0,
     "noise_floor": -110,
@@ -529,6 +531,7 @@ Minimal raw packet data for map integration.
 **Notes:**
 - Timestamps are always emitted in UTC with an explicit `+00:00` offset.
 - The `stats` object is only included when at least one stat value is available; individual fields are omitted when their value is unavailable.
+- `packets_sent` / `packets_received` are cumulative totals since boot (flood + direct), sourced from the dispatcher counters.
 
 ### Packet Message
 ```json
@@ -547,15 +550,17 @@ Minimal raw packet data for map integration.
   "raw": "F5930103807E5F1E...",
   "SNR": "12.5",
   "RSSI": "-65",
+  "score": "234",
   "hash": "A1B2C3D4E5F67890",
   "path": ["aa", "bb", "cc"]
 }
 ```
 
 **Notes:**
-- All numeric fields (`len`, `packet_type`, `payload_len`, `SNR`, `RSSI`) are formatted as JSON strings.
+- All numeric fields (`len`, `packet_type`, `payload_len`, `SNR`, `RSSI`, `score`) are formatted as JSON strings.
 - `time` and `date` are always UTC (`HH:MM:SS` and `DD/MM/YYYY`); `timestamp` is UTC with an explicit `+00:00` offset.
-- `SNR` and `RSSI` are only present for RX packets (received from radio). TX packets omit these fields since the packet originates from this node.
+- `SNR`, `RSSI`, and `score` are only present for RX packets (received from radio). TX packets omit these fields since the packet originates from this node.
+- `score` is the firmware's rebroadcast score for the received packet (the same value used to compute flood-rebroadcast delay), scaled ×1000 to match the integer printed in the serial RX log — e.g. a score of `0.234` is emitted as `"234"` (range `0`–`1000`). It is recomputed at publish time from the packet's SNR and length via the radio's `packetScore()`, so it matches what the firmware used on receive. Omitted when unavailable (e.g. the non-PSRAM reconstruction-less fallback path).
 - `path` is only present for direct-route packets that carry path data. It is a JSON array of lowercase hex hop tokens, one element per hop — e.g. `["aa","bb","cc"]` for single-byte hashes, or `["aaaa","bbbb"]` for multi-byte hashes. This matches the `path` representation emitted by [meshcore-packet-capture](https://github.com/agessaman/meshcore-packet-capture).
 
 ### Raw Message
