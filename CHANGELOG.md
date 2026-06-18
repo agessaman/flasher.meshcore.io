@@ -10,6 +10,7 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### June 2026
 
+- **Change** · `github-actions` — Improve changelog generation and git history fetch  <sub>2026-06-18 · `71b92c83`</sub>
 - **New** — AlertReporter integration in MyMesh  <sub>2026-06-17 · `985fda13`</sub>
 - **Improvement** — Cumulative packet statistics (`packets_sent` / `packets_received`) added to the status message  <sub>2026-06-16 · `8bf590b1`</sub>
 - **Improvement** — Packet path now published as an array of lowercase hex hop tokens  <sub>2026-06-16 · `e80a5ded`</sub>
@@ -253,3 +254,4 @@ fef9225b b89ceeea 1ed18f9e e5dbd56b e4ff06cb 7df28557 e77beff0 eee02025
 180c1d49 e9fe66c1 f39d2299 91cc4f50 ee6a7565 b91b854a a3c9a073 39f83efb
 80d6dd43 c9aa536c df4dab85
 -->
+71b92c83
