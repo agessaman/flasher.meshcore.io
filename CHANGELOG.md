@@ -9,6 +9,7 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### June 2026
 
+- **Change** · `github-actions` — Enhance asset pruning logic in release workflow  <sub>2026-06-18 · `8b084d5a`</sub>
 - **New** · `mqtt` — Enhance timestamp formatting with microsecond precision  <sub>2026-06-18 · `618c849d`</sub>
 - **Change** · `github-actions` — Refine paths-ignore and shallow clone handling in workflow  <sub>2026-06-18 · `50154563`</sub>
 - **Change** · `github-actions` — Improve changelog generation and git history fetch  <sub>2026-06-18 · `71b92c83`</sub>
@@ -258,3 +259,4 @@ fef9225b b89ceeea 1ed18f9e e5dbd56b e4ff06cb 7df28557 e77beff0 eee02025
 71b92c83
 50154563
 618c849d
+8b084d5a
