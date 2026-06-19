@@ -386,6 +386,42 @@ function setup() {
     return file.name.startsWith('/') ? file.name : `${config.staticPath}/${file.name}`;
   }
 
+  // The rolling firmware build embeds the git short-hash in every filename and
+  // prunes older binaries from the host, so a tab left open across a rebuild can
+  // hold a filename whose binary was already deleted (HTTP 404). config.json is
+  // read once at page load, so its hash can go stale too. Re-read it (bypassing
+  // cache) to learn the current build hash.
+  const fetchCurrentFirmwareHash = async () => {
+    try {
+      const res = await fetch(`/${configName}.json?t=${Date.now()}`, { cache: 'no-store' });
+      if (res.ok) {
+        const m = (await res.text()).match(/-v[0-9.]+-([0-9a-f]{7,40})(?:-merged)?\.bin/);
+        if (m) return m[1];
+      }
+    } catch (e) {}
+    return null;
+  };
+
+  const withFirmwareHash = (name, hash) =>
+    hash ? name.replace(/(-)[0-9a-f]{7,40}(-merged)?(\.bin)$/, `$1${hash}$2$3`) : name;
+
+  // Download a firmware file, refreshing the build hash and retrying once on a
+  // 404 (the stale-tab case above). Absolute paths are custom/local uploads, not
+  // rolling-build assets, so they are fetched as-is.
+  const fetchFirmwareFile = async (name) => {
+    const toUrl = (n) => n.startsWith('/') ? n : `${config.staticPath}/${n}`;
+    console.log('downloading: ' + toUrl(name));
+    let resp = await fetch(toUrl(name), { cache: 'no-store' });
+    if (resp.status === 404 && !name.startsWith('/')) {
+      const fresh = withFirmwareHash(name, await fetchCurrentFirmwareHash());
+      if (fresh !== name) {
+        console.log('firmware 404; retrying with current build hash: ' + toUrl(fresh));
+        resp = await fetch(toUrl(fresh), { cache: 'no-store' });
+      }
+    }
+    return resp;
+  };
+
   const firmwareHasData = (firmware) => {
     const firstVersion = Object.keys(firmware.version)[0];
     if(!firstVersion) return false;
@@ -600,10 +636,7 @@ function setup() {
       return;
     }
 
-    const url = `${config.staticPath}/${selected.device.erase}`;
-
-    console.log('downloading: ' + url);
-    const resp = await fetch(url);
+    const resp = await fetchFirmwareFile(selected.device.erase);
     if(resp.status !== 200) {
       alert(`Could not download the firmware file from the server, reported: HTTP ${resp.status}.\nPlease try again.`)
       return;
@@ -664,9 +697,7 @@ function setup() {
       }
       console.log({flashFiles, flashFile});
 
-      const url = getFirmwarePath(flashFile);
-      console.log('downloading: ' + url);
-      const resp = await fetch(url);
+      const resp = await fetchFirmwareFile(flashFile.name);
       if(resp.status !== 200) {
         alert(`Could not download the firmware file from the server, reported: HTTP ${resp.status}.\nPlease try again.`)
         return;
