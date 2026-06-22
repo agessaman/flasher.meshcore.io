@@ -9,6 +9,7 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### June 2026
 
+- **New** · `mqtt` — Add flmesh.us preset to MQTT implementation  <sub>2026-06-22 · `454afec9`</sub>
 - **Change** · `github-actions` — Enhance asset pruning logic in release workflow  <sub>2026-06-18 · `8b084d5a`</sub>
 - **New** · `mqtt` — Enhance timestamp formatting with microsecond precision  <sub>2026-06-18 · `618c849d`</sub>
 - **Change** · `github-actions` — Refine paths-ignore and shallow clone handling in workflow  <sub>2026-06-18 · `50154563`</sub>
@@ -260,3 +261,4 @@ fef9225b b89ceeea 1ed18f9e e5dbd56b e4ff06cb 7df28557 e77beff0 eee02025
 50154563
 618c849d
 8b084d5a
+454afec9
