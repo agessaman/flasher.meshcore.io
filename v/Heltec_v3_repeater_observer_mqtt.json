@@ -1,0 +1,8 @@
+{
+  "baseVersion": "v1.16.0",
+  "build": 1,
+  "version": "v1.16.0.1",
+  "hash": "730eb37",
+  "file": "https://observer-fw.gessaman.com/Heltec_v3_repeater_observer_mqtt-v1.16.0-730eb37.bin",
+  "partitionChange": false
+}
