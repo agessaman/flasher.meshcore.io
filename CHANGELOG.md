@@ -9,6 +9,7 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### June 2026
 
+- **Fix** · `ota` — Enhance manifest fetching logic for OTA updates  <sub>2026-06-23 · `5acfdd73`</sub>
 - **New** · `ota` — Implement build number suffix for firmware versioning  <sub>2026-06-23 · `730eb37d`</sub>
 - **New** · `mqtt` — Add meshcore-fi preset to MQTT presets  <sub>2026-06-23 · `addb637b`</sub>
 - **New** · `ota` — Implement deferred OTA update scheduling and handling  <sub>2026-06-22 · `c1885fcc`</sub>
@@ -273,3 +274,4 @@ fef9225b b89ceeea 1ed18f9e e5dbd56b e4ff06cb 7df28557 e77beff0 eee02025
 004d308e b679c0d7 e84c2665 3719ebb9 dec66838 c1885fcc
 addb637b
 730eb37d
+5acfdd73

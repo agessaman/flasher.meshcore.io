@@ -1,8 +1,8 @@
 {
   "baseVersion": "v1.16.0",
-  "build": 1,
-  "version": "v1.16.0.1",
-  "hash": "730eb37",
-  "file": "https://observer-fw.gessaman.com/LilyGo_T3S3_sx1262_room_server_observer_mqtt-v1.16.0-730eb37.bin",
+  "build": 2,
+  "version": "v1.16.0.2",
+  "hash": "5acfdd7",
+  "file": "https://observer-fw.gessaman.com/LilyGo_T3S3_sx1262_room_server_observer_mqtt-v1.16.0-5acfdd7.bin",
   "partitionChange": true
 }
