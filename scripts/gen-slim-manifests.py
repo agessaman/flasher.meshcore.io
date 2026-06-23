@@ -41,17 +41,19 @@ def main() -> int:
     ap.add_argument("--out-dir", required=True, help="directory for v/<env>.json files")
     ap.add_argument("--base-version", required=True, help="MeshCore base version, e.g. v1.16.0")
     ap.add_argument("--build", required=True, type=int, help="published build number N")
+    ap.add_argument("--partsig-dir", default=None,
+                    help="directory of <env>.partsig files (partition-table signatures from build.sh)")
     args = ap.parse_args()
 
     cfg = json.loads(Path(args.config).read_text())
     static_path = cfg["staticPath"].rstrip("/")
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
+    partsig_dir = Path(args.partsig_dir) if args.partsig_dir else None
 
     written = 0
     for dev in cfg.get("device", []):
         for fw in dev.get("firmware", []):
-            partition_change = fw.get("notice") == "partition-change"
             for ver in fw.get("version", {}).values():
                 for f in ver.get("files", []):
                     if f.get("type") != "flash-update":
@@ -68,8 +70,18 @@ def main() -> int:
                         "version": f"{args.base_version}.{args.build}",
                         "hash": m.group("hash"),
                         "file": f"{static_path}/{name}",
-                        "partitionChange": partition_change,
                     }
+                    # Partition-table signature for the OTA compatibility check. The
+                    # firmware compares this to its flashed table and refuses only on
+                    # a real mismatch — replacing the old blanket partitionChange flag
+                    # (which is left in config.json purely as a web-flasher first-flash
+                    # hint and is no longer used to gate OTA).
+                    if partsig_dir:
+                        pf = partsig_dir / f"{env}.partsig"
+                        if pf.is_file():
+                            slim["partSig"] = pf.read_text().strip()
+                        else:
+                            print(f"WARNING: no partsig for {env}", file=sys.stderr)
                     (out_dir / f"{env}.json").write_text(json.dumps(slim, indent=2) + "\n")
                     written += 1
 
