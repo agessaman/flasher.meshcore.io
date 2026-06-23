@@ -9,6 +9,12 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### June 2026
 
+- **New** · `ota` — Implement deferred OTA update scheduling and handling  <sub>2026-06-22 · `c1885fcc`</sub>
+- **Fix** · `ota` — Improve OTA update handling for connected WiFi networks  <sub>2026-06-22 · `dec66838`</sub>
+- **Fix** · `ota` — Improve streaming JSON parsing in otaFromManifest  <sub>2026-06-22 · `3719ebb9`</sub>
+- **New** · `ota` — Add ota check and ota update commands for pull-based updates  <sub>2026-06-22 · `e84c2665`</sub>
+- **Fix** · `ota` — Handle HTTP response and empty manifest in otaFromManifest  <sub>2026-06-22 · `b679c0d7`</sub>
+- **New** · `ota` — Implement pull-based OTA from manifest for observer builds  <sub>2026-06-21 · `004d308e`</sub>
 - **New** · `mqtt` — Add flmesh.us preset to MQTT implementation  <sub>2026-06-22 · `454afec9`</sub>
 - **Change** · `github-actions` — Enhance asset pruning logic in release workflow  <sub>2026-06-18 · `8b084d5a`</sub>
 - **New** · `mqtt` — Enhance timestamp formatting with microsecond precision  <sub>2026-06-18 · `618c849d`</sub>
@@ -262,3 +268,4 @@ fef9225b b89ceeea 1ed18f9e e5dbd56b e4ff06cb 7df28557 e77beff0 eee02025
 618c849d
 8b084d5a
 454afec9
+004d308e b679c0d7 e84c2665 3719ebb9 dec66838 c1885fcc
