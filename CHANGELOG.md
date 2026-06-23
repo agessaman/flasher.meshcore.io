@@ -9,6 +9,7 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### June 2026
 
+- **New** · `mqtt` — Add meshcore-fi preset to MQTT presets  <sub>2026-06-23 · `addb637b`</sub>
 - **New** · `ota` — Implement deferred OTA update scheduling and handling  <sub>2026-06-22 · `c1885fcc`</sub>
 - **Fix** · `ota` — Improve OTA update handling for connected WiFi networks  <sub>2026-06-22 · `dec66838`</sub>
 - **Fix** · `ota` — Improve streaming JSON parsing in otaFromManifest  <sub>2026-06-22 · `3719ebb9`</sub>
@@ -269,3 +270,4 @@ fef9225b b89ceeea 1ed18f9e e5dbd56b e4ff06cb 7df28557 e77beff0 eee02025
 8b084d5a
 454afec9
 004d308e b679c0d7 e84c2665 3719ebb9 dec66838 c1885fcc
+addb637b
