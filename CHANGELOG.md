@@ -9,6 +9,7 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### June 2026
 
+- **Fix** · `mqtt` — Enhance error handling for connection refusals  <sub>2026-06-25 · `706d1c7e`</sub>
 - **New** · `mqtt` — Add ipnt.uk preset to MQTT presets  <sub>2026-06-24 · `c39ab639`</sub>
 - **Performance** · `mqtt` — Remove dead code and optimize hex conversion  <sub>2026-06-24 · `b458ac42`</sub>
 - **New** · `mqtt` — Add NTP server configuration and diagnostics commands  <sub>2026-06-24 · `7416d632`</sub>
@@ -286,3 +287,4 @@ a6851813
 7416d632
 b458ac42
 c39ab639
+706d1c7e
