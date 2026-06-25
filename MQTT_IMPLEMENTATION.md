@@ -378,6 +378,8 @@ These settings apply across all MQTT slots:
 - `get mqtt.rx` - Get RX packet uplinking setting (on/off)
 - `get mqtt.tx` - Get TX packet uplinking setting (on/off/advert)
 - `get mqtt.interval` - Get status publish interval
+- `get mqtt.ntp` - Get effective NTP server hostname
+- `get mqtt.ntp.diag` - Probe every configured NTP server for connectivity (does not change the clock; serial console shows each server's reported time, LoRa shows a compact `<server> ok|fail` list)
 - `get mqtt.owner` - Get owner public key (serial console only)
 - `get mqtt.email` - Get owner email address (serial console only)
 
@@ -393,6 +395,7 @@ These settings apply across all MQTT slots:
   - `advert` - Uplink only this node's own advert packets (self-originated)
   - `off` - Disable TX packet uplinking
 - `set mqtt.interval <minutes>` - Set status publish interval (1-60 minutes)
+- `set mqtt.ntp <hostname>` - Set custom NTP server (validated with immediate sync); `none` reverts to default
 - `set mqtt.owner <64-hex-char-public-key>` - Set owner public key
 - `set mqtt.email <email>` - Set owner email address
 
@@ -607,8 +610,13 @@ Minimal raw packet data for map integration.
 - Automatic reconnection with exponential backoff
 
 ### NTP Time Synchronization
-- Automatic time synchronization with NTP servers
-- Periodic time updates (every hour)
+- Automatic time synchronization with NTP servers (required for JWT authentication)
+- Default primary: `pool.ntp.org`; built-in fallbacks (tried sequentially on failure): `time.google.com`, `time.cloudflare.com`, `time.aws.com`, `time.nist.gov`
+- Custom primary via `set mqtt.ntp <hostname>`; `set mqtt.ntp none` reverts to default
+- `set mqtt.ntp` runs an immediate sync (primary only, so a typo fails fast) when WiFi is connected and the bridge is running
+- `get mqtt.ntp` returns the effective primary hostname
+- `get mqtt.ntp.diag` probes every configured server (primary + fallbacks) for connectivity and reports each server's time without changing the system clock — a pure diagnostic
+- Periodic time updates (every hour) on the effective primary only
 - Proper UTC system time handling
 
 ### Authentication

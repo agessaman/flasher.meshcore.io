@@ -9,6 +9,7 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### June 2026
 
+- **New** · `mqtt` — Add NTP server configuration and diagnostics commands  <sub>2026-06-24 · `7416d632`</sub>
 - **Fix** · `github-actions` — Exclude .partsig files from release asset uploads  <sub>2026-06-23 · `b5797da4`</sub>
 - **New** · `ota` — Add partition-table signature handling for OTA updates  <sub>2026-06-23 · `125ddac1`</sub>
 - **Fix** · `ota` — Improve display of version and hash in OTA status messages  <sub>2026-06-23 · `a6851813`</sub>
@@ -280,3 +281,4 @@ addb637b
 5acfdd73
 a6851813
 125ddac1 b5797da4
+7416d632
