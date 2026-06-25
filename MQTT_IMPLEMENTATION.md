@@ -119,6 +119,7 @@ The MQTT bridge uses a slot-based architecture with up to 6 concurrent connectio
 | `ipnt.uk` | mqtt.ipnt.uk:443 | JWT (Ed25519) | WSS |
 | `flmesh` | mcmqtt.jntconnections.com:443 | JWT (Ed25519) | WSS |
 | `inwmesh` | scope.inwmesh.org:8883 | Username/password (per slot via `mqttN.username` / `mqttN.password`) | MQTT over TLS |
+| `rflab` | mqtt.rflab.io:443 | JWT (Ed25519) | WSS |
 | `custom` | User-configured | Username/Password | MQTT or WSS |
 | `none` | (disabled) | — | — |
 
