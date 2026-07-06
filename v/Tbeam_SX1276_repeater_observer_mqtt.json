@@ -1,8 +1,8 @@
 {
   "baseVersion": "v1.16.0",
-  "build": 9,
-  "version": "v1.16.0.9",
-  "hash": "706d1c7",
-  "file": "https://observer-fw.gessaman.com/Tbeam_SX1276_repeater_observer_mqtt-v1.16.0-706d1c7.bin",
+  "build": 10,
+  "version": "v1.16.0.10",
+  "hash": "7e0ffdb",
+  "file": "https://observer-fw.gessaman.com/Tbeam_SX1276_repeater_observer_mqtt-v1.16.0-7e0ffdb.bin",
   "partSig": "1:2:9000:5000,1:0:e000:2000,0:10:10000:1e0000,0:11:1f0000:1e0000,1:82:3d0000:20000,1:3:3f0000:10000"
 }

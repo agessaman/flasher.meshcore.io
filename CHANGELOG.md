@@ -7,6 +7,10 @@ existing behavior · **Internal** = refactor / under-the-hood · **Docs** = docu
 **Build** / **CI** = build system & automation. **⬆ Upstream sync** marks a merge of the
 upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software version.
 
+### July 2026
+
+- **New** · `mqtt` — Clarify custom endpoint requirements in code and documentation  <sub>2026-07-06 · `7e0ffdbe`</sub>
+
 ### June 2026
 
 - **Fix** · `mqtt` — Enhance error handling for connection refusals  <sub>2026-06-25 · `706d1c7e`</sub>
@@ -288,3 +292,4 @@ a6851813
 b458ac42
 c39ab639
 706d1c7e
+7e0ffdbe

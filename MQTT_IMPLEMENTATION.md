@@ -328,9 +328,10 @@ For community brokers that support the MeshCore JWT auth protocol (same as the b
 ```bash
 set mqtt3.preset custom
 set mqtt3.server wss://my-broker.example.com:443/mqtt
-set mqtt3.port 443
 set mqtt3.audience my-broker.example.com
 ```
+
+When the server is given as a full URL with a scheme (`mqtt://`, `mqtts://`, `ws://`, `wss://`), `set mqttN.port` is optional — an explicit port in the URL is used as-is, and without one the scheme's default port applies.
 
 When `audience` is set, the device will:
 - Connect with username `v1_{PUBLIC_KEY}` and an Ed25519-signed JWT as the password
@@ -341,6 +342,17 @@ To revert a slot back to username/password auth, clear the audience:
 ```bash
 set mqtt3.audience
 ```
+
+#### Example: Local Development Broker (plain WebSocket, no TLS)
+
+For local development (e.g. a LAN broker without SSL termination), use a full `ws://` URL. Non-TLS transports (`ws://`, `mqtt://`) skip certificate verification entirely:
+```bash
+set mqtt3.preset custom
+set mqtt3.server ws://192.168.1.50:9001/mqtt
+set mqtt3.audience my-local-broker
+```
+
+The `audience` line is optional — set it if your local broker uses the same JWT auth as the production presets, or use `set mqtt3.username` / `set mqtt3.password` instead.
 
 #### Example: Custom Broker with Custom Topic Template
 ```bash
