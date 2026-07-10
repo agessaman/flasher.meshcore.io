@@ -134,22 +134,6 @@ The MQTT bridge uses a slot-based architecture with up to 6 concurrent connectio
 - If more slots are configured than the device supports, excess slots show as `(inactive)` in `get mqtt.status`
 - Slot configurations are preserved in preferences — moving firmware to a PSRAM device activates all slots
 
-### Files
-
-#### Core Implementation
-- `src/helpers/bridges/MQTTBridge.h` - MQTT bridge class definition
-- `src/helpers/bridges/MQTTBridge.cpp` - MQTT bridge implementation
-- `src/helpers/MQTTPresets.h` - Preset definitions, CA certificates, and lookup functions
-- `src/helpers/MQTTMessageBuilder.h` - JSON message formatting utilities
-- `src/helpers/MQTTMessageBuilder.cpp` - JSON message formatting implementation
-- `src/helpers/JWTHelper.h` - JWT token generation for Ed25519-based authentication
-
-#### Integration
-- Updated `examples/simple_repeater/MyMesh.h` - Added MQTT bridge support
-- Updated `examples/simple_repeater/MyMesh.cpp` - Added MQTT bridge integration and raw radio data capture
-- Updated `src/helpers/CommonCLI.h` - MQTT slot preferences, WiFi, and timezone fields
-- Updated `src/helpers/CommonCLI.cpp` - MQTT slot CLI commands, migration logic
-
 ## Build Configuration
 
 To build the MQTT bridge firmware:
@@ -790,3 +774,7 @@ set radio.watchdog 0     # disable watchdog
 ```
 
 On very quiet meshes where no traffic is expected for long periods, increase the interval or set `0` to disable the watchdog and avoid unnecessary radio recoveries.
+
+## Developer Documentation
+
+For source layout, the seams that isolate the observer feature from upstream MeshCore code, and on-device settings migration across firmware versions, see [MQTT_INTERNALS.md](MQTT_INTERNALS.md).

@@ -9,10 +9,24 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### July 2026
 
+- **Docs** · `radio` — Record on-device validation results for duty-cycle restore  <sub>2026-07-09 · `258ca46c`</sub>
+- **Fix** · `mqtt` — Keep throttled nodes administrable — priority-aware shed + stale expiry  <sub>2026-07-09 · `847be34e`</sub>
+- **Fix** · `mqtt` — Shed retransmissions, not capture, when duty cycle starves the pool  <sub>2026-07-09 · `1c9c6292`</sub>
+- **Fix** · `radio` — Drop companion FEM wiring; wire t096 + tracker_v2 FEM overrides  <sub>2026-07-09 · `b2e79d47`</sub>
+- **Fix** · `radio` — Match upstream performChannelScan signature; name /com_prefs tail size  <sub>2026-07-09 · `4b7a3122`</sub>
+- **Fix** · `mqtt` — Hold newer-version /mqtt_prefs across saves + pin frozen layouts  <sub>2026-07-09 · `c3b8633a`</sub>
+- **New** · `radio` — Drive LoRa FEM RX gain from radio_fem_rxgain (heltec_v4)  <sub>2026-07-09 · `e905451d`</sub>
+- **New** · `radio` — Restore CAD support + radio_fem_rxgain persistence (upstream parity)  <sub>2026-07-09 · `df90673d`</sub>
+- **Fix** · `radio` — Restore upstream token-bucket duty-cycle enforcement  <sub>2026-07-09 · `7076ff5b`</sub>
+- **Internal** · `mqtt` — Version the /mqtt_prefs file format and drop vestigial fields  <sub>2026-07-09 · `58b9cb66`</sub>
+- **Docs** · `mqtt` — Split code-internal notes into MQTT_INTERNALS.md  <sub>2026-07-08 · `3d80c092`</sub>
+- **Fix** · `mqtt` — Migrate observer settings from legacy /com_prefs on upgrade  <sub>2026-07-08 · `55110ffa`</sub>
 - **New** · `mqtt` — Clarify custom endpoint requirements in code and documentation  <sub>2026-07-06 · `7e0ffdbe`</sub>
 
 ### June 2026
 
+- **Internal** · `mqtt` — Migrate observer settings to MQTTPrefs structure  <sub>2026-06-26 · `2eb41bae`</sub>
+- **Internal** · `cli` — Move observer command handling to CommonCLI_Observer.cpp  <sub>2026-06-25 · `9535f243`</sub>
 - **Fix** · `mqtt` — Enhance error handling for connection refusals  <sub>2026-06-25 · `706d1c7e`</sub>
 - **New** · `mqtt` — Add ipnt.uk preset to MQTT presets  <sub>2026-06-24 · `c39ab639`</sub>
 - **Performance** · `mqtt` — Remove dead code and optimize hex conversion  <sub>2026-06-24 · `b458ac42`</sub>
@@ -293,3 +307,4 @@ b458ac42
 c39ab639
 706d1c7e
 7e0ffdbe
+9535f243 2eb41bae 55110ffa 5a1a0cd5 3d80c092 58b9cb66 7076ff5b df90673d e905451d c3b8633a 3e1b8638 4b7a3122 ae9c01f0 b2e79d47 1c9c6292 1d521613 847be34e 9bbc4382 258ca46c 0c41f683
