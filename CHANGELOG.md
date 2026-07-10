@@ -9,6 +9,7 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### July 2026
 
+- **Fix** · `mqtt` — Raise QoS1 retransmit timeout to stop duplicate /status storms  <sub>2026-07-10 · `4cff7969`</sub>
 - **Docs** · `radio` — Record on-device validation results for duty-cycle restore  <sub>2026-07-09 · `258ca46c`</sub>
 - **Fix** · `mqtt` — Keep throttled nodes administrable — priority-aware shed + stale expiry  <sub>2026-07-09 · `847be34e`</sub>
 - **Fix** · `mqtt` — Shed retransmissions, not capture, when duty cycle starves the pool  <sub>2026-07-09 · `1c9c6292`</sub>
@@ -309,3 +310,4 @@ c39ab639
 7e0ffdbe
 9535f243 2eb41bae 55110ffa 5a1a0cd5 3d80c092 58b9cb66 7076ff5b df90673d e905451d c3b8633a 3e1b8638 4b7a3122 ae9c01f0 b2e79d47 1c9c6292 1d521613 847be34e 9bbc4382 258ca46c 0c41f683
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683
+5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 4cff7969
