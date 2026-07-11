@@ -9,6 +9,9 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### July 2026
 
+- **Change** · `mqtt` — Silence periodic stats log for production; add get mqtt.stats CLI  <sub>2026-07-11 · `1eaa680e`</sub>
+- **Fix** · `mqtt` — Publish QoS0 synchronously to bypass ~1 msg/s outbox drain  <sub>2026-07-11 · `53c39dc2`</sub>
+- **Fix** · `mqtt` — Bound esp-mqtt outbox for QoS0 publishes  <sub>2026-07-11 · `b7c14592`</sub>
 - **Change** · `mqtt` — Remove IPv6 dual-stack support — measured heap exhaustion  <sub>2026-07-10 · `ba1dbefb`</sub>
 - **Fix** · `mqtt` — Scale JWT renewal buffer with token lifetime  <sub>2026-07-10 · `eca1f2c0`</sub>
 - **Fix** · `mqtt` — Gate reconnect-backoff reset on 2 min of connection stability A CONNACK alone reset the backoff ladder, so a flapping broker (accepts the…  <sub>2026-07-10 · `c119ad2a`</sub>
@@ -324,3 +327,4 @@ c39ab639
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 ba1dbefb
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683
+5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 b7c14592 53c39dc2 1eaa680e
