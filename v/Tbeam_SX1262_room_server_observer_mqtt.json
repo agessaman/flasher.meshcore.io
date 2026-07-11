@@ -1,8 +1,8 @@
 {
   "baseVersion": "v1.16.0",
-  "build": 14,
-  "version": "v1.16.0.14",
-  "hash": "cd6ad23",
-  "file": "https://observer-fw.gessaman.com/Tbeam_SX1262_room_server_observer_mqtt-v1.16.0-cd6ad23.bin",
+  "build": 15,
+  "version": "v1.16.0.15",
+  "hash": "c119ad2",
+  "file": "https://observer-fw.gessaman.com/Tbeam_SX1262_room_server_observer_mqtt-v1.16.0-c119ad2.bin",
   "partSig": "1:2:9000:5000,1:0:e000:2000,0:10:10000:1e0000,0:11:1f0000:1e0000,1:82:3d0000:20000,1:3:3f0000:10000"
 }
