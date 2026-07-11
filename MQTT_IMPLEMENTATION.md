@@ -249,26 +249,6 @@ The MQTT bridge comes with the following defaults for fresh installs (unless ove
 - **Timezone Offset**: 0 (fallback, no offset, unless `MQTT_DEFAULT_TIMEZONE_OFFSET` is set)
 - **Repeat (forwarding)**: On (set `repeat off` for receive-only observers)
 
-## IPv6 Support
-
-Observer builds run **dual-stack**: IPv4 continues to work exactly as before, and the node
-*additionally* acquires an IPv6 address when the network supports it. This is fully automatic
-and requires no configuration.
-
-- **How it works**: once WiFi has an IPv4 address, the node enables IPv6 and obtains a global
-  address via Router Advertisement / SLAAC. A dual-stack router with RA/SLAAC is required;
-  on IPv4-only networks the node simply stays IPv4-only (graceful degradation).
-- **Visibility**: the global IPv6 address appears in `get wifi.status` once assigned, e.g.
-  `> connected, IP: 192.168.1.42, IPv6: 2001:db8::abcd, RSSI: -62 dBm, uptime: ...`.
-  The field is omitted when no global address is present (link-local is not reported). IPv6 is
-  CLI/serial-visible only — it is not shown on the OLED.
-- **Custom broker over IPv6**: use a bracketed literal in a full URI
-  (`set mqttN.server mqtts://[2001:db8::1]:8883`), or a bare literal
-  (`set mqttN.server 2001:db8::1`) which is bracketed automatically. Hostname presets need no
-  changes — DNS resolves AAAA records automatically once the stack is dual-stack.
-- **Cost**: none to budget. IPv6 is already compiled into the ESP32 Arduino lwIP that every
-  build links; enabling it at runtime only adds a couple of address slots.
-
 ## CLI Commands
 
 ### MQTT Slot Commands
