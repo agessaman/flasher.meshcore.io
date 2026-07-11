@@ -9,6 +9,7 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### July 2026
 
+- **Fix** · `esp32` — Stop IDF 4.4 ws-transport heap overflow crashing bridge teardown  <sub>2026-07-10 · `cd6ad233`</sub>
 - **Fix** · `mqtt` — Raise QoS1 retransmit timeout to stop duplicate /status storms  <sub>2026-07-10 · `4cff7969`</sub>
 - **Docs** · `radio` — Record on-device validation results for duty-cycle restore  <sub>2026-07-09 · `258ca46c`</sub>
 - **Fix** · `mqtt` — Keep throttled nodes administrable — priority-aware shed + stale expiry  <sub>2026-07-09 · `847be34e`</sub>
@@ -312,3 +313,4 @@ c39ab639
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 4cff7969
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683
+5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 cd6ad233
