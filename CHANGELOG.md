@@ -9,6 +9,7 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### July 2026
 
+- **Fix** · `mqtt` — Scale JWT renewal buffer with token lifetime  <sub>2026-07-10 · `eca1f2c0`</sub>
 - **Fix** · `mqtt` — Gate reconnect-backoff reset on 2 min of connection stability A CONNACK alone reset the backoff ladder, so a flapping broker (accepts the…  <sub>2026-07-10 · `c119ad2a`</sub>
 - **Fix** · `esp32` — Stop IDF 4.4 ws-transport heap overflow crashing bridge teardown  <sub>2026-07-10 · `cd6ad233`</sub>
 - **Fix** · `mqtt` — Raise QoS1 retransmit timeout to stop duplicate /status storms  <sub>2026-07-10 · `4cff7969`</sub>
@@ -316,3 +317,4 @@ c39ab639
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 cd6ad233
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 c119ad2a
+5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 eca1f2c0
