@@ -29,6 +29,7 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### June 2026
 
+- **New** · `mqtt` — Add dual-stack IPv4/IPv6 support to MQTT bridge  <sub>2026-06-22 · `cdcef6e1`</sub>
 - **Internal** · `mqtt` — Migrate observer settings to MQTTPrefs structure  <sub>2026-06-26 · `2eb41bae`</sub>
 - **Internal** · `cli` — Move observer command handling to CommonCLI_Observer.cpp  <sub>2026-06-25 · `9535f243`</sub>
 - **Fix** · `mqtt` — Enhance error handling for connection refusals  <sub>2026-06-25 · `706d1c7e`</sub>
@@ -318,3 +319,4 @@ c39ab639
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 cd6ad233
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 c119ad2a
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 eca1f2c0
+5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 cdcef6e1
