@@ -163,24 +163,14 @@ body.dark {
   --on-surface-variant: #c2ccca;
 }
 
-/* Mobile header overflow menu */
-.show-mobile {
-  display: none !important;
+/* Mobile header overflow menu (visibility via BeerCSS .s / .m.l) */
+details.header-menu.s {
+  display: none;
 }
 
-@media (max-width: 720px) {
-  .hide-mobile {
-    display: none !important;
-  }
-
-  button.show-mobile,
-  a.show-mobile,
-  .button.show-mobile {
-    display: inline-flex !important;
-  }
-
-  details.show-mobile {
-    display: block !important;
+@media only screen and (max-width: 600px) {
+  details.header-menu.s {
+    display: block;
   }
 }
 
