@@ -9,6 +9,7 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### July 2026
 
+- **New** · `boards` — Add Heltec tracker MQTT observer builds  <sub>2026-07-11 · `d7a7e1b6`</sub>
 - **Change** · `mqtt` — Silence periodic stats log for production; add get mqtt.stats CLI  <sub>2026-07-11 · `1eaa680e`</sub>
 - **Fix** · `mqtt` — Publish QoS0 synchronously to bypass ~1 msg/s outbox drain  <sub>2026-07-11 · `53c39dc2`</sub>
 - **Fix** · `mqtt` — Bound esp-mqtt outbox for QoS0 publishes  <sub>2026-07-11 · `b7c14592`</sub>
@@ -329,3 +330,4 @@ c39ab639
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 b7c14592 53c39dc2 1eaa680e
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683
+5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 d7a7e1b6
