@@ -162,3 +162,90 @@ body.dark {
   --surface-variant: #424c4b;
   --on-surface-variant: #c2ccca;
 }
+
+/* Mobile header overflow menu */
+.show-mobile {
+  display: none !important;
+}
+
+@media (max-width: 720px) {
+  .hide-mobile {
+    display: none !important;
+  }
+
+  button.show-mobile,
+  a.show-mobile,
+  .button.show-mobile {
+    display: inline-flex !important;
+  }
+
+  details.show-mobile {
+    display: block !important;
+  }
+}
+
+details.header-menu {
+  position: relative;
+}
+
+details.header-menu > summary {
+  list-style: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  border-radius: 50%;
+  color: inherit;
+}
+
+details.header-menu > summary::-webkit-details-marker {
+  display: none;
+}
+
+details.header-menu > summary:hover,
+details.header-menu[open] > summary {
+  background: var(--active);
+}
+
+details.header-menu > .header-menu-panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 20;
+  min-width: 12rem;
+  margin-top: 0.25rem;
+  padding: 0.25rem 0;
+  background: var(--surface-container-high);
+  border: 1px solid var(--outline-variant);
+  border-radius: 0.5rem;
+  box-shadow: var(--elevate2);
+  display: flex;
+  flex-direction: column;
+}
+
+details.header-menu > .header-menu-panel a,
+details.header-menu > .header-menu-panel button {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+details.header-menu > .header-menu-panel a:hover,
+details.header-menu > .header-menu-panel button:hover {
+  background: var(--active);
+}
+
+details.header-menu > .header-menu-panel i {
+  font-size: 1.25rem;
+}

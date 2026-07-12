@@ -287,14 +287,27 @@
     <h5 class="small logo-top" style="margin:0;flex:1">
       <img src="/img/meshcore.svg"> <span>observer flasher</span>
     </h5>
-    <a href="/changelog.html" class="button transparent small">
+    <a href="/changelog.html" class="button transparent small hide-mobile">
       <i>history</i>
       <span>Changelog</span>
     </a>
-    <a href="/?config=mqtt-observer" class="button transparent small">
+    <a href="/?config=mqtt-observer" class="button transparent small hide-mobile">
       <i>flash_on</i>
       <span>Back to Flasher</span>
     </a>
+    <details class="header-menu show-mobile">
+      <summary aria-label="Menu"><i>menu</i></summary>
+      <div class="header-menu-panel">
+        <a href="/changelog.html">
+          <i>history</i>
+          <span>Changelog</span>
+        </a>
+        <a href="/?config=mqtt-observer">
+          <i>flash_on</i>
+          <span>Back to Flasher</span>
+        </a>
+      </div>
+    </details>
   </div>
 
   <div class="docs-layout">

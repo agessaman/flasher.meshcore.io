@@ -229,7 +229,7 @@
               <span>Repeater Setup</span>
               <div class="tooltip left max">Open GUI to configure Repeaters and Room servers via USB serial</div>
             </button>
-            <button class="transparent" @click="openSerialCon()">
+            <button class="transparent hide-mobile" @click="openSerialCon()">
               <i>terminal</i>
               <span>Console</span>
               <div class="tooltip left max">Open serial console to manage Routers and Room servers</div>
@@ -242,6 +242,35 @@
               <i>history</i>
               <span>Changelog</span>
             </a>
+            <button class="transparent circle show-mobile" data-ui="#header-nav">
+              <i>menu</i>
+              <menu class="left no-wrap" id="header-nav" data-ui="#header-nav">
+                <li>
+                  <a data-ui="menu-selector" @click.prevent="openSerialGUI()">
+                    <i>manufacturing</i>
+                    <span>Repeater Setup</span>
+                  </a>
+                </li>
+                <li>
+                  <a data-ui="menu-selector" @click.prevent="openSerialCon()">
+                    <i>terminal</i>
+                    <span>Console</span>
+                  </a>
+                </li>
+                <li>
+                  <a data-ui="menu-selector" href="/docs.html" target="_blank">
+                    <i>menu_book</i>
+                    <span>Setup Guide</span>
+                  </a>
+                </li>
+                <li>
+                  <a data-ui="menu-selector" href="/changelog.html" target="_blank">
+                    <i>history</i>
+                    <span>Changelog</span>
+                  </a>
+                </li>
+              </menu>
+            </button>
           </nav>
           <nav class="no-margin">
             <h6 class="small max">Choose device</h6>
