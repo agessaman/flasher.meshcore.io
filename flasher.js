@@ -10,10 +10,18 @@ const configRes = await fetch(`/${configName}.json`);
 const config = await configRes.json();
 
 let github = [];
-try {
-  const githubRes = await fetch('/releases');
-  if (githubRes.ok) github = await githubRes.json();
-} catch (e) {}
+// Only the upstream mainline flasher serves /releases; this Observer fork pulls
+// firmware via config.staticPath and defines no "github" entries, so skip the
+// fetch unless some firmware actually needs GitHub release data.
+const needsGithubReleases = config.device?.some(
+  d => d.firmware?.some(fw => fw.github?.files)
+);
+if (needsGithubReleases) {
+  try {
+    const githubRes = await fetch('/releases');
+    if (githubRes.ok) github = await githubRes.json();
+  } catch (e) {}
+}
 
 const commandReference  = {
   // --- General ---
