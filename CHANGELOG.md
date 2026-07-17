@@ -9,6 +9,8 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### July 2026
 
+- **Fix** · `mqtt` — Honor preset retain policy for status publishes  <sub>2026-07-17 · `028a5dca`</sub>
+- **New** · `mqtt` — Send all message types to MeshRank and harden neighbors flow  <sub>2026-07-17 · `b3bd5ecd`</sub>
 - **New** · `mqtt` — Enhance periodic neighbors publishing with refresh logic  <sub>2026-07-16 · `df13d181`</sub>
 - **Fix** · `mqtt` — Update neighbors interval range in documentation and code  <sub>2026-07-16 · `1454e4ca`</sub>
 - **New** · `boards` — Add Heltec tracker MQTT observer builds  <sub>2026-07-11 · `d7a7e1b6`</sub>
@@ -339,3 +341,4 @@ c39ab639
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 df13d181
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683
+5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 b3bd5ecd 028a5dca

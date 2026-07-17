@@ -296,7 +296,7 @@ set mqtt3.preset meshrank
 set mqtt3.token FE1B34242C5938C39225310081FD6718
 ```
 
-The token is generated on the MeshRank website and is tied to your account. MeshRank only receives packet data (no status or raw messages).
+The token is generated on the MeshRank website and is tied to your account. MeshRank receives the same message types as any other preset (`status`, `packets`, `raw`, `neighbors`), each under `meshrank/uplink/{token}/{device_id}/`, subject to the usual `mqtt.status`/`mqtt.raw`/`mqtt.neighbors` toggles. Its broker does not accept the retain flag, so those publishes go out unretained.
 
 #### Example: Configure MeshMapper on Slot 3
 ```bash
@@ -376,7 +376,7 @@ These settings apply across all MQTT slots:
 - `get mqtt.iata` - Get IATA code
 - `get mqtt.presets` - List available MQTT presets (paginated, comma-separated)
 - `get mqtt.presets <start>` - Continue list from index shown in `... next:<idx>`
-- `get mqtt.status` - Get MQTT status summary (connection info per slot)
+- `get mqtt.status` - Get MQTT status summary (connection info per slot, plus the periodic neighbors schedule when `mqtt.neighbors` is on)
 - `get mqtt.packets` - Get packet message setting (on/off)
 - `get mqtt.raw` - Get raw message setting (on/off)
 - `get mqtt.rx` - Get RX packet uplinking setting (on/off)
@@ -500,7 +500,7 @@ The CLI commands are organized into two levels:
 The bridge publishes to four main topics with the following structure:
 
 ### Status Topic: `meshcore/{IATA}/{DEVICE_PUBLIC_KEY}/status`
-Device connection status and metadata (retained messages).
+Device connection status and metadata, QoS 1. Retained, except on presets whose broker rejects the retain flag (`meshrank`, `waev`).
 
 ### Packets Topic: `meshcore/{IATA}/{DEVICE_PUBLIC_KEY}/packets`
 Full packet data with RF characteristics and metadata.
@@ -509,11 +509,15 @@ Full packet data with RF characteristics and metadata.
 Minimal raw packet data for map integration.
 
 ### Neighbors Topic: `meshcore/{IATA}/{DEVICE_PUBLIC_KEY}/neighbors`
-Cached zero-hop repeater neighbors with SNR, last-heard age, and flood-allowed scopes (retained, QoS 1). Published on `discover.scopes` or periodically when `mqtt.neighbors` is enabled (PSRAM observer builds only).
+Cached zero-hop repeater neighbors with SNR, last-heard age, and flood-allowed scopes. Published on `discover.scopes` or periodically when `mqtt.neighbors` is enabled (PSRAM observer builds only). Goes to every configured slot's `neighbors` topic at QoS 1, retained only where the preset allows it.
 
-Periodic publishing first runs a 60-second zero-hop neighbor refresh equivalent to `discover.neighbors`, then queries the refreshed table for scopes and publishes when the scope-query phase completes. Manual `discover.scopes` remains a one-shot query of the current cache.
+Periodic publishing first runs a 60-second zero-hop neighbor refresh equivalent to `discover.neighbors`, then queries the refreshed table for scopes and publishes when the scope-query phase completes.
 
-**Note**: `{DEVICE_PUBLIC_KEY}` is the device's public key in hexadecimal format (64 characters).
+Manual `discover.scopes` normally queries the current cache in one shot. If a `discover.neighbors` refresh is already collecting responses — whether started from the CLI or by the periodic timer — the scope queries are queued behind its 60-second window instead, so they run against the refreshed table. The reply reports the wait, e.g. `OK - scopes queued (47s discovery remaining)`. A queued one-shot request survives `set mqtt.neighbors off`; only the periodic timer's own refresh is cancelled by it.
+
+While `mqtt.neighbors` is on, `get mqtt.status` appends `nbr: <next>/<last>` — time to the next automatic publish (`3h12m`, `12m`, `45s`, or `active`/`due`) and the last publish result (`ok`, `failed`, or `none`).
+
+**Note**: `{DEVICE_PUBLIC_KEY}` is the device's public key in hexadecimal format (64 characters). MeshRank slots use `meshrank/uplink/{token}/{DEVICE_PUBLIC_KEY}/neighbors` instead.
 
 ## JSON Message Formats
 
