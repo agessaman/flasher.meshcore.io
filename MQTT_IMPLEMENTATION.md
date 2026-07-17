@@ -511,6 +511,8 @@ Minimal raw packet data for map integration.
 ### Neighbors Topic: `meshcore/{IATA}/{DEVICE_PUBLIC_KEY}/neighbors`
 Cached zero-hop repeater neighbors with SNR, last-heard age, and flood-allowed scopes (retained, QoS 1). Published on `discover.scopes` or periodically when `mqtt.neighbors` is enabled (PSRAM observer builds only).
 
+Periodic publishing first runs a 60-second zero-hop neighbor refresh equivalent to `discover.neighbors`, then queries the refreshed table for scopes and publishes when the scope-query phase completes. Manual `discover.scopes` remains a one-shot query of the current cache.
+
 **Note**: `{DEVICE_PUBLIC_KEY}` is the device's public key in hexadecimal format (64 characters).
 
 ## JSON Message Formats
