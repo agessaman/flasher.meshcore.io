@@ -1,8 +1,8 @@
 {
   "baseVersion": "v1.16.0",
-  "build": 23,
-  "version": "v1.16.0.23",
-  "hash": "df13d18",
-  "file": "https://observer-fw.gessaman.com/heltec_v4_repeater_observer_mqtt-v1.16.0-df13d18.bin",
+  "build": 24,
+  "version": "v1.16.0.24",
+  "hash": "028a5dc",
+  "file": "https://observer-fw.gessaman.com/heltec_v4_repeater_observer_mqtt-v1.16.0-028a5dc.bin",
   "partSig": "1:2:9000:5000,1:0:e000:2000,0:10:10000:640000,0:11:650000:640000,1:82:c90000:360000,1:3:ff0000:10000"
 }
