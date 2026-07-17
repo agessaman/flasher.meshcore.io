@@ -9,6 +9,7 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### July 2026
 
+- **Fix** · `mqtt` — Update neighbors interval range in documentation and code  <sub>2026-07-16 · `1454e4ca`</sub>
 - **New** · `boards` — Add Heltec tracker MQTT observer builds  <sub>2026-07-11 · `d7a7e1b6`</sub>
 - **Change** · `mqtt` — Silence periodic stats log for production; add get mqtt.stats CLI  <sub>2026-07-11 · `1eaa680e`</sub>
 - **Fix** · `mqtt` — Publish QoS0 synchronously to bypass ~1 msg/s outbox drain  <sub>2026-07-11 · `53c39dc2`</sub>
@@ -34,6 +35,7 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### June 2026
 
+- **New** — Add MQTT neighbors functionality for PSRAM builds  <sub>2026-06-07 · `6b3c543c`</sub>
 - **New** · `mqtt` — Add dual-stack IPv4/IPv6 support to MQTT bridge  <sub>2026-06-22 · `cdcef6e1`</sub>
 - **Internal** · `mqtt` — Migrate observer settings to MQTTPrefs structure  <sub>2026-06-26 · `2eb41bae`</sub>
 - **Internal** · `cli` — Move observer command handling to CommonCLI_Observer.cpp  <sub>2026-06-25 · `9535f243`</sub>
@@ -332,3 +334,4 @@ c39ab639
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 d7a7e1b6
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683
+5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 6b3c543c 1454e4ca

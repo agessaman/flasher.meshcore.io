@@ -382,6 +382,8 @@ These settings apply across all MQTT slots:
 - `get mqtt.rx` - Get RX packet uplinking setting (on/off)
 - `get mqtt.tx` - Get TX packet uplinking setting (on/off/advert)
 - `get mqtt.interval` - Get status publish interval
+- `get mqtt.neighbors` - Get periodic neighbors publish (PSRAM builds: on/off)
+- `get mqtt.neighbors.interval` - Get neighbors publish interval in hours
 - `get mqtt.ntp` - Get effective NTP server hostname
 - `get mqtt.ntp.diag` - Probe every configured NTP server for connectivity (does not change the clock; serial console shows each server's reported time, LoRa shows a compact `<server> ok|fail` list)
 - `get mqtt.owner` - Get owner public key (serial console only)
@@ -399,6 +401,8 @@ These settings apply across all MQTT slots:
   - `advert` - Uplink only this node's own advert packets (self-originated)
   - `off` - Disable TX packet uplinking
 - `set mqtt.interval <minutes>` - Set status publish interval (1-60 minutes)
+- `set mqtt.neighbors on|off` - Enable/disable periodic neighbors/scopes publish (PSRAM builds only)
+- `set mqtt.neighbors.interval <hours>` - Set neighbors publish interval (12-336 hours, default 24)
 - `set mqtt.ntp <hostname>` - Set custom NTP server (validated with immediate sync); `none` reverts to default
 - `set mqtt.owner <64-hex-char-public-key>` - Set owner public key
 - `set mqtt.email <email>` - Set owner email address
@@ -493,7 +497,7 @@ The CLI commands are organized into two levels:
 
 ## MQTT Topics
 
-The bridge publishes to three main topics with the following structure:
+The bridge publishes to four main topics with the following structure:
 
 ### Status Topic: `meshcore/{IATA}/{DEVICE_PUBLIC_KEY}/status`
 Device connection status and metadata (retained messages).
@@ -503,6 +507,9 @@ Full packet data with RF characteristics and metadata.
 
 ### Raw Topic: `meshcore/{IATA}/{DEVICE_PUBLIC_KEY}/raw`
 Minimal raw packet data for map integration.
+
+### Neighbors Topic: `meshcore/{IATA}/{DEVICE_PUBLIC_KEY}/neighbors`
+Cached zero-hop repeater neighbors with SNR, last-heard age, and flood-allowed scopes (retained, QoS 1). Published on `discover.scopes` or periodically when `mqtt.neighbors` is enabled (PSRAM observer builds only).
 
 **Note**: `{DEVICE_PUBLIC_KEY}` is the device's public key in hexadecimal format (64 characters).
 
@@ -581,6 +588,31 @@ Minimal raw packet data for map integration.
   "data": "F5930103807E5F1E..."
 }
 ```
+
+### Neighbors Message (PSRAM observer builds)
+```json
+{
+  "timestamp": "2026-06-07T12:00:00.000000+00:00",
+  "origin": "MQTT Observer",
+  "origin_id": "DEVICE_PUBLIC_KEY",
+  "self": {
+    "scopes": "Europe,UK,France"
+  },
+  "neighbors": [
+    {
+      "pubkey": "NEIGHBOR_PUBLIC_KEY",
+      "snr": 8.5,
+      "heard_secs_ago": 120,
+      "scopes": "*,Europe",
+      "status": "responded"
+    }
+  ]
+}
+```
+
+**Notes:**
+- `status` per neighbor: `responded`, `timeout`, or `send_failed` (scope query only; `self` has no status field).
+- Trigger with `discover.scopes` or enable periodic publish via `set mqtt.neighbors on`.
 
 ## Key Features
 
