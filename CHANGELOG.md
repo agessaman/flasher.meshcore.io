@@ -9,6 +9,7 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### July 2026
 
+- **New** · `boards` — Update RAK3112 platformio.ini for PSRAM support  <sub>2026-07-18 · `cf1a8107`</sub>
 - **Fix** · `mqtt` — Honor preset retain policy for status publishes  <sub>2026-07-17 · `028a5dca`</sub>
 - **New** · `mqtt` — Send all message types to MeshRank and harden neighbors flow  <sub>2026-07-17 · `b3bd5ecd`</sub>
 - **New** · `mqtt` — Enhance periodic neighbors publishing with refresh logic  <sub>2026-07-16 · `df13d181`</sub>
@@ -343,3 +344,4 @@ c39ab639
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 b3bd5ecd 028a5dca
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683
+5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 cf1a8107
