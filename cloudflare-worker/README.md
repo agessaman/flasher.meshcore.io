@@ -47,6 +47,20 @@ and `RELEASE_BASE` differ.
 npx wrangler deploy -c wrangler.beta.toml
 ```
 
+No DNS record to create by hand: `custom_domain = true` has Cloudflare create and
+manage the `observer-fw-beta` hostname on deploy (a proxied CNAME owned by
+Workers), the same way `observer-fw` was set up. Pre-creating an A/AAAA/CNAME for
+that name conflicts with the managed record and can fail the deploy. The only
+requirement is that `gessaman.com` is in the same Cloudflare account as the
+Worker.
+
+Confirm after deploying (once the beta channel has published a build):
+
+```bash
+curl -I https://observer-fw-beta.gessaman.com/<a-beta-firmware>.bin
+# expect 200 + access-control-allow-origin: *
+```
+
 It is a separate Worker rather than an extra route on the production one so the
 two deployments share nothing — a bad beta deploy cannot break firmware
 downloads for the production fleet.
