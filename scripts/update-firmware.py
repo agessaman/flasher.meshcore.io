@@ -2,7 +2,11 @@
 """Update config.json firmware filenames and changelog notes in place.
 
 Usage:
-    update-firmware.py <new-short-hash> [notes-file]
+    update-firmware.py <new-short-hash> [notes-file] [--config PATH]
+
+--config selects which config file to rewrite, so a parallel release channel
+(e.g. config-beta.json) can be published without touching production. Defaults
+to this repo's config.json, so existing callers are unaffected.
 
 This rewrites two things via targeted regex replacement on the raw text
 (not a full JSON reserialize), so the file's hand-formatting is preserved
@@ -22,18 +26,32 @@ import re
 import sys
 from pathlib import Path
 
-CONFIG = Path(__file__).resolve().parent.parent / "config.json"
+DEFAULT_CONFIG = Path(__file__).resolve().parent.parent / "config.json"
 
 
 def main():
-    if len(sys.argv) < 2:
-        sys.exit("usage: update-firmware.py <new-short-hash> [notes-file]")
+    # Pull --config out of argv first so the positional arguments keep their
+    # existing meaning for callers that don't pass it.
+    argv = sys.argv[1:]
+    config = DEFAULT_CONFIG
+    if "--config" in argv:
+        i = argv.index("--config")
+        if i + 1 >= len(argv):
+            sys.exit("--config requires a path")
+        config = Path(argv[i + 1])
+        del argv[i:i + 2]
 
-    new_hash = sys.argv[1]
+    if len(argv) < 1:
+        sys.exit("usage: update-firmware.py <new-short-hash> [notes-file] [--config PATH]")
+
+    new_hash = argv[0]
     if not re.fullmatch(r"[0-9a-f]{7,40}", new_hash):
         sys.exit(f"hash must be 7-40 lowercase hex chars, got: {new_hash!r}")
 
-    text = CONFIG.read_text()
+    if not config.is_file():
+        sys.exit(f"config not found: {config}")
+
+    text = config.read_text()
 
     # 1. Swap the git short hash in every observer firmware filename.
     #    Anchored on _observer_mqtt-<version>-<hash>[.bin | -merged.bin].
@@ -49,8 +67,8 @@ def main():
     print(f"updated {n_files} firmware filename(s) -> hash {new_hash}")
 
     # 2. Optionally refresh the changelog notes from a single source file.
-    if len(sys.argv) >= 3:
-        notes = Path(sys.argv[2]).read_text().strip()
+    if len(argv) >= 2:
+        notes = Path(argv[1]).read_text().strip()
         notes_json = json.dumps(notes)  # adds surrounding quotes + escaping
         text, n_notes = re.subn(
             r'"notes":\s*"(?:[^"\\]|\\.)*"',
@@ -62,8 +80,8 @@ def main():
     # Validate before writing so a bad edit can never land.
     json.loads(text)
 
-    CONFIG.write_text(text)
-    print(f"wrote {CONFIG}")
+    config.write_text(text)
+    print(f"wrote {config}")
 
 
 if __name__ == "__main__":
