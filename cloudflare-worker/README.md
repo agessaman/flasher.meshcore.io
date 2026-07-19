@@ -36,6 +36,32 @@ npm run deploy         # = npx wrangler deploy
 If you prefer a different location, edit `routes` in `wrangler.toml` and set
 `config.json` `staticPath` to match (see the alternatives commented there).
 
+## Beta channel
+
+`wrangler.beta.toml` deploys a second, independent Worker
+(`meshcore-firmware-proxy-beta`) on **`observer-fw-beta.gessaman.com`**, proxying
+the `observer-mqtt-beta-latest` release tag. Same source file; only the hostname
+and `RELEASE_BASE` differ.
+
+```bash
+npx wrangler deploy -c wrangler.beta.toml
+```
+
+It is a separate Worker rather than an extra route on the production one so the
+two deployments share nothing — a bad beta deploy cannot break firmware
+downloads for the production fleet.
+
+These three values must agree, or beta nodes fetch the wrong binaries:
+
+| Value | Set in |
+|---|---|
+| `observer-fw-beta.gessaman.com` | `wrangler.beta.toml` route, and `STATIC_PATH` in the beta workflow |
+| `observer-mqtt-beta-latest` | `RELEASE_BASE` here, and `RELEASE_TAG` in the beta workflow |
+| `https://observer.gessaman.com/beta/v` | `OTA_MANIFEST_BASE_URL` in the beta workflow, and this repo's `beta/v/` directory |
+
+The beta workflow lives in the MeshCore repo at
+`.github/workflows/build-observer-firmwares-beta.yml`.
+
 ## How it stays in sync
 
 Nothing to maintain per release: the Worker forwards whatever filename the

@@ -1,0 +1,28 @@
+# BETA channel firmware proxy.
+#
+# Deploy with:  wrangler deploy -c wrangler.beta.toml
+#
+# This is a SEPARATE Worker (different `name`) rather than a route added to the
+# production one, deliberately: the two channels then share no deployment, so a
+# bad beta deploy cannot take down firmware downloads for the production fleet.
+# The Worker source is identical — only RELEASE_BASE and the hostname differ,
+# and firmware-proxy.js already reads RELEASE_BASE from env.
+#
+# Prerequisite: create the `observer-fw-beta` DNS record in Cloudflare BEFORE
+# deploying, same as the production custom domain.
+#
+# Must stay consistent with .github/workflows/build-observer-firmwares-beta.yml
+# in the MeshCore repo:
+#   STATIC_PATH  = https://observer-fw-beta.gessaman.com   (this hostname)
+#   RELEASE_TAG  = observer-mqtt-beta-latest               (RELEASE_BASE below)
+
+name = "meshcore-firmware-proxy-beta"
+main = "src/firmware-proxy.js"
+compatibility_date = "2025-01-01"
+
+routes = [
+  { pattern = "observer-fw-beta.gessaman.com", custom_domain = true }
+]
+
+[vars]
+RELEASE_BASE = "https://github.com/agessaman/MeshCore/releases/download/observer-mqtt-beta-latest"
