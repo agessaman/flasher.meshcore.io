@@ -9,6 +9,7 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### July 2026
 
+- **New** · `mqtt` — Add meshtexas preset for MQTT connections  <sub>2026-07-18 · `90467ddd`</sub>
 - **Fix** · `rak3112` — Use DIO flash mode with OPI PSRAM to fix boot loop  <sub>2026-07-18 · `43bba0d3`</sub>
 - **New** · `boards` — Update RAK3112 platformio.ini for PSRAM support  <sub>2026-07-18 · `cf1a8107`</sub>
 - **Fix** · `mqtt` — Honor preset retain policy for status publishes  <sub>2026-07-17 · `028a5dca`</sub>
@@ -347,3 +348,4 @@ c39ab639
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 cf1a8107
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 43bba0d3
+5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 90467ddd
