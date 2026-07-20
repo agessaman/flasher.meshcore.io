@@ -310,30 +310,10 @@
                 </div>
               </summary>
 
-              <!-- Observer release channel. Stable is the default; dev/beta is
-                   opt-in. Rendered only for the observer group because no other
-                   firmware type has channels. -->
-              <article v-if="type === 'observer'" class="no-elevate small-padding surface-variant">
-                <div class="row wrap top-align">
-                  <i :class="isBetaChannel ? 'orange-text' : ''">{{ isBetaChannel ? 'science' : 'verified' }}</i>
-                  <div class="max">
-                    <template v-if="isBetaChannel">
-                      <strong class="orange-text">Dev/Beta channel</strong>
-                      <div class="small-text">
-                        Pre-release builds from the development line, for testing. A node flashed
-                        from this channel keeps receiving its over-the-air updates from this
-                        channel, not from stable.
-                      </div>
-                    </template>
-                    <template v-else>
-                      <strong>Stable channel</strong>
-                      <div class="small-text">Recommended. Production observer builds.</div>
-                    </template>
-                  </div>
-                  <a v-if="isBetaChannel" class="button small transparent" :href="stableUrl">Switch to stable</a>
-                  <a v-else class="button small transparent" :href="betaUrl">Try dev/beta</a>
-                </div>
-              </article>
+              <!-- Release channels are entries in each firmware's Version
+                   dropdown (stable preselected, dev opt-in per flash), fed by
+                   the /releases Worker route — the old page-level channel
+                   switcher is retired. -->
 
               <ul class="list border">
                 <li v-for="device in deviceGroup">

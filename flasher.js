@@ -7,33 +7,17 @@ import { SerialConsole } from '/lib/console.js';
 const searchParams = new URLSearchParams(location.search);
 const configName = searchParams.get('config')?.replaceAll(/[^a-z_-]/g, '') ?? 'config';
 
-// Observer release channels. Stable is the default — a bare visit always loads
-// it — and dev/beta is opt-in via ?config=config-beta. These are separate
-// firmware channels, not a display preference: the channel is baked into the
-// firmware as OTA_MANIFEST_BASE, so a node flashed from one only ever receives
-// OTA updates from that same channel.
-const CHANNELS = {
-  'config':      { id: 'stable', label: 'Stable' },
-  'config-beta': { id: 'beta',   label: 'Dev/Beta' },
-};
-const channel = CHANNELS[configName] ?? CHANNELS['config'];
-const isBetaChannel = channel.id === 'beta';
-
-function channelUrl(param) {
-  const u = new URL(location.href);
-  if (param) u.searchParams.set('config', param);
-  else u.searchParams.delete('config');
-  return u.toString();
-}
-const stableUrl = channelUrl(null);
-const betaUrl = channelUrl('config-beta');
-
+// Release channels are entries in each firmware's Version dropdown (fed by
+// config.releasesUrl), so there is no per-channel config any more. ?config= is
+// kept for alternate configs (precedent: old-config.json); a stale or missing
+// name falls back to the default config rather than leaving the page broken —
+// this covers old ?config=config-beta links from the retired channel switcher.
 const configRes = await fetch(`/${configName}.json`);
-// config-beta.json only exists once the dev/beta channel has published a build.
-// Fall back to stable rather than leaving the page broken on a bad/early link.
-if (!configRes.ok && isBetaChannel) {
-  console.warn(`config-beta.json unavailable (${configRes.status}); falling back to stable`);
-  location.replace(stableUrl);
+if (!configRes.ok && configName !== 'config') {
+  console.warn(`${configName}.json unavailable (${configRes.status}); falling back to config.json`);
+  const u = new URL(location.href);
+  u.searchParams.delete('config');
+  location.replace(u.toString());
 }
 const config = await configRes.json();
 
@@ -896,7 +880,6 @@ function setup() {
     snackbar,
     consoleEditBox, consoleWindow, consoleMouseUp,
     config, devices, selected, flashing, deviceFilterText,
-    channel, isBetaChannel, stableUrl, betaUrl,
     flashDevice, flasherCleanup, dfuMode,
     serialCon, closeSerialCon, openSerialCon,
     sendCommand, openSerialGUI,
