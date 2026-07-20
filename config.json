@@ -1,5 +1,6 @@
 {
   "staticPath": "https://observer-fw.gessaman.com",
+  "releasesUrl": "https://observer-fw.gessaman.com/releases",
   "role": {
     "repeater": {
       "icon": "cell_tower",

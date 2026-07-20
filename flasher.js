@@ -38,15 +38,17 @@ if (!configRes.ok && isBetaChannel) {
 const config = await configRes.json();
 
 let github = [];
-// Only the upstream mainline flasher serves /releases; this Observer fork pulls
-// firmware via config.staticPath and defines no "github" entries, so skip the
-// fetch unless some firmware actually needs GitHub release data.
+// Fetch release data only if some firmware needs it (a "github" def in the
+// config). The feed URL comes from config.releasesUrl: this page is served from
+// GitHub Pages, which cannot host a dynamic route, so the Observer feed lives
+// on the firmware-proxy Worker instead. The bare-path fallback preserves the
+// upstream mainline behaviour (old-config.json has no releasesUrl).
 const needsGithubReleases = config.device?.some(
   d => d.firmware?.some(fw => fw.github?.files)
 );
 if (needsGithubReleases) {
   try {
-    const githubRes = await fetch('/releases');
+    const githubRes = await fetch(config.releasesUrl ?? '/releases');
     if (githubRes.ok) github = await githubRes.json();
   } catch (e) {}
 }
@@ -419,7 +421,10 @@ function setup() {
   }
 
   const getFirmwarePath = (file) => {
-    return file.name.startsWith('/') ? file.name : `${config.staticPath}/${file.name}`;
+    // github-release-driven versions carry absolute URLs in file.name
+    // (getGithubReleases sets name = file.url); never prepend staticPath to those.
+    if (/^https?:\/\//i.test(file.name) || file.name.startsWith('/')) return file.name;
+    return `${config.staticPath}/${file.name}`;
   }
 
   // The rolling firmware build embeds the git short-hash in every filename and
