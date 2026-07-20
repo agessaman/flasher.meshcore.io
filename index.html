@@ -10,7 +10,9 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link href="/css/beer.css" rel="stylesheet">
   <link href="/css/flasher.css" rel="stylesheet">
-  <script type="module" src="/flasher.js"></script>
+  <!-- Version query = cache-buster: bump when flasher.js changes, so a cached
+       index.html cannot pair stale JS with a newer config.json. -->
+  <script type="module" src="/flasher.js?v=20260720a"></script>
 </head>
 
 <body class="dark">

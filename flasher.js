@@ -430,17 +430,42 @@ function setup() {
   const withFirmwareHash = (name, hash) =>
     hash ? name.replace(/(-)[0-9a-f]{7,40}(-merged)?(\.bin)$/, `$1${hash}$2$3`) : name;
 
-  // Download a firmware file, refreshing the build hash and retrying once on a
-  // 404 (the stale-tab case above). Absolute paths are custom/local uploads, not
-  // rolling-build assets, so they are fetched as-is.
+  // Stale-tab recovery for feed-driven (absolute-URL) firmware: re-fetch the
+  // /releases feed and find the current asset of the same shape (same env and
+  // wipe/update variant, any version/hash) on the SAME channel host — a feed
+  // URL held by an old tab outlives the release's pruned assets just like a
+  // config.json filename used to.
+  const refetchFeedUrl = async (staleUrl) => {
+    try {
+      if (!config.releasesUrl) return null;
+      const res = await fetch(`${config.releasesUrl}?t=${Date.now()}`, { cache: 'no-store' });
+      if (!res.ok) return null;
+      const shape = (n) => n.replace(/-v[0-9.]+-[0-9a-f]{7,40}((?:-merged)?\.bin)$/, '-*$1');
+      const staleHost = new URL(staleUrl).host;
+      const want = shape(staleUrl.split('/').pop());
+      for (const entry of await res.json()) {
+        for (const f of entry.files || []) {
+          if (new URL(f.url).host === staleHost && shape(f.name) === want) return f.url;
+        }
+      }
+    } catch (e) {}
+    return null;
+  };
+
+  // Download a firmware file, retrying once on a 404 (the stale-tab case
+  // above): absolute http(s) URLs come from the /releases feed and re-resolve
+  // through it; bare filenames re-read config.json's build hash. Absolute
+  // *paths* are custom/local uploads, not rolling-build assets — fetched as-is.
   const fetchFirmwareFile = async (name) => {
-    const toUrl = (n) => n.startsWith('/') ? n : `${config.staticPath}/${n}`;
+    const toUrl = (n) => (/^https?:\/\//i.test(n) || n.startsWith('/')) ? n : `${config.staticPath}/${n}`;
     console.log('downloading: ' + toUrl(name));
     let resp = await fetch(toUrl(name), { cache: 'no-store' });
     if (resp.status === 404 && !name.startsWith('/')) {
-      const fresh = withFirmwareHash(name, await fetchCurrentFirmwareHash());
+      const fresh = /^https?:\/\//i.test(name)
+        ? ((await refetchFeedUrl(name)) ?? name)
+        : withFirmwareHash(name, await fetchCurrentFirmwareHash());
       if (fresh !== name) {
-        console.log('firmware 404; retrying with current build hash: ' + toUrl(fresh));
+        console.log('firmware 404; retrying with current build: ' + toUrl(fresh));
         resp = await fetch(toUrl(fresh), { cache: 'no-store' });
       }
     }
