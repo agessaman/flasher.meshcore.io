@@ -26,10 +26,13 @@
 const DEFAULT_RELEASE_BASE =
   "https://github.com/agessaman/MeshCore/releases/download/observer-mqtt-latest";
 
-// Version label parsed from asset filenames ("<env>-v1.16.0-<hash>[-merged].bin").
-// No label lives in configuration: a hardcoded label goes stale silently at
-// every version bump, and the assets already carry the truth.
-const VERSION_RE = /-(v\d+\.\d+\.\d+(?:\.\d+)?)-[0-9a-f]{7,8}(?:-merged)?\.bin$/;
+// Version label parsed from asset filenames
+// ("<env>-v1.16.0[-<channel-tag>]-<hash>[-merged].bin"). The optional lowercase
+// channel tag ("-dev") is a filename differentiator only — the dropdown label
+// stays capture 1 + the channel's suffix var. No label lives in configuration:
+// a hardcoded label goes stale silently at every version bump, and the assets
+// already carry the truth.
+const VERSION_RE = /-(v\d+\.\d+\.\d+(?:\.\d+)?)(?:-[a-z]+)?-[0-9a-f]{7,8}(?:-merged)?\.bin$/;
 
 // Feed `type` must match the `github.type` values used in the flasher's
 // config.json; the role is derived from the env name embedded in the filename.
@@ -63,10 +66,12 @@ async function buildReleasesFeed(env) {
       // The rolling release retains KEEP_BUILDS=2 hash generations of every
       // asset. The flasher takes matching files in array order, so serving both
       // generations risks flashing the older build. Dedupe to the newest asset
-      // per filename shape (name with the hash stripped), by created_at.
+      // per env + wipe/update variant, by created_at — the key strips version,
+      // channel tag, and hash so that renames across a version bump or a
+      // filename-scheme change still collapse to one (the newest) file.
       const newest = new Map();
       for (const a of rel.assets || []) {
-        const key = a.name.replace(/-[0-9a-f]{7,8}((?:-merged)?\.bin)$/, "-*$1");
+        const key = a.name.replace(/-v[\d.]+(?:-[a-z]+)?-[0-9a-f]{7,8}((?:-merged)?\.bin)$/, "-*$1");
         const prev = newest.get(key);
         if (!prev || new Date(a.created_at) > new Date(prev.created_at)) {
           newest.set(key, a);

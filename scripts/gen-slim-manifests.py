@@ -47,9 +47,12 @@ import re
 import sys
 from pathlib import Path
 
-# "<env>-v<MAJOR.MINOR.PATCH>-<hash>.bin"  (app-only flash-update asset).
-# A "-merged.bin" cannot match: the hash class excludes '-' and non-hex letters.
-ASSET_RE = re.compile(r"^(?P<env>.+)-v\d+\.\d+\.\d+-(?P<hash>[0-9a-f]{7,40})\.bin$")
+# "<env>-v<MAJOR.MINOR.PATCH>[-<channel-tag>]-<hash>.bin"  (app-only
+# flash-update asset). The optional lowercase channel tag ("-dev") is what the
+# dev channel inserts via build.sh's FILENAME_CHANNEL_TAG; production names
+# carry none. A "-merged.bin" cannot match: the hash class excludes '-' and
+# non-hex letters.
+ASSET_RE = re.compile(r"^(?P<env>.+)-v\d+\.\d+\.\d+(?:-[a-z]+)?-(?P<hash>[0-9a-f]{7,40})\.bin$")
 
 
 def assets_from_config(config_path):

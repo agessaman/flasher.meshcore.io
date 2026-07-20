@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
 # Verification gate for gen-slim-manifests.py (see the dual-mode rework).
 #
-# The committed v/*.json ARE the previous script's real production output, so
-# they double as the golden baseline:
+# The committed v/*.json ARE real production output, so they double as the
+# golden baseline:
 #
-#   1. NEW --config          == committed v/   (legacy mode preserved byte-for-byte)
-#   2. NEW --bin-dir         == committed v/   (new mode equivalent on the same asset set)
+#   1. --config  == committed v/   (legacy mode preserved byte-for-byte)
+#   2. --bin-dir == committed v/   (new mode equivalent on the same asset set)
 #
-# For (2) a build-output directory is reconstructed from the committed
-# manifests themselves: one empty <asset>.bin per manifest 'file' basename
-# (the script only reads filenames) plus <env>.partsig from 'partSig'.
+# Both inputs are reconstructed from the committed manifests themselves: a
+# build-output dir with one empty <asset>.bin per manifest 'file' basename (the
+# script only reads filenames) plus <env>.partsig from 'partSig'; and, for the
+# legacy check, a synthetic config.json with static version/files entries —
+# the real config.json switched to github release defs (feed migration), which
+# legacy mode does not read.
 #
 # Run from the repo root:  bash scripts/test-gen-slim-manifests.sh
 set -euo pipefail
@@ -26,7 +29,8 @@ BUILD=$(jq -r '.build' v/*.json | sort -u)
   || { echo "FAIL: committed v/ mixes baseVersion/build values"; exit 1; }
 STATIC=$(jq -r '.staticPath' config.json)
 
-# Reconstruct the build output from the committed manifests.
+# Reconstruct the build output + a synthetic legacy config from the committed
+# manifests.
 mkdir -p "$WORK/bin" "$WORK/partsig"
 for f in v/*.json; do
   env=$(basename "$f" .json)
@@ -34,6 +38,12 @@ for f in v/*.json; do
   sig=$(jq -r '.partSig // empty' "$f")
   [ -n "$sig" ] && printf '%s\n' "$sig" > "$WORK/partsig/$env.partsig"
 done
+jq -s --arg static "$STATIC" '{
+  staticPath: $static,
+  device: [{ firmware: [{ version: { x: { files:
+    [ .[] | { type: "flash-update", name: (.file | sub(".*/"; "")) } ]
+  } } }] }]
+}' v/*.json > "$WORK/legacy-config.json"
 
 fail=0
 check() { # label dir
@@ -46,7 +56,7 @@ check() { # label dir
   fi
 }
 
-python3 scripts/gen-slim-manifests.py --config config.json \
+python3 scripts/gen-slim-manifests.py --config "$WORK/legacy-config.json" \
   --out-dir "$WORK/legacy" --base-version "$BASE" --build "$BUILD" \
   --partsig-dir "$WORK/partsig" >/dev/null
 check "--config (legacy mode)" "$WORK/legacy"
@@ -57,8 +67,23 @@ python3 scripts/gen-slim-manifests.py --bin-dir "$WORK/bin" \
   --partsig-dir "$WORK/partsig" >/dev/null
 check "--bin-dir (new mode)  " "$WORK/bindir"
 
+# Channel-tagged filenames (the dev channel inserts "-dev" between version and
+# hash via build.sh's FILENAME_CHANNEL_TAG): env + hash must parse correctly.
+mkdir -p "$WORK/tagbin"
+touch "$WORK/tagbin/Foo_repeater_observer_mqtt-v1.16.0-dev-abcdef1.bin" \
+      "$WORK/tagbin/Foo_repeater_observer_mqtt-v1.16.0-dev-abcdef1-merged.bin"
+python3 scripts/gen-slim-manifests.py --bin-dir "$WORK/tagbin" \
+  --static-path https://x.example --out-dir "$WORK/tagout" \
+  --base-version v1.16.0 --build 3 >/dev/null
+if jq -e '.hash == "abcdef1"' "$WORK/tagout/Foo_repeater_observer_mqtt.json" >/dev/null 2>&1 \
+   && [ "$(ls "$WORK/tagout" | wc -l | tr -d ' ')" = "1" ]; then
+  echo "PASS: channel-tagged filename (env + hash parsed, merged skipped)"
+else
+  echo "FAIL: channel-tagged filename handling"; fail=1
+fi
+
 # Guard rails: the modes must stay mutually exclusive and correctly gated.
-python3 scripts/gen-slim-manifests.py --config config.json --static-path x \
+python3 scripts/gen-slim-manifests.py --config "$WORK/legacy-config.json" --static-path x \
   --out-dir "$WORK/x" --base-version v0 --build 0 2>/dev/null \
   && { echo "FAIL: --config accepted --static-path"; fail=1; } \
   || echo "PASS: --config rejects --static-path"

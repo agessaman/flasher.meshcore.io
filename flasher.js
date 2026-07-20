@@ -440,7 +440,7 @@ function setup() {
       if (!config.releasesUrl) return null;
       const res = await fetch(`${config.releasesUrl}?t=${Date.now()}`, { cache: 'no-store' });
       if (!res.ok) return null;
-      const shape = (n) => n.replace(/-v[0-9.]+-[0-9a-f]{7,40}((?:-merged)?\.bin)$/, '-*$1');
+      const shape = (n) => n.replace(/-v[0-9.]+(?:-[a-z]+)?-[0-9a-f]{7,40}((?:-merged)?\.bin)$/, '-*$1');
       const staleHost = new URL(staleUrl).host;
       const want = shape(staleUrl.split('/').pop());
       for (const entry of await res.json()) {
