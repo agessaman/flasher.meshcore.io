@@ -59,7 +59,20 @@ async function buildReleasesFeed(env) {
       );
       if (!resp.ok) continue;
       const rel = await resp.json();
-      const assets = rel.assets || [];
+
+      // The rolling release retains KEEP_BUILDS=2 hash generations of every
+      // asset. The flasher takes matching files in array order, so serving both
+      // generations risks flashing the older build. Dedupe to the newest asset
+      // per filename shape (name with the hash stripped), by created_at.
+      const newest = new Map();
+      for (const a of rel.assets || []) {
+        const key = a.name.replace(/-[0-9a-f]{7,8}((?:-merged)?\.bin)$/, "-*$1");
+        const prev = newest.get(key);
+        if (!prev || new Date(a.created_at) > new Date(prev.created_at)) {
+          newest.set(key, a);
+        }
+      }
+      const assets = [...newest.values()];
 
       // Label = version parsed from the first matching asset + channel suffix.
       // No match -> skip the channel entirely; never emit a guessed label.
