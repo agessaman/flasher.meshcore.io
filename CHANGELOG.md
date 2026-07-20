@@ -9,6 +9,7 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### July 2026
 
+- **CI** — Drop retired mqtt-bridge-implementation-flex trigger name  <sub>2026-07-19 · `80b4e405`</sub>
 - **CI** — Source slim manifests from build output; accept observer-firmware branch name  <sub>2026-07-19 · `e06bd756`</sub>
 - **New** · `mqtt` — Add meshtexas preset for MQTT connections  <sub>2026-07-18 · `90467ddd`</sub>
 - **Fix** · `rak3112` — Use DIO flash mode with OPI PSRAM to fix boot loop  <sub>2026-07-18 · `43bba0d3`</sub>
@@ -353,3 +354,4 @@ c39ab639
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 e06bd756
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683
+5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 80b4e405
