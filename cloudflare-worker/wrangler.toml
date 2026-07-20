@@ -20,3 +20,9 @@ routes = [
 # The rolling release the Worker proxies. Change here if the repo/tag changes.
 [vars]
 RELEASE_BASE = "https://github.com/agessaman/MeshCore/releases/download/observer-mqtt-latest"
+# Channels served by GET /releases (the flasher's Version-dropdown feed).
+# ORDER MATTERS: first entry = the flasher's default selection, so stable stays
+# first. No version labels or notes here — the label is parsed from the release
+# assets and notes come from the release body, so nothing goes stale at a
+# version bump. Only tag renames / channel additions touch this.
+RELEASE_FEED = '[{"tag":"observer-mqtt-latest","suffix":"","proxy":"https://observer-fw.gessaman.com"},{"tag":"observer-mqtt-beta-latest","suffix":"-dev","proxy":"https://observer-fw-beta.gessaman.com"}]'
