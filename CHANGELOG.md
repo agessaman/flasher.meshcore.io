@@ -9,6 +9,7 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### July 2026
 
+- **New** · `docs` — Update CLI commands for OTA firmware update options  <sub>2026-07-20 · `ed674fdf`</sub>
 - **New** · `mqtt` — Implement neighbor discovery and management features  <sub>2026-07-20 · `59ca834f`</sub>
 - **New** · `mqtt` — Add mesh-chaun14 and wcmesh presets  <sub>2026-07-19 · `5cb3fc18`</sub>
 - **CI** — Stop rewriting flasher config.json; sync release notes to the release body  <sub>2026-07-19 · `26db31f6`</sub>
@@ -360,3 +361,4 @@ c39ab639
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 80b4e405
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 26db31f6 5cb3fc18
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 59ca834f
+5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 ed674fdf
