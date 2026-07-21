@@ -9,6 +9,7 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### July 2026
 
+- **CI** · `mqtt` — Add preset name-parity check across channels  <sub>2026-07-21 · `333e7869`</sub>
 - **New** · `mqtt` — Add max active slots logic for MQTT connections  <sub>2026-07-20 · `20b5b2e9`</sub>
 - **New** · `docs` — Update CLI commands for OTA firmware update options  <sub>2026-07-20 · `ed674fdf`</sub>
 - **New** · `mqtt` — Implement neighbor discovery and management features  <sub>2026-07-20 · `59ca834f`</sub>
@@ -365,3 +366,4 @@ c39ab639
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 ed674fdf
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 20b5b2e9
+5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 333e7869
