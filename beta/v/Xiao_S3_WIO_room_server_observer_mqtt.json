@@ -1,8 +1,8 @@
 {
   "baseVersion": "v1.16.0",
-  "build": 10,
-  "version": "v1.16.0.10",
-  "hash": "f25492c",
-  "file": "https://observer-fw-beta.gessaman.com/Xiao_S3_WIO_room_server_observer_mqtt-v1.16.0-dev-f25492c.bin",
+  "build": 11,
+  "version": "v1.16.0.11",
+  "hash": "7b68371",
+  "file": "https://observer-fw-beta.gessaman.com/Xiao_S3_WIO_room_server_observer_mqtt-v1.16.0-dev-7b68371.bin",
   "partSig": "1:2:9000:5000,1:0:e000:2000,0:10:10000:330000,0:11:340000:330000,1:82:670000:180000,1:3:7f0000:10000"
 }
