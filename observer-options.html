@@ -244,7 +244,7 @@
       <h1>Other ways to run an observer</h1>
       <p class="lead">
         The <a href="/">flasher on this site</a> is the simplest way to turn a supported board
-        into an MQTT observer over USB — but it isn't the only way. Depending on
+        into an MQTT observer over USB, but it isn't the only way. Depending on
         the hardware you already have and how you want to run it, one of these
         approaches may suit you better. Each is a community project; pick the one
         that matches your situation.
@@ -289,13 +289,13 @@
         </div>
         <p class="option-use">
           <span class="use-label">Use this if</span>
-          you'd rather not change firmware at all — you have a companion radio and
-          want a computer to read it over USB, TCP, or serial.
+          you have a companion radio you'd rather not reflash, and want a computer
+          to read it over USB, TCP, or serial.
         </p>
         <p class="option-desc">
           Point the packet-capture tool at a companion radio from any computer.
-          It reads the mesh traffic the companion hears and uplinks it — no
-          dedicated observer firmware required.
+          It reads the mesh traffic the companion hears and uplinks it. No
+          dedicated observer firmware is required.
         </p>
         <div class="option-links">
           <a class="button option-link" href="https://github.com/agessaman/meshcore-packet-capture" target="_blank" rel="noopener">
@@ -325,6 +325,31 @@
           <a class="button option-link" href="https://github.com/agessaman/meshcore-bot" target="_blank" rel="noopener">
             <i>open_in_new</i>
             <span>agessaman/meshcore-bot</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- OpenHop — Python software repeater/observer -->
+      <article class="option-card">
+        <div class="option-head">
+          <span class="option-icon"><i>dns</i></span>
+          <h2>OpenHop software repeater</h2>
+        </div>
+        <p class="option-use">
+          <span class="use-label">Use this if</span>
+          you're comfortable running Python and want one process to act as
+          repeater and observer while also hosting a room server and virtual
+          companions.
+        </p>
+        <p class="option-desc">
+          OpenHop is a Python implementation of MeshCore. A single instance
+          repeats and observes mesh traffic while also hosting a room server and
+          virtual companions, putting several roles on one always-on machine.
+        </p>
+        <div class="option-links">
+          <a class="button option-link" href="https://github.com/openhop-dev/openhop_repeater" target="_blank" rel="noopener">
+            <i>open_in_new</i>
+            <span>openhop-dev/openhop_repeater</span>
           </a>
         </div>
       </article>
@@ -361,8 +386,8 @@
         </div>
         <p class="option-use">
           <span class="use-label">Use this if</span>
-          you run Home Assistant and want your mesh — nodes, messages, and
-          telemetry — available as entities on your dashboard.
+          you run Home Assistant and want your mesh data (nodes, messages, and
+          telemetry) available as entities on your dashboard.
         </p>
         <p class="option-desc">
           The meshcore-ha integration connects a MeshCore node to Home Assistant,
@@ -383,7 +408,7 @@
       <i>info</i>
       <p>
         These are independent community projects, linked here for convenience.
-        They're maintained outside this site — check each project's own
+        They're maintained outside this site, so check each project's own
         documentation for setup details and support.
       </p>
     </div>
