@@ -1,8 +1,8 @@
 {
   "baseVersion": "v1.16.0",
-  "build": 34,
-  "version": "v1.16.0.34",
-  "hash": "76f44d7",
-  "file": "https://observer-fw.gessaman.com/Heltec_T190_repeater_observer_mqtt-v1.16.0-76f44d7.bin",
+  "build": 35,
+  "version": "v1.16.0.35",
+  "hash": "643a1ba",
+  "file": "https://observer-fw.gessaman.com/Heltec_T190_repeater_observer_mqtt-v1.16.0.35-643a1ba.bin",
   "partSig": "1:2:9000:5000,1:0:e000:2000,0:10:10000:640000,0:11:650000:640000,1:82:c90000:360000,1:3:ff0000:10000"
 }
