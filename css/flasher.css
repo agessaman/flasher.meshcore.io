@@ -552,13 +552,12 @@ details.header-menu > .header-menu-panel i {
   height: auto;
 }
 
-/* Tall phone screenshots: cap the height and centre so they don't
-   dominate the column. */
-.wc-figure.wc-figure--phone img {
-  width: auto;
-  max-width: 100%;
-  max-height: 560px;
-  margin: 0 auto;
+/* Tall phone screenshots: narrow the whole figure to a phone-ish width so the
+   box hugs the image (no interior gutters) instead of let-boxing it, and centre
+   it in the column. The image still fills the box via the rule above. */
+.wc-figure.wc-figure--phone {
+  max-width: 340px;
+  margin-inline: auto;
 }
 
 .wc-figure figcaption {
