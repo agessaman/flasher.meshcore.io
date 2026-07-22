@@ -1,5 +1,8 @@
+/* Hide the app until Vue mounts (prevents a flash of raw {{ mustache }}
+   template). !important is required because #app sets `display: flex`, and an
+   ID selector would otherwise outweigh this attribute selector. */
 [v-cloak] {
-  display: none;
+  display: none !important;
 }
 
 body {
