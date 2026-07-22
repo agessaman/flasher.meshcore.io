@@ -47,12 +47,15 @@ import re
 import sys
 from pathlib import Path
 
-# "<env>-v<MAJOR.MINOR.PATCH>[-<channel-tag>]-<hash>.bin"  (app-only
-# flash-update asset). The optional lowercase channel tag ("-dev") is what the
-# dev channel inserts via build.sh's FILENAME_CHANNEL_TAG; production names
-# carry none. A "-merged.bin" cannot match: the hash class excludes '-' and
-# non-hex letters.
-ASSET_RE = re.compile(r"^(?P<env>.+)-v\d+\.\d+\.\d+(?:-[a-z]+)?-(?P<hash>[0-9a-f]{7,40})\.bin$")
+# "<env>-v<MAJOR.MINOR.PATCH>[.<BUILD>][-<channel-tag>]-<hash>.bin"  (app-only
+# flash-update asset). The optional 4th ".<BUILD>" component is the per-base
+# published build number that build.sh stamps into the filename (so the flasher
+# dropdown shows the true build); production builds before this change carry
+# none, so it stays optional. The optional lowercase channel tag ("-dev") is
+# what the dev channel inserts via build.sh's FILENAME_CHANNEL_TAG; production
+# names carry none. A "-merged.bin" cannot match: the hash class excludes '-'
+# and non-hex letters.
+ASSET_RE = re.compile(r"^(?P<env>.+)-v\d+\.\d+\.\d+(?:\.\d+)?(?:-[a-z]+)?-(?P<hash>[0-9a-f]{7,40})\.bin$")
 
 
 def assets_from_config(config_path):

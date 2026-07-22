@@ -82,6 +82,27 @@ else
   echo "FAIL: channel-tagged filename handling"; fail=1
 fi
 
+# Build-number filenames: the per-base published build number is the 4th version
+# component (v1.16.0.5), which build.sh now stamps into the asset name so the
+# flasher dropdown shows the true build. env + hash must parse for both
+# production (no channel tag) and the dev channel (build number + "-dev" tag),
+# and each variant's -merged.bin must be skipped.
+mkdir -p "$WORK/buildnumbin"
+touch "$WORK/buildnumbin/Prod_repeater_observer_mqtt-v1.16.0.5-abcdef1.bin" \
+      "$WORK/buildnumbin/Prod_repeater_observer_mqtt-v1.16.0.5-abcdef1-merged.bin" \
+      "$WORK/buildnumbin/Dev_repeater_observer_mqtt-v1.16.0.5-dev-abcdef2.bin" \
+      "$WORK/buildnumbin/Dev_repeater_observer_mqtt-v1.16.0.5-dev-abcdef2-merged.bin"
+python3 scripts/gen-slim-manifests.py --bin-dir "$WORK/buildnumbin" \
+  --static-path https://x.example --out-dir "$WORK/buildnumout" \
+  --base-version v1.16.0 --build 5 >/dev/null
+if jq -e '.hash == "abcdef1"' "$WORK/buildnumout/Prod_repeater_observer_mqtt.json" >/dev/null 2>&1 \
+   && jq -e '.hash == "abcdef2"' "$WORK/buildnumout/Dev_repeater_observer_mqtt.json" >/dev/null 2>&1 \
+   && [ "$(ls "$WORK/buildnumout" | wc -l | tr -d ' ')" = "2" ]; then
+  echo "PASS: build-number filename (env + hash parsed, merged skipped)"
+else
+  echo "FAIL: build-number filename handling"; fail=1
+fi
+
 # Guard rails: the modes must stay mutually exclusive and correctly gated.
 python3 scripts/gen-slim-manifests.py --config "$WORK/legacy-config.json" --static-path x \
   --out-dir "$WORK/x" --base-version v0 --build 0 2>/dev/null \
