@@ -290,9 +290,13 @@
     <h5 class="small logo-top" style="margin:0;flex:1">
       <img src="/img/meshcore.svg"> <span>observer flasher</span>
     </h5>
-    <a href="/changelog.html" class="button transparent small m l">
+    <a href="/changelog" class="button transparent small m l">
       <i>history</i>
       <span>Changelog</span>
+    </a>
+    <a href="/observer-options" class="button transparent small m l">
+      <i>hub</i>
+      <span>Other Options</span>
     </a>
     <a href="/?config=mqtt-observer" class="button transparent small m l">
       <i>flash_on</i>
@@ -301,9 +305,13 @@
     <details class="header-menu s">
       <summary aria-label="Menu"><i>menu</i></summary>
       <div class="header-menu-panel">
-        <a href="/changelog.html">
+        <a href="/changelog">
           <i>history</i>
           <span>Changelog</span>
+        </a>
+        <a href="/observer-options">
+          <i>hub</i>
+          <span>Other Options</span>
         </a>
         <a href="/?config=mqtt-observer">
           <i>flash_on</i>
@@ -362,8 +370,8 @@
       if (href && href.endsWith('.md')) {
         const filename = href.split('/').pop();
         if (LOCAL_DOCS.includes(filename)) {
-          // Rewrite to docs.html?doc=FILENAME
-          return `<a href="/docs.html?doc=${encodeURIComponent(filename)}"${titleAttr}>${text}</a>`;
+          // Rewrite to /docs?doc=FILENAME
+          return `<a href="/docs?doc=${encodeURIComponent(filename)}"${titleAttr}>${text}</a>`;
         } else {
           // Link to GitHub for unknown .md files
           return `<a href="${GITHUB_BASE}${href}" target="_blank" rel="noopener"${titleAttr}>${text}</a>`;
