@@ -9,9 +9,11 @@
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link href="/css/beer.css" rel="stylesheet">
-  <link href="/css/flasher.css" rel="stylesheet">
-  <!-- Version query = cache-buster: bump when flasher.js changes, so a cached
-       index.html cannot pair stale JS with a newer config.json. -->
+  <!-- Version query = cache-buster: bump ?v= when flasher.css or flasher.js
+       changes, so a freshly served index.html can't pair with a stale copy
+       cached by the CDN/browser (GitHub Pages + Cloudflare cache assets for
+       hours). -->
+  <link href="/css/flasher.css?v=20260722a" rel="stylesheet">
   <script type="module" src="/flasher.js?v=20260721a"></script>
 </head>
 
