@@ -384,15 +384,20 @@
         </li>
         <li>
           <h3>Pick your device &amp; role</h3>
-          <p>In the flasher, choose your board, then select the
-          <strong>Observer</strong> role. Use the filter box if you have a long
-          list of devices.</p>
+          <p>In the flasher, choose your board — use the filter box if you have
+          a long list — then pick a role: <strong>Repeater</strong> or
+          <strong>Room Server</strong>. Choose <strong>Repeater</strong> (the
+          recommended option); it forwards packets and uplinks them to your
+          MQTT broker(s). Pick <strong>Room Server</strong> only if you also want
+          the node to host a chat room.</p>
         </li>
         <li>
           <h3>Choose a version and flash</h3>
-          <p>Leave the version on <em>stable</em> (or opt into a dev build), then
-          click <strong>Flash!</strong> and grant serial access when prompted.
-          Keep the device connected until it reports <em>Flashing complete</em>.</p>
+          <p>Leave the version on the current release — the one <em>without</em>
+          a <code>-dev</code> suffix — unless you specifically want to try a
+          development build. Then click <strong>Flash!</strong> and grant serial
+          access when prompted. Keep the device connected until it reports
+          <em>Flashing complete</em>.</p>
           <p>Updating an existing device? Leave <strong>Erase device</strong>
           unchecked so your identity and settings are preserved.</p>
         </li>
