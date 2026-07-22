@@ -1,5 +1,5 @@
 import "/lib/beer.min.js";
-import { createApp, reactive, ref, nextTick, watch, computed } from "/lib/vue.min.js";
+import { createApp, reactive, ref, nextTick, watch, computed, onMounted } from "/lib/vue.min.js";
 import { Dfu } from "/lib/dfu.js";
 import { ESPLoader, Transport, HardReset } from "/lib/esp32.js";
 import { SerialConsole } from '/lib/console.js';
@@ -313,6 +313,17 @@ function setup() {
   const consoleWindow = ref();
 
   const deviceFilterText = ref('');
+  const deviceFilter = ref();
+
+  // On desktop the filter box sits at the top of the flasher pane; focus it so
+  // you can type to filter right away. Skip on mobile (the flasher shares the
+  // page with the instructions there, so popping the keyboard is unwanted), and
+  // use preventScroll so focusing never scrolls the taller two-pane page.
+  onMounted(() => {
+    if (window.matchMedia('(min-width: 1024px)').matches) {
+      deviceFilter.value?.focus({ preventScroll: true });
+    }
+  });
 
   const snackbar = reactive({
     text: '',
@@ -904,7 +915,7 @@ function setup() {
   return {
     snackbar,
     consoleEditBox, consoleWindow, consoleMouseUp,
-    config, devices, selected, flashing, deviceFilterText,
+    config, devices, selected, flashing, deviceFilterText, deviceFilter,
     flashDevice, flasherCleanup, dfuMode,
     serialCon, closeSerialCon, openSerialCon,
     sendCommand, openSerialGUI,

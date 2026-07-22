@@ -12,7 +12,7 @@
   <link href="/css/flasher.css" rel="stylesheet">
   <!-- Version query = cache-buster: bump when flasher.js changes, so a cached
        index.html cannot pair stale JS with a newer config.json. -->
-  <script type="module" src="/flasher.js?v=20260720c"></script>
+  <script type="module" src="/flasher.js?v=20260721a"></script>
 </head>
 
 <body class="dark">
@@ -21,6 +21,67 @@
       <i v-if="snackbar.icon">{{ snackbar.icon }}</i>
       <span v-html="snackbar.text"></span>
     </div>
+
+    <!-- Persistent full-width banner across the whole page -->
+    <header class="app-banner">
+      <nav>
+        <i>bolt</i>
+        <h5 class="small max logo-top">
+          <img src="/img/meshcore.svg"> <span>observer flasher</span>
+        </h5>
+        <button class="transparent m l" @click="openSerialGUI()">
+          <i>manufacturing</i>
+          <span>Repeater Setup</span>
+          <div class="tooltip left max">Open GUI to configure Repeaters and Room servers via USB serial</div>
+        </button>
+        <button class="transparent m l" @click="openSerialCon()">
+          <i>terminal</i>
+          <span>Console</span>
+          <div class="tooltip left max">Open serial console to manage Routers and Room servers</div>
+        </button>
+        <a class="button transparent m l" href="/docs.html" target="_blank">
+          <i>menu_book</i>
+          <span>Setup Guide</span>
+        </a>
+        <a class="button transparent m l" href="/changelog.html" target="_blank">
+          <i>history</i>
+          <span>Changelog</span>
+        </a>
+        <button class="transparent circle s" data-ui="#header-nav">
+          <i>menu</i>
+          <menu class="left no-wrap" id="header-nav" data-ui="#header-nav">
+            <li>
+              <a data-ui="menu-selector" @click.prevent="openSerialGUI()">
+                <i>manufacturing</i>
+                <span>Repeater Setup</span>
+              </a>
+            </li>
+            <li>
+              <a data-ui="menu-selector" @click.prevent="openSerialCon()">
+                <i>terminal</i>
+                <span>Console</span>
+              </a>
+            </li>
+            <li>
+              <a data-ui="menu-selector" href="/docs.html" target="_blank">
+                <i>menu_book</i>
+                <span>Setup Guide</span>
+              </a>
+            </li>
+            <li>
+              <a data-ui="menu-selector" href="/changelog.html" target="_blank">
+                <i>history</i>
+                <span>Changelog</span>
+              </a>
+            </li>
+          </menu>
+        </button>
+      </nav>
+    </header>
+
+    <div class="split-layout">
+    <!-- Flasher SPA (right column on desktop, top on mobile) -->
+    <div class="flasher-pane">
     <div class="flash-container" data-iframe-height>
       <div v-if="flashing.active">
         <header>
@@ -224,66 +285,13 @@
       </div>
       <div v-else>
         <header>
-          <nav>
-            <i>bolt</i>
-            <h5 class="small max logo-top">
-              <img src="/img/meshcore.svg"> <span>observer flasher</span>
-            </h5>
-            <button class="transparent m l" @click="openSerialGUI()">
-              <i>manufacturing</i>
-              <span>Repeater Setup</span>
-              <div class="tooltip left max">Open GUI to configure Repeaters and Room servers via USB serial</div>
-            </button>
-            <button class="transparent m l" @click="openSerialCon()">
-              <i>terminal</i>
-              <span>Console</span>
-              <div class="tooltip left max">Open serial console to manage Routers and Room servers</div>
-            </button>
-            <a class="button transparent m l" href="/docs.html" target="_blank">
-              <i>menu_book</i>
-              <span>Setup Guide</span>
-            </a>
-            <a class="button transparent m l" href="/changelog.html" target="_blank">
-              <i>history</i>
-              <span>Changelog</span>
-            </a>
-            <button class="transparent circle s" data-ui="#header-nav">
-              <i>menu</i>
-              <menu class="left no-wrap" id="header-nav" data-ui="#header-nav">
-                <li>
-                  <a data-ui="menu-selector" @click.prevent="openSerialGUI()">
-                    <i>manufacturing</i>
-                    <span>Repeater Setup</span>
-                  </a>
-                </li>
-                <li>
-                  <a data-ui="menu-selector" @click.prevent="openSerialCon()">
-                    <i>terminal</i>
-                    <span>Console</span>
-                  </a>
-                </li>
-                <li>
-                  <a data-ui="menu-selector" href="/docs.html" target="_blank">
-                    <i>menu_book</i>
-                    <span>Setup Guide</span>
-                  </a>
-                </li>
-                <li>
-                  <a data-ui="menu-selector" href="/changelog.html" target="_blank">
-                    <i>history</i>
-                    <span>Changelog</span>
-                  </a>
-                </li>
-              </menu>
-            </button>
-          </nav>
           <nav class="no-margin">
             <h6 class="small max">Choose device</h6>
           </nav>
         </header>
         <div class="field label prefix suffix border w-100 no-margin">
           <i>search</i>
-          <input type="text" placeholder=" " v-model="deviceFilterText" autofocus>
+          <input type="text" placeholder=" " v-model="deviceFilterText" ref="deviceFilter">
           <label>Filter</label>
         </div>
         <ul class="list border">
@@ -348,6 +356,131 @@
         </ul>
       </div>
     </div>
+  </div><!-- /.flasher-pane -->
+
+  <!-- Quick-start instructions (right column on desktop, below on mobile) -->
+  <aside class="instructions-pane">
+    <div class="quickstart">
+      <span class="qs-eyebrow">Quick start</span>
+      <h1>Flash &amp; set up your observer</h1>
+      <p class="qs-lead">
+        Get a MeshCore Observer node on the air in a few minutes. Everything is
+        done in the browser — no drivers or command-line tools required.
+      </p>
+
+      <div class="qs-note">
+        <i>info</i>
+        <p>Flashing needs the Web Serial API — use <strong>Chrome</strong> or
+        <strong>Edge</strong> on a desktop computer. Phones and Safari can't flash.</p>
+      </div>
+
+      <h2>Flash the firmware</h2>
+      <ol class="qs-steps">
+        <li>
+          <h3>Connect your board</h3>
+          <p>Plug your MeshCore device into your computer with a USB data cable.</p>
+        </li>
+        <li>
+          <h3>Pick your device &amp; role</h3>
+          <p>In the flasher, choose your board, then select the
+          <strong>Observer</strong> role. Use the filter box if you have a long
+          list of devices.</p>
+        </li>
+        <li>
+          <h3>Choose a version and flash</h3>
+          <p>Leave the version on <em>stable</em> (or opt into a dev build), then
+          click <strong>Flash!</strong> and grant serial access when prompted.
+          Keep the device connected until it reports <em>Flashing complete</em>.</p>
+          <p>Updating an existing device? Leave <strong>Erase device</strong>
+          unchecked so your identity and settings are preserved.</p>
+        </li>
+      </ol>
+
+      <h2>Configure your observer</h2>
+      <p>
+        After the first flash, set the radio parameters, a device name, WiFi
+        credentials, and your MQTT broker(s). The quickest way is over USB: click
+        <strong>Console</strong> in the header to open the serial console, then
+        run these commands (substitute your own values):
+      </p>
+      <pre><code>set radio 910.525,62.5,7,5
+set tx 22
+set name MyObserver
+set mqtt.iata XXX
+set wifi.ssid YourWiFiNetwork
+set wifi.pwd YourWiFiPassword
+reboot</code></pre>
+      <p>
+        Radio settings must match your regional mesh — the values above are only
+        an example. Replace <code>XXX</code> with the 3-letter
+        <a href="https://www.iata.org/en/publications/directories/code-search/" target="_blank" rel="noopener">IATA
+        code</a> of your nearest airport. See the full guide for timezone,
+        additional MQTT presets, and commands to verify the connection.
+      </p>
+
+      <a class="button qs-fulllink" href="/docs.html" target="_blank" rel="noopener">
+        <i>menu_book</i>
+        <span>Read the full setup guide</span>
+        <i>open_in_new</i>
+      </a>
+
+      <!-- First-boot web configuration (BETA) — collapsed by default. -->
+      <details class="webconfig">
+        <summary>
+          <i class="wc-chevron">chevron_right</i>
+          <span>First-boot web configuration</span>
+          <span class="qs-badge">Beta</span>
+        </summary>
+        <div class="webconfig-body">
+          <p>
+            A newer, cable-free option: on first boot (or after a full erase) the
+            observer starts its own WiFi hotspot and serves a configuration page.
+            This is <strong>still in beta</strong> — if anything misbehaves, fall
+            back to the USB console commands above.
+          </p>
+
+          <ol class="qs-steps">
+            <li>
+              <h3>Join the setup hotspot</h3>
+              <p>Power on the device and, within its first few minutes, open the
+              WiFi list on your phone or computer. Join the network named
+              <code>MeshCore-Setup-XXXX</code> (the suffix is unique to your
+              device).</p>
+              <figure class="wc-figure">
+                <img src="/img/webconfig-1-hotspot.webp" width="1179" height="199"
+                     alt="The observer's setup network in a device's WiFi list" loading="lazy">
+                <figcaption>The observer's setup network as it appears when joining WiFi.</figcaption>
+              </figure>
+            </li>
+            <li>
+              <h3>Open the configuration page</h3>
+              <p>Your device should open the setup page automatically. If it
+              doesn't, browse to <code>http://192.168.4.1</code> in any browser.</p>
+              <figure class="wc-figure wc-figure--phone">
+                <img src="/img/webconfig-2-home.webp" width="622" height="1229"
+                     alt="The web configuration home page" loading="lazy">
+                <figcaption>The configuration portal landing page.</figcaption>
+              </figure>
+            </li>
+            <li>
+              <h3>Enter your settings and save</h3>
+              <p>Fill in your radio parameters, device name, WiFi network, and MQTT
+              broker preset(s), then save. The observer reboots, joins your WiFi,
+              and starts uplinking mesh traffic.</p>
+              <figure class="wc-figure wc-figure--phone">
+                <img src="/img/webconfig-3-settings.webp" width="627" height="1280"
+                     alt="The settings form on the configuration page" loading="lazy">
+                <figcaption>Radio, WiFi, and MQTT settings on the configuration page.</figcaption>
+              </figure>
+            </li>
+          </ol>
+        </div>
+      </details>
+    </div>
+  </aside>
+  </div><!-- /.split-layout -->
+
+    <!-- Serial console overlay (position:fixed — covers the whole viewport) -->
     <div v-if="serialCon.opened" class="overlay active">
       <datalist id="command-db">
         <option v-for="(desc, command) in commandReference" :value="command">{{ desc }}</option>
@@ -366,7 +499,7 @@
         </div>
       </pre>
     </div>
-  </div>
+  </div><!-- /#app -->
   <script src="/lib/iframeResizer.contentWindow.min.js"></script>
 </body>
 </html>
