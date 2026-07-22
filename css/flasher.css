@@ -295,8 +295,12 @@ details.header-menu > .header-menu-panel i {
 }
 
 @media only screen and (min-width: 1024px) {
-  html,
-  body {
+  /* Lock the flasher page to the viewport so its two columns scroll
+     independently. Scoped to .flasher-page (set on <html> in index.html)
+     so it does NOT leak into docs.html / changelog.html, which share this
+     stylesheet and must scroll the whole page normally. */
+  html.flasher-page,
+  html.flasher-page body {
     height: 100vh;
     overflow: hidden;
   }
@@ -335,6 +339,24 @@ details.header-menu > .header-menu-panel i {
     overflow-y: auto;
     overflow-x: hidden;
     border-left: 1px solid var(--outline-variant);
+  }
+}
+
+/* ============================================================
+   Stacked layout (mobile / narrow) — the instructions wrap below
+   the flasher. Add a horizontal divider between the two so they
+   read as separate sections (the desktop layout separates them
+   with the vertical border-left above instead), and trim the
+   flasher's bottom gutter: the generous desktop scroll padding
+   would just be dead space above the divider when stacked.
+   ============================================================ */
+@media only screen and (max-width: 1023.98px) {
+  .flash-container {
+    padding-bottom: 2.5rem;
+  }
+
+  .split-layout .instructions-pane {
+    border-top: 1px solid var(--outline-variant);
   }
 }
 
