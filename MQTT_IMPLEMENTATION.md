@@ -109,7 +109,7 @@ The MQTT bridge uses a slot-based architecture with up to 6 concurrent connectio
 | `ctmesh` | mqtt.ctmesh.org:1883 | Username/password (fixed in firmware) | Plain MQTT |
 | `chimesh` | wss://mqtt.chimesh.org:443 | JWT (Ed25519) | WSS |
 | `meshat.se` | meshcore-mqtt.meshat.se:443 | JWT (Ed25519) | WSS |
-| `eastidahomesh` | wss://broker.eastidahomesh.net:443 | None | WSS |
+| `eastidahomesh` | mqtt://live.eastidahomesh.com:1883 | None | Plain MQTT |
 | `coloradomesh` | wss://mqtt.meshcore.coloradomesh.org:1883 | JWT (Ed25519) | WSS |
 | `dutchmeshcore-1` | collector1.dutchmeshcore.nl:443 | JWT (Ed25519) | WSS |
 | `dutchmeshcore-2` | collector2.dutchmeshcore.nl:443 | JWT (Ed25519) | WSS |
