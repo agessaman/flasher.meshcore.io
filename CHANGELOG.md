@@ -9,6 +9,7 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### July 2026
 
+- **CI** — Stop the docs sync from cancelling the observer firmware build  <sub>2026-07-24 · `5313aa01`</sub>
 - **Fix** · `mqtt` — Update eastidahomesh broker preset  <sub>2026-07-24 · `8fc96f68`</sub>
 - **Change** — Build.sh: put the published build number in observer asset filenames  <sub>2026-07-22 · `643a1ba4`</sub>
 - **New** · `mqtt` — Add SNMP support for radio diagnostics and stats  <sub>2026-07-21 · `d14ec413`</sub>
@@ -374,3 +375,4 @@ c39ab639
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 76f44d7d
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 d14ec413 643a1ba4
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 8fc96f68
+5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 5313aa01
