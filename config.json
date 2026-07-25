@@ -5,12 +5,12 @@
     "repeater": {
       "icon": "cell_tower",
       "title": "Repeater",
-      "tooltip": "MQTT Observer Repeater — forwards mesh packets and uplinks to MQTT brokers"
+      "tooltip": "MQTT Observer Repeater \u2014 forwards mesh packets and uplinks to MQTT brokers"
     },
     "roomServer": {
       "icon": "forum",
       "title": "Room Server",
-      "tooltip": "MQTT Observer Room Server — hosts chat rooms and uplinks to MQTT brokers"
+      "tooltip": "MQTT Observer Room Server \u2014 hosts chat rooms and uplinks to MQTT brokers"
     }
   },
   "notice": {
@@ -180,6 +180,66 @@
             "files": {
               "flash-wipe": "^Heltec_WSL3_room_server_observer_mqtt-v.*-merged\\.bin$",
               "flash-update": "^Heltec_WSL3_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "maker": "heltec",
+      "class": "observer",
+      "name": "Heltec Wireless Tracker v1.1",
+      "tooltip": "<img class='device' src='/img/heltec_wt3.svg'>",
+      "icon": "/img/lora.svg",
+      "type": "esp32",
+      "firmware": [
+        {
+          "role": "repeater",
+          "github": {
+            "type": "observer-repeater",
+            "files": {
+              "flash-wipe": "^heltec_tracker_v1_1_repeater_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^heltec_tracker_v1_1_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          }
+        },
+        {
+          "role": "roomServer",
+          "github": {
+            "type": "observer-room-server",
+            "files": {
+              "flash-wipe": "^heltec_tracker_v1_1_room_server_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^heltec_tracker_v1_1_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "maker": "heltec",
+      "class": "observer",
+      "name": "Heltec Wireless Tracker v2",
+      "tooltip": "<img class='device' src='/img/heltec_wt2.svg'>",
+      "icon": "/img/lora.svg",
+      "type": "esp32",
+      "firmware": [
+        {
+          "role": "repeater",
+          "github": {
+            "type": "observer-repeater",
+            "files": {
+              "flash-wipe": "^heltec_tracker_v2_repeater_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^heltec_tracker_v2_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          }
+        },
+        {
+          "role": "roomServer",
+          "github": {
+            "type": "observer-room-server",
+            "files": {
+              "flash-wipe": "^heltec_tracker_v2_room_server_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^heltec_tracker_v2_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
             }
           }
         }
