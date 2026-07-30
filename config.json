@@ -404,6 +404,38 @@
       ]
     },
     {
+      "maker": "ebyte",
+      "class": "observer",
+      "name": "Station G3 (ESP32)",
+      "tooltip": "<img class='device' src='/img/lora.svg'>",
+      "icon": "/img/lora.svg",
+      "type": "esp32",
+      "firmware": [
+        {
+          "role": "repeater",
+          "github": {
+            "type": "observer-repeater",
+            "files": {
+              "flash-wipe": "^Station_G3_ESP32_repeater_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^Station_G3_ESP32_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          },
+          "notice": "partition-change"
+        },
+        {
+          "role": "roomServer",
+          "github": {
+            "type": "observer-room-server",
+            "files": {
+              "flash-wipe": "^Station_G3_ESP32_room_server_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^Station_G3_ESP32_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          },
+          "notice": "partition-change"
+        }
+      ]
+    },
+    {
       "maker": "lilygo",
       "class": "observer",
       "name": "T-Beam S3 Supreme (SX1262)",
