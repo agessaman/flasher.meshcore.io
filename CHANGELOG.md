@@ -9,6 +9,8 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### July 2026
 
+- **Fix** · `xiao_s3_wio` — Restore environment sensor support  <sub>2026-07-30 · `9670035c`</sub>
+- **Change** — Add scripts/__pycache__ to .gitignore  <sub>2026-07-30 · `36a931f2`</sub>
 - **Docs** — Update links and enhance MQTT implementation guide  <sub>2026-07-30 · `4beb5472`</sub>
 - **Change** — Untrack the .build-wt-028a5dca build worktree  <sub>2026-07-24 · `df070833`</sub>
 - **CI** — Rebase with --autostash on the flasher push retry  <sub>2026-07-24 · `7ea93a64`</sub>
@@ -380,3 +382,4 @@ c39ab639
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 8fc96f68
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 5313aa01
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 7ea93a64 df070833 4beb5472
+5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 36a931f2 9670035c
