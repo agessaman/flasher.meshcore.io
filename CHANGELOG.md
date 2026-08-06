@@ -7,6 +7,10 @@ existing behavior · **Internal** = refactor / under-the-hood · **Docs** = docu
 **Build** / **CI** = build system & automation. **⬆ Upstream sync** marks a merge of the
 upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software version.
 
+### August 2026
+
+- **New** · `mqtt` — Increase built-in MQTT preset count to 31  <sub>2026-08-05 · `b8585bdc`</sub>
+
 ### July 2026
 
 - **Fix** · `xiao_s3_wio` — Restore environment sensor support  <sub>2026-07-30 · `9670035c`</sub>
@@ -383,3 +387,4 @@ c39ab639
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 5313aa01
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 7ea93a64 df070833 4beb5472
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 36a931f2 9670035c
+5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 b8585bdc
