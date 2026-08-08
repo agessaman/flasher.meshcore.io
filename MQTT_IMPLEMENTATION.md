@@ -157,6 +157,7 @@ below documents the current build.
 | `mesh-chaun14` | `mqtt://mqtt.mesh.chaun14.fr:1884` | User/pass (username is the device public key) | `set mqttN.password` |
 | `wcmesh` | `wss://mqtt.wcmesh.com:443` | JWT | — |
 | `atvirastinklas` | `wss://mqtt-mc.atvirastinklas.lt:443` | JWT | — |
+| `gomesh` | `wss://mqtt.gomesh.dev:443` | JWT | — |
 | `custom` | your own broker | User/pass, or JWT when `mqttN.audience` is set | `set mqttN.server` (see [custom broker setup](#custom-brokers)) |
 | `none` | (slot disabled) | — | — |
 

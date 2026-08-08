@@ -9,6 +9,7 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### August 2026
 
+- **New** · `mqtt` — Add gomesh to broker presets table  <sub>2026-08-07 · `73507bf5`</sub>
 - **Docs** · `mqtt` — Add atvirastinklas to broker presets table  <sub>2026-08-07 · `e2405430`</sub>
 - **New** · `variants` — Add I2C sensor support for Heltec and RAK3112  <sub>2026-08-07 · `4fab9099`</sub>
 - **New** · `mqtt` — Increase built-in MQTT preset count to 31  <sub>2026-08-05 · `b8585bdc`</sub>
@@ -396,3 +397,4 @@ c39ab639
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 4fab9099
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 e2405430
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683
+5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 73507bf5
