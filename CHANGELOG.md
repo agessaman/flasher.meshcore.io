@@ -9,6 +9,7 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### August 2026
 
+- **Fix** · `station-g3` — Enable online OTA for observer builds  <sub>2026-08-08 · `5000391c`</sub>
 - **Docs** · `mqtt` — Add okimesh broker presets to the documentation  <sub>2026-08-07 · `482d7432`</sub>
 - **New** · `mqtt` — Add gomesh to broker presets table  <sub>2026-08-07 · `73507bf5`</sub>
 - **Docs** · `mqtt` — Add atvirastinklas to broker presets table  <sub>2026-08-07 · `e2405430`</sub>
@@ -401,3 +402,4 @@ c39ab639
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 73507bf5
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 482d7432
+5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 5000391c
