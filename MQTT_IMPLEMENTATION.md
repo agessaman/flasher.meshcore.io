@@ -147,6 +147,8 @@ below documents the current build.
 | `meshcore-ca-1` | `wss://mqtt1.meshcore.ca:443/mqtt` | JWT | — |
 | `meshcore-ca-2` | `wss://mqtt2.meshcore.ca:443/mqtt` | JWT | — |
 | `meshcore-fi` | `wss://mc-mqtt.meshcore.fi:443/` | JWT | — |
+| `okimesh-1` | `wss://mqtt1.okimesh.org:9002/mqtt` | JWT | — |
+| `okimesh-2` | `wss://mqtt2.okimesh.org:9002/mqtt` | JWT | — |
 | `inwmesh` | `mqtts://scope.inwmesh.org:8883` | User/pass (per slot) | `set mqttN.username` + `set mqttN.password` |
 | `bostonmesh` | `wss://mqttmc01.bostonme.sh:443/mqtt` | JWT | — |
 | `rflab` | `wss://mqtt.rflab.io:443` | JWT | — |
