@@ -160,6 +160,7 @@ below documents the current build.
 | `wcmesh` | `wss://mqtt.wcmesh.com:443` | JWT | — |
 | `atvirastinklas` | `wss://mqtt-mc.atvirastinklas.lt:443` | JWT | — |
 | `gomesh` | `wss://mqtt.gomesh.dev:443` | JWT | — |
+| `idahomesh` | `wss://mqtt.idahomesh.org:443/mqtt` | JWT | — |
 | `custom` | your own broker | User/pass, or JWT when `mqttN.audience` is set | `set mqttN.server` (see [custom broker setup](#custom-brokers)) |
 | `none` | (slot disabled) | — | — |
 
