@@ -513,47 +513,20 @@ details.header-menu > .header-menu-panel i {
 }
 
 /* ============================================================
-   First-boot web configuration — collapsible (beta) + placeholders
+   Configuration method tabs (Serial console / Web config) +
+   the web-config walkthrough figures
    ============================================================ */
-.webconfig {
-  margin-top: 2.5rem;
-  border-top: 1px solid var(--outline-variant);
+
+/* Tabs sit between the shared intro copy and the two per-method pages. */
+.quickstart .qs-tabs {
+  margin: 1.25rem 0 0.25rem;
 }
 
-.webconfig > summary {
-  list-style: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  padding: 1.5rem 0 0.5rem;
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--on-background);
-}
-
-.webconfig > summary::-webkit-details-marker {
-  display: none;
-}
-
-.webconfig > summary .wc-chevron {
-  color: var(--on-surface-variant);
-  transition: transform var(--speed2);
-}
-
-.webconfig[open] > summary .wc-chevron {
-  transform: rotate(90deg);
-}
-
-.qs-badge {
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  padding: 0.15rem 0.5rem;
-  border-radius: 999px;
-  background: var(--primary-container);
-  color: var(--on-primary-container);
+/* Beer's tab labels run-in uppercase; keep sentence case so "Web config"
+   matches the surrounding prose, and tighten the icon/label/badge gap. */
+.quickstart .qs-tabs > a {
+  gap: 0.4rem;
+  text-transform: none;
 }
 
 .webconfig-body {

@@ -13,7 +13,7 @@
        changes, so a freshly served index.html can't pair with a stale copy
        cached by the CDN/browser (GitHub Pages + Cloudflare cache assets for
        hours). -->
-  <link href="/css/flasher.css?v=20260722d" rel="stylesheet">
+  <link href="/css/flasher.css?v=20260809a" rel="stylesheet">
   <script type="module" src="/flasher.js?v=20260721a"></script>
 </head>
 
@@ -416,44 +416,51 @@
       <h2>Configure your observer</h2>
       <p>
         After the first flash, set the radio parameters, a device name, WiFi
-        credentials, and your MQTT broker(s). The quickest way is over USB: click
-        <strong>Console</strong> in the header to open the serial console, then
-        run these commands (substitute your own values):
+        credentials, and your MQTT broker(s). There are two ways to do it — both
+        set the same things, so pick whichever suits you.
       </p>
-      <pre><code>set radio 910.525,62.5,7,5
+
+      <!-- Configuration method tabs. Serial console is the default; the web
+           config panel is the newer route. BeerCSS toggles .active via the
+           data-ui targets below. -->
+      <div class="tabs qs-tabs">
+        <a class="active" data-ui="#cfg-cli">
+          <i>terminal</i>
+          <span>Serial console</span>
+        </a>
+        <a data-ui="#cfg-web">
+          <i>tune</i>
+          <span>Web config</span>
+        </a>
+      </div>
+
+      <div class="page active" id="cfg-cli">
+        <p>
+          Click <strong>Console</strong> in the header to open the serial console
+          over USB, then run these commands (substitute your own values):
+        </p>
+        <pre><code>set radio 910.525,62.5,7,5
 set tx 22
 set name MyObserver
 set mqtt.iata XXX
 set wifi.ssid YourWiFiNetwork
 set wifi.pwd YourWiFiPassword
 reboot</code></pre>
-      <p>
-        Radio settings must match your regional mesh — the values above are only
-        an example. Replace <code>XXX</code> with the 3-letter
-        <a href="https://www.iata.org/en/publications/directories/code-search/" target="_blank" rel="noopener">IATA
-        code</a> of your nearest airport. See the full guide for timezone,
-        additional MQTT presets, and commands to verify the connection.
-      </p>
+        <p>
+          Radio settings must match your regional mesh — the values above are only
+          an example. Replace <code>XXX</code> with the 3-letter
+          <a href="https://www.iata.org/en/publications/directories/code-search/" target="_blank" rel="noopener">IATA
+          code</a> of your nearest airport. See the full guide for timezone,
+          additional MQTT presets, and commands to verify the connection.
+        </p>
+      </div>
 
-      <a class="button qs-fulllink" href="/docs" target="_blank" rel="noopener">
-        <i>menu_book</i>
-        <span>Read the full setup guide</span>
-        <i>open_in_new</i>
-      </a>
-
-      <!-- First-boot web configuration (BETA) — collapsed by default. -->
-      <details class="webconfig">
-        <summary>
-          <i class="wc-chevron">chevron_right</i>
-          <span>First-boot web configuration</span>
-          <span class="qs-badge">Beta</span>
-        </summary>
+      <div class="page" id="cfg-web">
         <div class="webconfig-body">
           <p>
-            A newer, cable-free option: on first boot (or after a full erase) the
-            observer starts its own WiFi hotspot and serves a configuration page.
-            This is <strong>still in beta</strong> — if anything misbehaves, fall
-            back to the USB console commands above.
+            A cable-free option: on first boot (or after a full erase) the
+            observer starts its own WiFi hotspot and serves a configuration page,
+            so you can set the node up from a phone with no cable or terminal.
           </p>
 
           <ol class="qs-steps">
@@ -498,7 +505,13 @@ reboot</code></pre>
             <i>open_in_new</i>
           </a>
         </div>
-      </details>
+      </div>
+
+      <a class="button qs-fulllink" href="/docs" target="_blank" rel="noopener">
+        <i>menu_book</i>
+        <span>Read the full setup guide</span>
+        <i>open_in_new</i>
+      </a>
     </div>
   </aside>
   </div><!-- /.split-layout -->
