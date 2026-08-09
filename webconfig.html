@@ -99,9 +99,16 @@
       font-size: 1rem;
     }
 
+    .wc-badge.sm {
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.15rem 0.5rem;
+    }
+
     .wc-badge.new {
       background: var(--primary-container);
-      color: var(--primary);
+      color: var(--on-primary-container);
       border-color: transparent;
     }
 
@@ -142,8 +149,31 @@
       flex: 1;
     }
 
+    /* Beer styles every <button> on the page: content-box sizing, a 2.5rem
+       block-size, a 2.5rem min-inline-size and a 0.5rem side margin. Our own
+       padding lands on top of all of that, so these controls come out ~50px
+       tall with stray gaps inside the segmented group. Reset the element
+       first, then size it here. */
+    .wc-stage-bar button,
+    .wc-try button {
+      box-sizing: border-box;
+      block-size: auto;
+      min-inline-size: 0;
+      margin: 0;
+      /* Beer centres button content; these read as a list, so start-align. */
+      justify-content: flex-start;
+    }
+
+    /* One height for every control in the stage bar, so the segmented group and
+       the two demo buttons sit on the same baseline. */
+    .wc-stage-bar {
+      --ctl: 34px;
+    }
+
     .wc-seg {
       display: inline-flex;
+      box-sizing: border-box;
+      height: var(--ctl);
       background: var(--surface-container-highest);
       border-radius: 999px;
       padding: 3px;
@@ -151,38 +181,48 @@
     }
 
     .wc-seg button {
+      height: 100%;
       border: 0;
       background: none;
       color: var(--on-surface-variant);
       font: inherit;
       font-size: 0.82rem;
       font-weight: 600;
-      padding: 0.3rem 0.85rem;
+      padding: 0 0.8rem;
       border-radius: 999px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 0.3rem;
+      gap: 0.35rem;
     }
 
-    .wc-seg button i {
+    .wc-seg button i,
+    .wc-mini i {
       font-size: 1.05rem;
     }
 
     .wc-seg button.on {
       background: var(--primary);
-      color: #06302f;
+      color: var(--on-primary);
     }
 
-    .wc-mini {
+    /* button.wc-mini, not .wc-mini: the reset above is (class + type) and would
+       otherwise win the height back. */
+    button.wc-mini {
+      height: var(--ctl);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
       border: 1px solid var(--outline-variant);
       background: none;
       color: var(--on-surface-variant);
       font: inherit;
-      font-size: 0.78rem;
-      padding: 0.28rem 0.7rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0 0.9rem;
       border-radius: 999px;
       cursor: pointer;
+      white-space: nowrap;
     }
 
     .wc-mini:hover {
@@ -240,6 +280,7 @@
       padding: 0.5rem 0.8rem;
       background: #101615;
       border-bottom: 1px solid #2b3634;
+      border-radius: 0;
     }
 
     .wc-frame.desktop .dot {
@@ -323,6 +364,17 @@
       margin-top: 1rem;
       padding-top: 1rem;
       border-top: 1px solid var(--outline-variant);
+      /* Beer sets `* { border-radius: inherit }`, so this picks up the tips
+         card's corner and draws its divider as a curve. Same for the browser
+         chrome's underline below. */
+      border-radius: 0;
+    }
+
+    /* Most views stage no actions, and renderTip empties this box. Without
+       this the divider and its padding still draw, leaving a rule hanging
+       under the tip text with nothing beneath it. */
+    .wc-try:empty {
+      display: none;
     }
 
     .wc-try-label {
@@ -410,6 +462,19 @@
       font-weight: 650;
     }
 
+    /* Beer clears the underline and inherits the colour, which leaves an inline
+       link indistinguishable from the prose around it. */
+    .wc-section p a:not(.button) {
+      color: var(--primary);
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+      text-decoration-thickness: 1px;
+    }
+
+    .wc-section p a:not(.button):hover {
+      text-decoration-thickness: 2px;
+    }
+
     .wc-section code,
     .wc-kbd {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -475,6 +540,15 @@
       font-size: 1.2rem;
     }
 
+    /* Five cards into a four-column grid leaves an orphan on its own row. The
+       CLI is the new thing this page is here to show, so give it the width
+       instead and the odd count reads as intent. */
+    .wc-card.feature {
+      grid-column: 1 / -1;
+      border-color: var(--primary-container);
+      background: linear-gradient(180deg, var(--surface-container) 0%, var(--surface-container-low) 100%);
+    }
+
     .wc-card p {
       font-size: 0.95rem;
       line-height: 1.6;
@@ -496,6 +570,19 @@
 
     .wc-note.warn {
       border-left-color: #e3b341;
+    }
+
+    /* Beer's own .button carries the 0.5rem side margin it gives every button;
+       zero it so the gap here is the only spacing. */
+    .wc-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1.4rem;
+    }
+
+    .wc-cta .button {
+      margin: 0;
     }
 
     .wc-steps {
@@ -538,8 +625,17 @@
        width drives the portal's breakpoints, so "desktop" would render the same
        mobile layout. Drop the frame to the full column and hide the toggle. */
     @media (max-width: 700px) {
+      /* Radii that read as gentle on a 760px stage read as bulbous once the
+         same boxes are 327px wide, and the frame sits only 0.85rem inside the
+         stage — an inner corner nearly as round as its container. Tighten both,
+         and the frame more than the stage. */
       .wc-stage {
         padding: 0.85rem;
+        border-radius: 14px;
+      }
+
+      .wc-tips {
+        border-radius: 14px;
       }
 
       .wc-frame.phone,
@@ -547,15 +643,25 @@
         width: 100%;
         align-self: stretch;
         border: 1px solid #2b3634;
-        border-radius: 14px;
+        border-radius: 8px;
       }
 
       .wc-frame.phone iframe {
         height: 560px;
       }
 
-      .wc-seg {
+      /* With the toggle gone the two demo buttons take the row at their natural
+         width. Equal widths via flex:1 are narrower than "First-boot setup"
+         needs, which wraps the label out of a fixed-height pill. */
+      .wc-seg,
+      .wc-stage-bar .spacer {
         display: none;
+      }
+
+      /* The pair fits a 360px screen with a pixel to spare at the desktop
+         padding. Buy some slack before the bar wraps. */
+      button.wc-mini {
+        padding: 0 0.7rem;
       }
     }
   </style>
@@ -620,8 +726,12 @@
             </button>
           </div>
           <span class="spacer"></span>
-          <button class="wc-mini" onclick="resetSim(false)">Restart demo</button>
-          <button class="wc-mini" onclick="resetSim(true)">First-boot setup</button>
+          <button class="wc-mini" onclick="resetSim(false)">
+            <i>restart_alt</i><span>Restart demo</span>
+          </button>
+          <button class="wc-mini" onclick="resetSim(true)">
+            <i>rocket_launch</i><span>First-boot setup</span>
+          </button>
         </div>
 
         <div class="wc-frame phone" id="frame">
@@ -684,9 +794,8 @@
             counts, and per-broker connection state. Useful for answering "is this
             node actually working" without going to a dashboard.</p>
         </div>
-        <div class="wc-card">
-          <h4><i>terminal</i>CLI <span class="wc-badge new"
-              style="font-size:.65rem;padding:.15rem .5rem">new</span></h4>
+        <div class="wc-card feature">
+          <h4><i>terminal</i>CLI <span class="wc-badge new sm">new</span></h4>
           <p>The whole serial command surface, in the browser. Autocomplete over
             every command, command history, and paste-a-script support. Covered in
             detail below.</p>
@@ -831,9 +940,16 @@ reboot</code></pre>
       <h2>Getting the firmware</h2>
       <p>
         The panel ships in every MeshCore observer build. Flash one from the
-        <a href="/?config=mqtt-observer">flasher</a>, or read the
-        <a href="/docs">setup guide</a> for the MQTT side of things.
+        browser, or read the setup guide for the MQTT side of things.
       </p>
+      <div class="wc-cta">
+        <a class="button" href="/?config=mqtt-observer">
+          <i>flash_on</i><span>Flash an observer build</span>
+        </a>
+        <a class="button border" href="/docs">
+          <i>menu_book</i><span>Read the setup guide</span>
+        </a>
+      </div>
     </section>
 
   </main>
