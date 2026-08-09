@@ -450,8 +450,23 @@ reboot</code></pre>
           Radio settings must match your regional mesh — the values above are only
           an example. Replace <code>XXX</code> with the 3-letter
           <a href="https://www.iata.org/en/publications/directories/code-search/" target="_blank" rel="noopener">IATA
-          code</a> of your nearest airport. See the full guide for timezone,
-          additional MQTT presets, and commands to verify the connection.
+          code</a> of your nearest airport. See the full guide for timezone
+          settings and commands to verify the connection.
+        </p>
+        <p>
+          Community brokers ship as <strong>presets</strong> — the address,
+          transport, and credentials are already baked into the firmware, so
+          pointing a slot at a broker is a single command. Slots 1 and 2 default
+          to <code>analyzer-us</code> and <code>analyzer-eu</code>; if you are not
+          in Europe, swap slot 2 for MeshMapper:
+        </p>
+        <pre><code>set mqtt2.preset meshmapper</code></pre>
+        <p>
+          Run <code>get mqtt.presets</code> on the device for the list your build
+          actually ships, or browse the
+          <a href="/docs#broker-presets" target="_blank" rel="noopener">full preset
+          table</a> — it notes which ones need extra setup. Boards with PSRAM run
+          up to five brokers at once; without PSRAM the limit is two.
         </p>
       </div>
 
