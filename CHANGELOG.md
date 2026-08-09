@@ -9,6 +9,39 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### August 2026
 
+- **CI** — Bump observer channel base version to v1.17.0  <sub>2026-08-09 · `8f12b89d`</sub>
+- ⬆ **Upstream sync** — Synced with upstream MeshCore dev (v1.17.0)  <sub>2026-08-09 · `f9968ac1`</sub>
+- **CI** — Sync the portal page to the flasher site for /webconfig  <sub>2026-08-08 · `339bffa9`</sub>
+- **Fix** · `webconfig` — Define the in-class constants out of line  <sub>2026-08-08 · `6cfdc61b`</sub>
+- **Change** — Untrack the .wt-station-g3-prod worktree  <sub>2026-08-08 · `9988cb60`</sub>
+- **Fix** · `webconfig` — Pass the build date from the room server too  <sub>2026-08-08 · `4bcbcd8c`</sub>
+- **New** · `mqtt` — Add idahomesh broker preset  <sub>2026-08-08 · `da37b6eb`</sub>
+- **Fix** · `webconfig` — Stop the CLI reading secrets, and enforce the setup password  <sub>2026-08-08 · `8abe26ba`</sub>
+- **New** · `webconfig` — Trim the displayed version to base, build and channel  <sub>2026-08-08 · `20826dcc`</sub>
+- **New** · `webconfig` — Print the full firmware version and name the channel  <sub>2026-08-08 · `cac91c91`</sub>
+- **Fix** · `webconfig` — Tighten CLI failure detection, reboot deferral and refusals  <sub>2026-08-08 · `c831e599`</sub>
+- **Change** · `variants` — Drop the dead MAX_MQTT_BROKERS build flag  <sub>2026-08-08 · `75d4656e`</sub>
+- **Fix** · `webconfig` — Correct reply classification and the missing MyMesh commands  <sub>2026-08-08 · `d532e4ea`</sub>
+- **New** · `webconfig` — Implement /api/cli on the device  <sub>2026-08-07 · `d7109c18`</sub>
+- **Fix** · `webconfig` — Report a missing endpoint honestly  <sub>2026-08-07 · `33d8766d`</sub>
+- **Fix** · `webconfig` — Make the mock answer the whole CLI surface  <sub>2026-08-07 · `b72b02f5`</sub>
+- **Internal** · `webconfig` — Drop the fake shell prompt from the terminal header  <sub>2026-08-07 · `105d7147`</sub>
+- **New** · `webconfig` — Offer the console as a way out of guided setup  <sub>2026-08-07 · `d90f657c`</sub>
+- **Build** · `webconfig` — Strip comments before embedding the portal page  <sub>2026-08-07 · `8cbc5520`</sub>
+- **New** · `webconfig` — Add a terminal CLI tab to the portal  <sub>2026-08-07 · `d148d0c6`</sub>
+- **Docs** · `mqtt` — Add okimesh to broker presets table  <sub>2026-08-07 · `6961492f`</sub>
+- **New** · `mqtt` — Add gomesh to broker presets table  <sub>2026-08-07 · `3b11540e`</sub>
+- **Docs** · `mqtt` — Add atvirastinklas to broker presets table  <sub>2026-08-07 · `aad3b09c`</sub>
+- **New** · `variants` — Add I2C sensor pins to Heltec/RAK3112 observers  <sub>2026-08-07 · `b27b475d`</sub>
+- **Fix** · `boards` — Restore Station G2 GPS UART pin mapping  <sub>2026-08-06 · `f156c0bd`</sub>
+- **New** · `mqtt` — Increase built-in MQTT preset count to 31  <sub>2026-08-05 · `73faa30c`</sub>
+- **Docs** · `handoff` — Record the 2026-08-03 upstream merge  <sub>2026-08-03 · `0bfc281a`</sub>
+- **Fix** · `build` — Restore nRF52 builds broken by observer-only dependencies  <sub>2026-08-03 · `45379ad7`</sub>
+- ⬆ **Upstream sync** — Synced with upstream MeshCore dev  <sub>2026-08-03 · `126a2564`</sub>
+- **Docs** · `handoff` — Scope the neighbors pool bug to the dev channel  <sub>2026-08-03 · `716f54d4`</sub>
+- **Docs** · `handoff` — Record non-PSRAM neighbors hardware verification  <sub>2026-08-03 · `46ee60da`</sub>
+- **New** · `mqtt-neighbors` — Support non-PSRAM observer boards  <sub>2026-08-03 · `a3a0a94d`</sub>
+- **Fix** · `mqtt-neighbors` — Budget the JSON pool separately from the publish buffer  <sub>2026-08-03 · `34037f20`</sub>
 - **Fix** · `station-g3` — Enable online OTA for observer builds  <sub>2026-08-08 · `5000391c`</sub>
 - **Docs** · `mqtt` — Add okimesh broker presets to the documentation  <sub>2026-08-07 · `482d7432`</sub>
 - **New** · `mqtt` — Add gomesh to broker presets table  <sub>2026-08-07 · `73507bf5`</sub>
@@ -18,6 +51,97 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### July 2026
 
+- **New** · `thinknode-m7` — Add repeater and room server observer variants  <sub>2026-07-31 · `37444be7`</sub>
+- **Fix** · `mqtt-neighbors` — Report unusable heard ages as null  <sub>2026-07-31 · `5828a3c5`</sub>
+- **Fix** · `xiao_s3_wio` — Restore environment sensor support  <sub>2026-07-30 · `d8fd3def`</sub>
+- **Change** · `scripts` — Remove compiled Python cache file for webconfig_mock_server  <sub>2026-07-30 · `d502bbaf`</sub>
+- **New** · `station-g3` — Add repeater and room server observer variants  <sub>2026-07-30 · `fe3b5f8a`</sub>
+- **Change** · `.gitignore` — Ignore Python cache files in scripts directory  <sub>2026-07-30 · `69ec2866`</sub>
+- ⬆ **Upstream sync** — Synced with upstream MeshCore dev  <sub>2026-07-30 · `612c5213`</sub>
+- **Docs** — Trim MQTT guide redundancy and split out internals  <sub>2026-07-30 · `dd7d1349`</sub>
+- **New** · `mqtt` — Publish all message types except raw to MeshRank  <sub>2026-07-29 · `616fe96d`</sub>
+- **New** · `mqtt` — Add default_scope to neighbor discovery JSON handling  <sub>2026-07-29 · `8b16af38`</sub>
+- **New** · `mqtt` — Implement downgrade contract for MQTT preferences  <sub>2026-07-28 · `ecbb5005`</sub>
+- **New** · `mqtt` — Enhance packet filter functionality with named types  <sub>2026-07-27 · `52bd2719`</sub>
+- **New** · `mqtt` — Add per-slot packet filters for MQTT slots  <sub>2026-07-27 · `e00b29b4`</sub>
+- **New** · `mqtt` — Enhance neighbor discovery JSON handling  <sub>2026-07-26 · `3c5b25c2`</sub>
+- **New** · `mqtt` — Enhance neighbor discovery with request management  <sub>2026-07-26 · `aba571ed`</sub>
+- **Change** — Ignore throwaway build worktrees  <sub>2026-07-24 · `0c86e0dc`</sub>
+- **CI** — Give the beta channel its own concurrency group  <sub>2026-07-24 · `c6918643`</sub>
+- **Fix** · `mqtt` — Update eastidahomesh broker preset  <sub>2026-07-24 · `cfff9d5c`</sub>
+- **Change** — Build.sh: put the published build number in observer asset filenames  <sub>2026-07-22 · `41cc36b7`</sub>
+- **New** · `webconfig` — Manage the admin password from the portal  <sub>2026-07-21 · `675bc6b5`</sub>
+- **Fix** · `ota` — Require clean MQTT stop before flashing  <sub>2026-07-21 · `36272384`</sub>
+- **Fix** · `mqtt` — Make preference saves power-loss recoverable  <sub>2026-07-21 · `5bf6d3a0`</sub>
+- **Fix** · `room_server` — Support RX boosted gain  <sub>2026-07-21 · `a71cc238`</sub>
+- **Change** · `platformio` — Exclude MQTT-specific helper files from build  <sub>2026-07-21 · `2a77bec5`</sub>
+- **New** · `mqtt` — Add SNMP support for radio diagnostics and stats  <sub>2026-07-21 · `fbe608d6`</sub>
+- **New** · `mqtt` — Implement deferred OTA update scheduling in MyMesh  <sub>2026-07-21 · `bd58d8af`</sub>
+- **CI** · `mqtt` — Add preset name-parity check across channels  <sub>2026-07-21 · `8cec341d`</sub>
+- **New** · `mqtt` — Add new MQTT preset for meshtexas connection  <sub>2026-07-21 · `0c43fd58`</sub>
+- **New** · `mqtt` — Include outbox drop statistics in MQTT stats reply  <sub>2026-07-21 · `7daccd9e`</sub>
+- **New** · `mqtt` — Mask sensitive information in CLI responses  <sub>2026-07-20 · `602077b1`</sub>
+- **New** · `alerts` — Enhance alert test command response for clarity  <sub>2026-07-20 · `7b68371a`</sub>
+- **New** · `mqtt` — Implement slot activation classification for MQTT connections  <sub>2026-07-20 · `f25492c7`</sub>
+- **Internal** · `mqtt` — Reorder timezone command handling for clarity  <sub>2026-07-20 · `d7229686`</sub>
+- **Internal** · `mqtt` — Improve command handling and memory pressure management  <sub>2026-07-20 · `2d55b95e`</sub>
+- **Fix** · `mqtt` — Remove unused time conversion calls in syncTimeWithNTP  <sub>2026-07-20 · `1b843111`</sub>
+- **Fix** · `mqtt` — Ensure valid hex string output in bytesToHex and packetToHex  <sub>2026-07-20 · `9609ae39`</sub>
+- **New** · `mqtt` — Add pending status publish handling for MQTT slots  <sub>2026-07-20 · `c2b157dd`</sub>
+- **Internal** · `mqtt` — Optimize MQTT status and diagnostic reply formatting  <sub>2026-07-20 · `fed56111`</sub>
+- **New** · `docs` — Update CLI commands for OTA firmware update options  <sub>2026-07-20 · `2019a8c0`</sub>
+- **New** · `mqtt` — Implement neighbor discovery and management in MyMesh  <sub>2026-07-20 · `85c0e1de`</sub>
+- **Fix** · `mqtt` — Handle SPIFFS rename conflict in MQTTPrefsFileStore  <sub>2026-07-20 · `328ed747`</sub>
+- **New** · `mqtt` — Add mesh-chaun14 and wcmesh presets  <sub>2026-07-19 · `ebca9bdd`</sub>
+- **New** · `mqtt` — Implement custom JSON document allocator for neighbors  <sub>2026-07-19 · `634d98c2`</sub>
+- **Docs** · `mqtt` — Document the neighbors feature  <sub>2026-07-19 · `0ae6aa4d`</sub>
+- **New** · `webconfig` — Expose mqtt.neighbors controls in the web portal  <sub>2026-07-19 · `d6f8a871`</sub>
+- **New** · `mqtt` — Add mqtt.neighbors CLI get/set (PSRAM-gated)  <sub>2026-07-19 · `69119815`</sub>
+- **New** · `mqtt` — Add neighbor-scope discovery + periodic publish to MyMesh  <sub>2026-07-19 · `34a82201`</sub>
+- **New** · `mqtt` — Add neighbors publish path to MQTTBridge  <sub>2026-07-19 · `de320bc4`</sub>
+- **New** · `mqtt` — Add neighbors JSON payload builder (host-tested)  <sub>2026-07-19 · `e36aee04`</sub>
+- **New** · `mqtt` — Add neighbors prefs fields (flex-compatible v1 layout)  <sub>2026-07-19 · `8d7a47ab`</sub>
+- **Build** — Add FILENAME_CHANNEL_TAG; dev channel tags asset filenames with -dev  <sub>2026-07-19 · `f5090667`</sub>
+- **CI** · `beta` — Stop deriving config-beta.json; sync release notes to the release body  <sub>2026-07-19 · `a2a7ccee`</sub>
+- **Docs** — Follow the flex -> observer-firmware branch rename  <sub>2026-07-19 · `7161fe95`</sub>
+- **CI** · `beta` — Source slim manifests from build output  <sub>2026-07-19 · `48799d53`</sub>
+- **Fix** · `repeater` — Restore node name at top of home screen  <sub>2026-07-19 · `76a3300c`</sub>
+- **CI** · `beta` — Retry GitHub API calls in the publish step  <sub>2026-07-19 · `9fc90ee0`</sub>
+- **Fix** — Resolve remaining upstream-merge build breaks; park oversize TLora  <sub>2026-07-19 · `f79d22c8`</sub>
+- **Fix** — Remove duplicate declarations left by the upstream merge  <sub>2026-07-19 · `25bfac0e`</sub>
+- **Fix** · `prefs` — Stop spurious VFS error on every prefs save  <sub>2026-07-19 · `4ff118ce`</sub>
+- **CI** · `beta` — Drop self-referencing env redeclarations  <sub>2026-07-19 · `f1390afa`</sub>
+- **CI** · `beta` — Trigger on push to observer-firmware-dev  <sub>2026-07-19 · `8daa8609`</sub>
+- **Docs** — Rename branch to observer-firmware-dev; document release channels  <sub>2026-07-19 · `5f027f1a`</sub>
+- **CI** · `beta` — Tag version as beta-dev and publish config-beta.json  <sub>2026-07-19 · `c51e7ea4`</sub>
+- **CI** — Add beta release channel workflow  <sub>2026-07-19 · `5094ece3`</sub>
+- **Build** — Make OTA_MANIFEST_BASE a build.sh-injected release channel  <sub>2026-07-19 · `36831271`</sub>
+- **Docs** — Re-baseline handoff after WebConfigBatch wiring and upstream merge  <sub>2026-07-19 · `38066a56`</sub>
+- ⬆ **Upstream sync** — Synced with upstream MeshCore dev (v1.16.0)  <sub>2026-07-19 · `15e3400a`</sub>
+- **Internal** · `webconfig` — Wire WebConfigBatch spec into WebConfigServer (Phase 6)  <sub>2026-07-19 · `cece565e`</sub>
+- **Change** — Gitignore worktree build directories  <sub>2026-07-19 · `c67d4022`</sub>
+- **Fix** · `mqtt` — Use ASCII hyphens in serial log strings  <sub>2026-07-19 · `4a6fe4e2`</sub>
+- **New** · `ota` — Broadcast OTA start/fail milestones on the alert channel  <sub>2026-07-19 · `f68a0fb9`</sub>
+- **Docs** — Note V4/PSRAM verification of slot-scaled stop timeout  <sub>2026-07-19 · `686a2f24`</sub>
+- **Fix** · `mqtt` — Slot-count-aware cooperative-stop timeout  <sub>2026-07-19 · `7767760f`</sub>
+- **Docs** — Record Phase 0/7 hardware characterization results  <sub>2026-07-19 · `29a7016e`</sub>
+- **Change** · `webconfig` — Pure WebConfigBatch state-machine spec + host tests (Phase 6)  <sub>2026-07-19 · `3c170eb1`</sub>
+- **Change** · `mqtt` — Extract + test remaining inline MQTT decision points (Phase 6)  <sub>2026-07-19 · `b0cf29fb`</sub>
+- **New** · `mqtt` — Cooperative MQTT shutdown + OTA teardown barrier (Phase 5)  <sub>2026-07-19 · `2e1a1410`</sub>
+- **New** · `mqtt` — Add Phase 4 lifecycle ownership + teardown test seams  <sub>2026-07-18 · `9d5bd6f8`</sub>
+- **Docs** — Re-baseline stability handoff and add stop-and-ask discipline  <sub>2026-07-18 · `db111449`</sub>
+- **Fix** · `mqtt` — Harden /mqtt_prefs migration (atomic durability, tests)  <sub>2026-07-18 · `1be09b9b`</sub>
+- **Fix** · `mqtt` — Restore PSRAM buffers after restart  <sub>2026-07-18 · `b5deaf93`</sub>
+- **CI** — Add MQTT firmware guardrails  <sub>2026-07-18 · `7b60ee70`</sub>
+- **Docs** — Add stability and testability handoff  <sub>2026-07-18 · `30278ac5`</sub>
+- **New** · `mqtt` — Refactor message building to use MQTTPayloadBuilder  <sub>2026-07-18 · `26a8a3cb`</sub>
+- **New** · `mqtt` — Enhance topic substitution overflow handling  <sub>2026-07-18 · `b7b3b4dc`</sub>
+- **New** · `webconfig` — Validate request IDs and improve error handling  <sub>2026-07-18 · `dc44311e`</sub>
+- **New** · `docs` — Add local testing instructions for MQTT functionality  <sub>2026-07-18 · `cbbd01b6`</sub>
+- **New** · `webconfig` — Improve request handling and server teardown logic  <sub>2026-07-18 · `b7795720`</sub>
+- **New** · `webconfig` — Add web configuration portal and MQTT enhancements  <sub>2026-07-18 · `a7c1cc63`</sub>
+- **New** · `webconfig` — Enhance web configuration with flood and loop settings  <sub>2026-07-16 · `639c07a4`</sub>
+- **New** · `webconfig` — Implement web configuration portal for ESP32  <sub>2026-07-16 · `dfee21a0`</sub>
 - **New** · `station-g3` — Add repeater and room server observer variants  <sub>2026-07-30 · `bfc43e94`</sub>
 - **Fix** · `xiao_s3_wio` — Restore environment sensor support  <sub>2026-07-30 · `9670035c`</sub>
 - **Change** — Add scripts/__pycache__ to .gitignore  <sub>2026-07-30 · `36a931f2`</sub>
@@ -405,3 +529,4 @@ c39ab639
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 5000391c
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683
+5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 dfee21a0 639c07a4 a7c1cc63 b7795720 cbbd01b6 dc44311e b7b3b4dc 26a8a3cb 30278ac5 7b60ee70 b5deaf93 1be09b9b db111449 9d5bd6f8 2e1a1410 b0cf29fb 3c170eb1 29a7016e 7767760f 686a2f24 f68a0fb9 4a6fe4e2 0e7a07af c67d4022 cece565e 15e3400a 38066a56 36831271 5094ece3 c51e7ea4 5f027f1a 8daa8609 f1390afa 4ff118ce 25bfac0e 17e68ecc f79d22c8 9fc90ee0 76a3300c 48799d53 7161fe95 a2a7ccee f5090667 8d7a47ab e36aee04 de320bc4 34a82201 69119815 d6f8a871 0ae6aa4d 634d98c2 ebca9bdd 328ed747 85c0e1de 2019a8c0 fed56111 c2b157dd 9609ae39 1b843111 2d55b95e d7229686 f25492c7 7b68371a 602077b1 7daccd9e 0c43fd58 8cec341d bd58d8af fbe608d6 2a77bec5 a71cc238 5bf6d3a0 36272384 675bc6b5 41cc36b7 cfff9d5c c6918643 0c86e0dc aba571ed 3c5b25c2 e00b29b4 52bd2719 ecbb5005 8b16af38 616fe96d dd7d1349 612c5213 69ec2866 4b390dfc fe3b5f8a d502bbaf d8fd3def 5828a3c5 37444be7 34037f20 a3a0a94d 46ee60da 28e586f0 716f54d4 126a2564 45379ad7 0bfc281a 73faa30c f156c0bd b27b475d aad3b09c 3b11540e 6961492f d148d0c6 8cbc5520 d90f657c 105d7147 b72b02f5 33d8766d d7109c18 d532e4ea 75d4656e c831e599 cac91c91 20826dcc 8abe26ba da37b6eb 4bcbcd8c 9988cb60 6cfdc61b 339bffa9 f9968ac1 8f12b89d b744b42a
