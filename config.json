@@ -32,6 +32,9 @@
     },
     "ebyte": {
       "name": "EByte"
+    },
+    "elecrow": {
+      "name": "Elecrow"
     }
   },
   "device": [
@@ -550,6 +553,36 @@
             "files": {
               "flash-wipe": "^Xiao_S3_WIO_room_server_observer_mqtt-v.*-merged\\.bin$",
               "flash-update": "^Xiao_S3_WIO_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "maker": "elecrow",
+      "class": "observer",
+      "name": "Elecrow ThinkNode M7",
+      "tooltip": "<img class='device' src='/img/lora.svg'>",
+      "icon": "/img/lora.svg",
+      "type": "esp32",
+      "firmware": [
+        {
+          "role": "repeater",
+          "github": {
+            "type": "observer-repeater",
+            "files": {
+              "flash-wipe": "^ThinkNode_M7_repeater_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^ThinkNode_M7_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          }
+        },
+        {
+          "role": "roomServer",
+          "github": {
+            "type": "observer-room-server",
+            "files": {
+              "flash-wipe": "^ThinkNode_M7_room_server_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^ThinkNode_M7_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
             }
           }
         }
