@@ -138,6 +138,14 @@
       line-height: 1.7;
     }
 
+    /* Anchor targets must clear the sticky .docs-header (~3.5rem tall), or the
+       heading lands underneath it. Covers both routes to an anchor: the TOC's
+       scrollIntoView() and native #hash navigation, which both honour
+       scroll-margin-top on the target. */
+    .docs-content :is(h1, h2, h3, h4, h5, h6) {
+      scroll-margin-top: 5rem;
+    }
+
     .docs-content h1 {
       font-size: 1.6rem;
       font-weight: 700;
@@ -400,6 +408,16 @@
 
         buildToc(content);
         setupScrollSpy();
+
+        // The markdown renders asynchronously, so by the time these headings
+        // exist the browser has already tried (and failed) to resolve any #hash
+        // in the URL — deep links like /docs#broker-presets would just sit at
+        // the top. Resolve it here instead; scroll-margin-top keeps the heading
+        // clear of the sticky header.
+        if (location.hash) {
+          const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+          if (target) target.scrollIntoView();
+        }
       } catch (e) {
         document.getElementById('loading').innerHTML =
           `<p>Could not load documentation: ${e.message}</p>`;
