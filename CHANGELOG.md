@@ -9,6 +9,24 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### August 2026
 
+- **Docs** — Refresh firmware-notes.html for v1.17.1  <sub>2026-08-14 · `f110a0b1`</sub>
+- **CI** — Bump observer channel base version to v1.17.1  <sub>2026-08-14 · `47c80fec`</sub>
+- ⬆ **Upstream sync** — Synced with upstream MeshCore dev (v1.17.1)  <sub>2026-08-14 · `6c0ae4d2`</sub>
+- ⬆ **Upstream sync** — Synced with upstream MeshCore dev  <sub>2026-08-12 · `ced0eb37`</sub>
+- **Docs** · `mqtt` — Record the non-PSRAM TLS footprint investigation  <sub>2026-08-06 · `c5bf3e99`</sub>
+- **Fix** · `observer` — Recover T-Beam Supreme display startup  <sub>2026-08-10 · `28dd599f`</sub>
+- **New** · `companion_radio` — Add external FEM gain preferences for RX and TX for companions  <sub>2026-08-10 · `e2aa7b98`</sub>
+- **Fix** · `observer` — Leave AGC reset user-configurable  <sub>2026-08-09 · `82040049`</sub>
+- **Fix** · `station-g3` — Expose FEM gain preferences  <sub>2026-08-06 · `23066573`</sub>
+- **Fix** · `mqtt` — Reject invalid path encodings before serializing  <sub>2026-08-04 · `8d1a0eb3`</sub>
+- **Fix** · `mqtt` — Scan every slot for a stale JWT after a clock correction  <sub>2026-08-04 · `dbdf2d73`</sub>
+- **Fix** · `mqtt` — Measure the setup-retry interval from the failure  <sub>2026-08-04 · `53bae568`</sub>
+- **Fix** · `mqtt` — Let a retried setup consume the reconnect allowance  <sub>2026-08-04 · `6be84eb4`</sub>
+- **Fix** · `mqtt` — Address review of the demand-driven slot work  <sub>2026-08-04 · `e242cc6f`</sub>
+- **Performance** · `mqtt` — Keep slot JWT tokens in PSRAM where available  <sub>2026-08-04 · `b93b6b15`</sub>
+- **Performance** · `mqtt` — Allocate slot JWT token buffers on demand  <sub>2026-08-04 · `9141ad85`</sub>
+- **Performance** · `mqtt` — Allocate slot clients on demand  <sub>2026-08-04 · `c833da10`</sub>
+- **Performance** · `mqtt` — Tranche 1 memory reductions in the bridge  <sub>2026-08-03 · `c28548ae`</sub>
 - **Fix** · `observer` — Recover T-Beam Supreme display startup  <sub>2026-08-10 · `1f79e91c`</sub>
 - **CI** — Bump observer channel base version to v1.17.0  <sub>2026-08-09 · `8f12b89d`</sub>
 - ⬆ **Upstream sync** — Synced with upstream MeshCore dev (v1.17.0)  <sub>2026-08-09 · `f9968ac1`</sub>
@@ -533,3 +551,4 @@ c39ab639
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 dfee21a0 639c07a4 a7c1cc63 b7795720 cbbd01b6 dc44311e b7b3b4dc 26a8a3cb 30278ac5 7b60ee70 b5deaf93 1be09b9b db111449 9d5bd6f8 2e1a1410 b0cf29fb 3c170eb1 29a7016e 7767760f 686a2f24 f68a0fb9 4a6fe4e2 0e7a07af c67d4022 cece565e 15e3400a 38066a56 36831271 5094ece3 c51e7ea4 5f027f1a 8daa8609 f1390afa 4ff118ce 25bfac0e 17e68ecc f79d22c8 9fc90ee0 76a3300c 48799d53 7161fe95 a2a7ccee f5090667 8d7a47ab e36aee04 de320bc4 34a82201 69119815 d6f8a871 0ae6aa4d 634d98c2 ebca9bdd 328ed747 85c0e1de 2019a8c0 fed56111 c2b157dd 9609ae39 1b843111 2d55b95e d7229686 f25492c7 7b68371a 602077b1 7daccd9e 0c43fd58 8cec341d bd58d8af fbe608d6 2a77bec5 a71cc238 5bf6d3a0 36272384 675bc6b5 41cc36b7 cfff9d5c c6918643 0c86e0dc aba571ed 3c5b25c2 e00b29b4 52bd2719 ecbb5005 8b16af38 616fe96d dd7d1349 612c5213 69ec2866 4b390dfc fe3b5f8a d502bbaf d8fd3def 5828a3c5 37444be7 34037f20 a3a0a94d 46ee60da 28e586f0 716f54d4 126a2564 45379ad7 0bfc281a 73faa30c f156c0bd b27b475d aad3b09c 3b11540e 6961492f d148d0c6 8cbc5520 d90f657c 105d7147 b72b02f5 33d8766d d7109c18 d532e4ea 75d4656e c831e599 cac91c91 20826dcc 8abe26ba da37b6eb 4bcbcd8c 9988cb60 6cfdc61b 339bffa9 f9968ac1 8f12b89d b744b42a
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 b744b42a
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 b744b42a 1f79e91c
+5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 c28548ae c833da10 9141ad85 b93b6b15 e242cc6f 6be84eb4 53bae568 dbdf2d73 8d1a0eb3 23066573 b744b42a 95f32695 82040049 e2aa7b98 28dd599f c5bf3e99 ced0eb37 6c0ae4d2 47c80fec 6ff49201 f110a0b1
