@@ -161,6 +161,66 @@
     {
       "maker": "heltec",
       "class": "observer",
+      "name": "Heltec V4 R8 (OLED)",
+      "tooltip": "<img class='device' src='/img/heltec_v4.svg'>",
+      "icon": "/img/lora.svg",
+      "type": "esp32",
+      "firmware": [
+        {
+          "role": "repeater",
+          "github": {
+            "type": "observer-repeater",
+            "files": {
+              "flash-wipe": "^heltec_v4_r8_repeater_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^heltec_v4_r8_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          }
+        },
+        {
+          "role": "roomServer",
+          "github": {
+            "type": "observer-room-server",
+            "files": {
+              "flash-wipe": "^heltec_v4_r8_room_server_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^heltec_v4_r8_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "maker": "heltec",
+      "class": "observer",
+      "name": "Heltec V4 + Expansion Kit v2 (TFT)",
+      "tooltip": "<img class='device' src='/img/heltec_v4.svg'>",
+      "icon": "/img/lora.svg",
+      "type": "esp32",
+      "firmware": [
+        {
+          "role": "repeater",
+          "github": {
+            "type": "observer-repeater",
+            "files": {
+              "flash-wipe": "^heltec_v4_r8_tft_repeater_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^heltec_v4_r8_tft_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          }
+        },
+        {
+          "role": "roomServer",
+          "github": {
+            "type": "observer-room-server",
+            "files": {
+              "flash-wipe": "^heltec_v4_r8_tft_room_server_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^heltec_v4_r8_tft_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "maker": "heltec",
+      "class": "observer",
       "name": "Heltec WSL3",
       "tooltip": "<img class='device' src='/img/heltec_wsl3.svg'>",
       "icon": "/img/lora.svg",
