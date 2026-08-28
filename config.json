@@ -198,6 +198,18 @@
       "firmware": [
         {
           "role": "repeater",
+          "subTitle": "(Portrait)",
+          "github": {
+            "type": "observer-repeater",
+            "files": {
+              "flash-wipe": "^heltec_v4_r8_tft_portrait_repeater_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^heltec_v4_r8_tft_portrait_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          }
+        },
+        {
+          "role": "repeater",
+          "subTitle": "(Landscape)",
           "github": {
             "type": "observer-repeater",
             "files": {
