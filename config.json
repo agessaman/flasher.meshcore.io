@@ -192,7 +192,7 @@
       "maker": "heltec",
       "class": "observer",
       "name": "Heltec V4 + Expansion Kit v2 (TFT)",
-      "tooltip": "<img class='device' src='/img/heltec_v4.svg'>",
+      "tooltip": "<img class='device' src='/img/heltec_v4_exp.svg'>",
       "icon": "/img/lora.svg",
       "type": "esp32",
       "firmware": [
