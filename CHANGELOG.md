@@ -7,6 +7,10 @@ existing behavior · **Internal** = refactor / under-the-hood · **Docs** = docu
 **Build** / **CI** = build system & automation. **⬆ Upstream sync** marks a merge of the
 upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software version.
 
+### September 2026
+
+- **New** · `mqtt` — Add bsmesh broker preset  <sub>2026-09-10 · `4226649e`</sub>
+
 ### August 2026
 
 - **New** · `mqtt` — Add ntxmesh broker preset  <sub>2026-08-18 · `8998409f`</sub>
@@ -556,3 +560,4 @@ c39ab639
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 b744b42a 95f32695 6ff49201
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 b744b42a 95f32695 6ff49201 8998409f
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 b744b42a 95f32695 6ff49201
+5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 b744b42a 95f32695 6ff49201 4226649e
