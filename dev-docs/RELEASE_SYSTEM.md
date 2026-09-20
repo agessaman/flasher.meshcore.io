@@ -91,8 +91,14 @@ deliberate: local/dev builds must never be OTA-armed. **Never give
 overrides via `PLATFORMIO_BUILD_FLAGS` are unreliable — that's why the
 injection lives in build.sh).
 
-⚠ `build.sh` currently swallows `pio`'s exit code (trailing `elif` chain).
-CI verifies builds by log content, not exit status. Check logs for `[FAILED]`.
+⚠ Re-verified 2026-09-19: a failing `pio run` **does** propagate. `build.sh`
+is `set -e` and `pio run -e <env>` is unguarded inside `build_firmware`, which
+the `build-firmware` dispatch calls from an `if` *body* (not a condition, so
+errexit applies) — the shard exits 1 and `needs: build` skips release. What is
+genuinely silent is the artifact copy: `cp .pio/build/$1/firmware.bin out/ ||
+true`, so a `pio` that exits 0 without producing a binary drops that env from
+`out/` with no error. Still check logs for `[FAILED]`; `--prune-limit` (§3.6)
+is the backstop that keeps such a build from deleting live manifests.
 
 ### 2.2 The publish workflows
 
@@ -110,8 +116,14 @@ surfaces dispatch; push is the operative trigger.
    JSON (same base ⇒ N=prev+1, new base ⇒ N=1). Read-only; the release job is
    the sole counter writer, so failed builds never burn a number.
 2. **build** ×14 — PlatformIO toolchain cache, then `build.sh` per shard with
-   `FIRMWARE_BUILD_NUMBER` stamped. The beta workflow additionally verifies
-   the beta manifest URL is baked into each binary.
+   `FIRMWARE_BUILD_NUMBER` stamped. **Both** workflows then verify their own
+   manifest URL is baked into a built ELF and the other channel's is not
+   (production got this guard on 2026-09-19; beta had it from the start). The
+   manifest base is a compile-time `-D`, so a build that lost it or picked up
+   the wrong channel is invisible until a node runs `ota check`. Production
+   declares `OTA_MANIFEST_BASE_URL` explicitly in `env:` — equal to build.sh's
+   default — so the check asserts against the value the build was handed rather
+   than a second hardcoded copy.
 3. **release** — runs on a **shallow clone on purpose**: `git rev-parse
    --short HEAD` yields 7 chars shallow / 8 with history, and the asset
    filenames were minted by shallow build jobs. Steps:
@@ -128,14 +140,14 @@ surfaces dispatch; push is the operative trigger.
      **end** of each filename (`[0-9a-f]{7,40}(-merged)?\.bin$` — channel-tag
      agnostic). Prune failures are warnings, never job failures.
    - check out the flasher repo (`FLASHER_DISPATCH_TOKEN` secret), run
-     `gen-slim-manifests.py --bin-dir out --static-path "$STATIC_PATH" ...`,
+     `gen-slim-manifests.py --bin-dir out --prune --static-path "$STATIC_PATH" ...`,
      write the counter file, commit and push. The beta commit is **scoped**
      (`git add beta/v observer-beta-build-counter.json`) so it can never touch
      production files. Both workflows share a `concurrency: flasher-publish`
      group so they never push to the flasher repo concurrently.
 
-Neither workflow writes `config.json` or `config-beta.json` — versions are
-feed-driven (see §3.3).
+Neither workflow writes `config.json` — versions are feed-driven (see §3.3),
+and the per-channel `config-beta.json` is gone (see §3.2).
 
 ⚠ **`gh run rerun` gotchas** (learned the hard way):
 - `--failed` replays the workflow file from the run's *original* commit.
@@ -199,9 +211,13 @@ observer firmware entry:
   serve a dynamic route and the fetch would otherwise go to the SPA origin.
 - `notice` entries (partition-change warnings etc.) stay here; they are
   first-flash UI hints, independent of versions.
-- `config-beta.json` is a frozen relic of the retired channel switcher; stale
-  `?config=config-beta` links load it (or fall back to `config.json` if it's
-  ever removed). Nothing regenerates it.
+- `config-beta.json` was deleted (2026-09-19). It was a frozen relic of the
+  retired channel switcher that nothing regenerated, so it had silently drifted
+  three boards behind `config.json` — ThinkNode M7 and both Heltec V4 R8
+  variants were missing from it. Stale `?config=config-beta` links now hit
+  `flasher.js`'s missing-config fallback and reload on `config.json`. Do not
+  reintroduce a per-channel config: channels are versions in one dropdown
+  (§3.3).
 
 ### 3.3 The /releases feed (Version dropdown)
 
@@ -278,17 +294,37 @@ builder ever appears, give it the same absolute-URL guard.
 ### 3.6 gen-slim-manifests.py + harness
 
 Generates the slim per-env OTA manifests (§4) from the build output:
-`--bin-dir out --static-path <host> --out-dir <dir> --base-version vX.Y.Z
---build N --partsig-dir out`. Legacy `--config` mode (static config entries)
-is retained byte-for-byte for compatibility but nothing calls it in CI.
+`--bin-dir out --prune --static-path <host> --out-dir <dir> --base-version
+vX.Y.Z --build N --partsig-dir out`. Legacy `--config` mode (static config
+entries) is retained byte-for-byte for compatibility but nothing calls it in
+CI.
 
 The filename parser accepts `<env>-v<X.Y.Z>[-<tag>]-<hash>[-merged].bin`;
 env + hash capture is unaffected by the channel tag.
 
+**`--prune`** (added 2026-09-19, `--bin-dir` only) deletes manifests the run
+did not write. Before it the directory only ever grew, so a retired env left a
+manifest behind pointing at a release asset that the `KEEP_BUILDS=2` asset
+prune later deleted — a 404 for `ota update` on any node still running it.
+That is exactly what happened to `LilyGo_TLora_V2_1_1_6_*_observer_mqtt_`,
+disabled by the trailing underscore that hides it from enumerate's grep: its
+two beta manifests pointed at a dead `v1.16.0-9276b6a` asset for two months.
+
+⚠ Pruning is destructive, and the input it trusts is a build directory. Two
+guards: an empty `--bin-dir` fails *before* pruning (a broken invocation must
+not empty a channel), and `--prune-limit` (default 4) fails the run, deleting
+nothing, when more manifests than that would go. A failed env can't get this
+far — build.sh is `set -e` over an unguarded `pio run`, so it aborts the shard
+and `needs: build` skips release — but `cp … || true` means a `pio` that exits
+0 without emitting a binary drops an env silently, and the cap is what turns
+that into a red run instead of deleted manifests for live boards.
+
 `scripts/test-gen-slim-manifests.sh` is the regression gate — run it from the
 repo root after touching the script. It reconstructs build output *and* a
 synthetic legacy config from the committed `v/*.json` and requires both modes
-to reproduce them byte-for-byte, plus a channel-tag case and CLI guards.
+to reproduce them byte-for-byte, plus channel-tag/build-number cases, the four
+prune behaviours (prunes retired, stays additive without the flag, refuses on
+empty input, refuses over the cap) and the CLI guards.
 
 ---
 
@@ -383,6 +419,13 @@ never shows them).
 3. After the next publish, confirm the board appears **and no other board
    vanished** (silent-drop trap).
 
+**Retiring a board** is the mirror image: drop the env (or disable it — the
+trailing-underscore trick keeps it out of enumerate's grep) and delete its
+`config.json` entry. `--prune` (§3.6) removes its manifests on the next
+publish, so nodes still running it get an honest 404 on the manifest rather
+than a manifest pointing at an asset that no longer exists. Retiring more than
+four envs at once trips `--prune-limit`; raise it deliberately for that run.
+
 ### 6.4 Add a release channel
 
 Checklist (each item is load-bearing; the machinery generalises):
@@ -418,7 +461,8 @@ Checklist (each item is load-bearing; the machinery generalises):
 | Trap | Consequence | Where handled |
 |---|---|---|
 | Silent failures are the house style | broken ≠ red: publishes stop, boards vanish, OTA dies — all quietly | every §6 runbook ends in explicit verification |
-| `build.sh` swallows pio exit codes | "green" builds with missing envs | check logs for `[FAILED]` (§2.1) |
+| `build.sh` hides *partial* build failures | "green" builds with missing envs | a failing `pio run` does abort the shard (`set -e`, verified), but `cp … \|\| true` silently drops an env whose build exited 0 with no binary — check logs for `[FAILED]` (§2.1); `--prune-limit` catches the fallout (§3.6) |
+| Manifests were never pruned | retired env keeps a manifest pointing at a deleted asset ⇒ `ota update` 404s | `--prune` in both workflows (§3.6) |
 | Branch rename doesn't rewrite `branches:` filters | production publishing silently stops | dual-trigger transition procedure (used for the 2026-07-20 rename) |
 | Branch rename fires a paths-filter-bypassing push event | surprise full publish | expect it (§2.2) |
 | Job-level rerun reuses stale `enumerate` outputs | duplicate build numbers, out-of-order publishes | §2.2 rerun rules |
