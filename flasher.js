@@ -11,13 +11,18 @@ const configName = searchParams.get('config')?.replaceAll(/[^a-z_-]/g, '') ?? 'c
 // config.releasesUrl), so there is no per-channel config any more. ?config= is
 // kept for alternate configs (precedent: old-config.json); a stale or missing
 // name falls back to the default config rather than leaving the page broken —
-// this covers old ?config=config-beta links from the retired channel switcher.
+// this covers old ?config=config-beta links from the retired channel switcher
+// (config-beta.json was deleted 2026-09-19, so those links take this path).
 const configRes = await fetch(`/${configName}.json`);
 if (!configRes.ok && configName !== 'config') {
   console.warn(`${configName}.json unavailable (${configRes.status}); falling back to config.json`);
   const u = new URL(location.href);
   u.searchParams.delete('config');
   location.replace(u.toString());
+  // location.replace() schedules the navigation, it does not stop this script.
+  // Without this the .json() below parses the 404 page's HTML and throws an
+  // uncaught SyntaxError into the console of a page that is already leaving.
+  await new Promise(() => {});
 }
 const config = await configRes.json();
 
