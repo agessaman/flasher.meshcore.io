@@ -26,6 +26,21 @@ Two source modes, mutually exclusive:
 per app-only `*.bin` actually present. The manifests then describe what was
 really built and published — a hand-maintained config cannot drift from them.
 
+`--prune` (only with `--bin-dir`) additionally deletes manifests in `--out-dir`
+that this run did not write. Without it the generator only ever adds: when an
+env stops being built — e.g. `LilyGo_TLora_V2_1_1_6_*_observer_mqtt_`, disabled
+by the trailing underscore that hides it from the workflow's env-discovery
+grep — its manifest stayed behind pointing at a release asset that later got
+pruned, so any node still on that build asked OTA to fetch a 404.
+A failed env cannot cause a wrong prune: build.sh is `set -e` over an unguarded
+`pio run`, so it aborts the shard, the job fails and the release job (`needs:
+build`) never runs. The residual risk is the quieter one — build.sh's
+`cp .pio/build/$1/firmware.bin out/ || true` means a `pio` that exits 0 without
+emitting a binary drops that env from out/ silently. So the prune is capped
+(`--prune-limit`, default 4): retiring an env is a rare, deliberate, one-or-two
+-env act, while a build that silently lost envs blows past the cap and fails the
+run instead of deleting the OTA manifests of boards that are still shipping.
+
 `--config` (legacy) derives the set from config.json's static
 `version[].files[]` entries, taking the download host from its `staticPath`.
 Kept so existing workflow invocations keep working unchanged; output is
@@ -33,7 +48,7 @@ byte-identical to the pre-dual-mode script.
 
 Usage:
     # Preferred — from the build output:
-    gen-slim-manifests.py --bin-dir out --out-dir v \
+    gen-slim-manifests.py --bin-dir out --out-dir v --prune \
         --static-path https://observer-fw.gessaman.com \
         --base-version v1.16.0 --build 5 --partsig-dir out
 
@@ -105,6 +120,12 @@ def main() -> int:
     ap.add_argument("--build", required=True, type=int, help="published build number N")
     ap.add_argument("--partsig-dir", default=None,
                     help="directory of <env>.partsig files (partition-table signatures from build.sh)")
+    ap.add_argument("--prune", action="store_true",
+                    help="delete <out-dir>/*.json not written by this run (requires --bin-dir, "
+                         "where the build output is the authoritative env list)")
+    ap.add_argument("--prune-limit", type=int, default=4,
+                    help="fail instead of pruning if more than N manifests would be deleted "
+                         "(default 4); a large prune means a broken build, not a retirement")
     args = ap.parse_args()
 
     if args.bin_dir:
@@ -117,6 +138,10 @@ def main() -> int:
         if args.static_path:
             ap.error("--static-path is only valid with --bin-dir "
                      "(--config mode uses config.json's staticPath)")
+        if args.prune:
+            ap.error("--prune is only valid with --bin-dir "
+                     "(--config mode's env list comes from a hand-maintained file, "
+                     "so absence there does not mean an env stopped being built)")
         static_path, assets = assets_from_config(args.config)
         empty_msg = "ERROR: no flash-update assets found in config.json"
 
@@ -149,8 +174,28 @@ def main() -> int:
 
     print(f"wrote {written} slim manifest(s) to {out_dir}/")
     if written == 0:
+        # Guard the prune below: an empty asset list means a broken invocation,
+        # not that every env was retired, and pruning on it would wipe the channel.
         print(empty_msg, file=sys.stderr)
         return 1
+
+    if args.prune:
+        keep = {f"{env}.json" for _, env, _ in assets}
+        stale = [p for p in sorted(out_dir.glob("*.json")) if p.name not in keep]
+        # Decide on the whole set before deleting any of it, so tripping the cap
+        # leaves the directory untouched rather than half-pruned.
+        if len(stale) > args.prune_limit:
+            print(f"ERROR: {len(stale)} manifests in {out_dir}/ have no binary in "
+                  f"{args.bin_dir}/, over --prune-limit={args.prune_limit}. That is a "
+                  f"build that lost envs, not a retirement; refusing to prune.",
+                  file=sys.stderr)
+            for p in stale:
+                print(f"  would have pruned: {p.name}", file=sys.stderr)
+            return 1
+        for p in stale:
+            p.unlink()
+            print(f"pruned stale manifest (env no longer built): {p.name}")
+        print(f"pruned {len(stale)} stale manifest(s) from {out_dir}/")
     return 0
 
 
