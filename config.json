@@ -16,7 +16,10 @@
   "notice": {
     "partition-change": "<p><b>&#9888; PARTITION TABLE CHANGED:</b> First flash <b>must</b> use &quot;Erase device&quot; (merged firmware). NVS settings will be wiped. After the first flash, standard updates work normally.</p>",
     "tlora-observer": "<p><b>&#9888; NO PSRAM:</b> Only <b>one</b> active WSS/TLS MQTT broker is supported. Configure your preferred broker in slot 1 and set unused slots to <code>none</code>.</p><p><b>&#9888; PARTITION TABLE CHANGED:</b> First flash <b>must</b> use &quot;Erase device&quot; (merged firmware). NVS settings will be wiped. After the first flash, standard updates work normally.</p>",
-    "station-g3-r2": "<p><b>&#9888; SECOND RF SLOT:</b> This firmware is designed for a Station G3 with the LoRa card in the <b>second RF slot</b>. This is not the default configuration.</p><p><b>&#9888; PARTITION TABLE CHANGED:</b> First flash <b>must</b> use &quot;Erase device&quot; (merged firmware). NVS settings will be wiped. After the first flash, standard updates work normally.</p>"
+    "station-g3-r2": "<p><b>&#9888; SECOND RF SLOT:</b> This firmware is designed for a Station G3 with the LoRa card in the <b>second RF slot</b>. This is not the default configuration.</p><p><b>&#9888; PARTITION TABLE CHANGED:</b> First flash <b>must</b> use &quot;Erase device&quot; (merged firmware). NVS settings will be wiped. After the first flash, standard updates work normally.</p>",
+    "dev-preview": "<p><b>&#9888; DEV PREVIEW:</b> This board is new to the observer firmware and has not been hardware-tested yet. It is only published on the <b>-dev</b> version. Please report what works and what doesn't.</p>",
+    "dev-preview-partition": "<p><b>&#9888; DEV PREVIEW:</b> This board is new to the observer firmware and has not been hardware-tested yet. It is only published on the <b>-dev</b> version. Please report what works and what doesn't.</p><p><b>&#9888; PARTITION TABLE CHANGED:</b> First flash <b>must</b> use &quot;Erase device&quot; (merged firmware). NVS settings will be wiped. After the first flash, standard updates work normally.</p>",
+    "dev-preview-teth": "<p><b>&#9888; DEV PREVIEW:</b> This board is new to the observer firmware and has not been hardware-tested yet. It is only published on the <b>-dev</b> version. Please report what works and what doesn't.</p><p>The observer connects over <b>WiFi</b> only; the T-ETH Elite's Ethernet port is not used yet.</p>"
   },
   "maker": {
     "heltec": {
@@ -36,6 +39,9 @@
     },
     "elecrow": {
       "name": "Elecrow"
+    },
+    "meshnology": {
+      "name": "Meshnology"
     }
   },
   "device": [
@@ -322,6 +328,190 @@
       ]
     },
     {
+      "maker": "heltec",
+      "class": "observer",
+      "name": "Heltec RC32",
+      "tooltip": "<img class='device' src='/img/lora.svg'>",
+      "icon": "/img/lora.svg",
+      "type": "esp32",
+      "firmware": [
+        {
+          "role": "repeater",
+          "github": {
+            "type": "observer-repeater",
+            "files": {
+              "flash-wipe": "^heltec_rc32_repeater_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^heltec_rc32_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          },
+          "notice": "dev-preview"
+        },
+        {
+          "role": "roomServer",
+          "github": {
+            "type": "observer-room-server",
+            "files": {
+              "flash-wipe": "^heltec_rc32_room_server_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^heltec_rc32_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          },
+          "notice": "dev-preview"
+        },
+        {
+          "role": "repeater",
+          "subTitle": "(no display)",
+          "github": {
+            "type": "observer-repeater",
+            "files": {
+              "flash-wipe": "^heltec_rc32_without_display_repeater_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^heltec_rc32_without_display_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          },
+          "notice": "dev-preview"
+        },
+        {
+          "role": "roomServer",
+          "subTitle": "(no display)",
+          "github": {
+            "type": "observer-room-server",
+            "files": {
+              "flash-wipe": "^heltec_rc32_without_display_room_server_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^heltec_rc32_without_display_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          },
+          "notice": "dev-preview"
+        }
+      ]
+    },
+    {
+      "maker": "heltec",
+      "class": "observer",
+      "name": "Heltec Wireless Tracker v1.0",
+      "tooltip": "<img class='device' src='/img/heltec_wt3.svg'>",
+      "icon": "/img/lora.svg",
+      "type": "esp32",
+      "firmware": [
+        {
+          "role": "repeater",
+          "github": {
+            "type": "observer-repeater",
+            "files": {
+              "flash-wipe": "^Heltec_Wireless_Tracker_repeater_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^Heltec_Wireless_Tracker_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          },
+          "notice": "dev-preview"
+        },
+        {
+          "role": "roomServer",
+          "github": {
+            "type": "observer-room-server",
+            "files": {
+              "flash-wipe": "^Heltec_Wireless_Tracker_room_server_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^Heltec_Wireless_Tracker_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          },
+          "notice": "dev-preview"
+        }
+      ]
+    },
+    {
+      "maker": "heltec",
+      "class": "observer",
+      "name": "Heltec Wireless Paper",
+      "tooltip": "<img class='device' src='/img/heltec_wp.svg'>",
+      "icon": "/img/lora.svg",
+      "type": "esp32",
+      "firmware": [
+        {
+          "role": "repeater",
+          "github": {
+            "type": "observer-repeater",
+            "files": {
+              "flash-wipe": "^Heltec_Wireless_Paper_repeater_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^Heltec_Wireless_Paper_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          },
+          "notice": "dev-preview"
+        },
+        {
+          "role": "roomServer",
+          "github": {
+            "type": "observer-room-server",
+            "files": {
+              "flash-wipe": "^Heltec_Wireless_Paper_room_server_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^Heltec_Wireless_Paper_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          },
+          "notice": "dev-preview"
+        }
+      ]
+    },
+    {
+      "maker": "heltec",
+      "class": "observer",
+      "name": "Heltec Vision Master E213",
+      "tooltip": "<img class='device' src='/img/heltec_e213.svg'>",
+      "icon": "/img/lora.svg",
+      "type": "esp32",
+      "firmware": [
+        {
+          "role": "repeater",
+          "github": {
+            "type": "observer-repeater",
+            "files": {
+              "flash-wipe": "^Heltec_E213_repeater_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^Heltec_E213_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          },
+          "notice": "dev-preview"
+        },
+        {
+          "role": "roomServer",
+          "github": {
+            "type": "observer-room-server",
+            "files": {
+              "flash-wipe": "^Heltec_E213_room_server_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^Heltec_E213_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          },
+          "notice": "dev-preview"
+        }
+      ]
+    },
+    {
+      "maker": "heltec",
+      "class": "observer",
+      "name": "Heltec Vision Master E290",
+      "tooltip": "<img class='device' src='/img/heltec_e290.svg'>",
+      "icon": "/img/lora.svg",
+      "type": "esp32",
+      "firmware": [
+        {
+          "role": "repeater",
+          "github": {
+            "type": "observer-repeater",
+            "files": {
+              "flash-wipe": "^Heltec_E290_repeater_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^Heltec_E290_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          },
+          "notice": "dev-preview"
+        },
+        {
+          "role": "roomServer",
+          "github": {
+            "type": "observer-room-server",
+            "files": {
+              "flash-wipe": "^Heltec_E290_room_server_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^Heltec_E290_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          },
+          "notice": "dev-preview"
+        }
+      ]
+    },
+    {
       "maker": "lilygo",
       "class": "observer",
       "name": "LilyGo T3 S3 (SX1262)",
@@ -536,6 +726,38 @@
       ]
     },
     {
+      "maker": "ebyte",
+      "class": "observer",
+      "name": "EByte EoRa-S3",
+      "tooltip": "<img class='device' src='/img/lora.svg'>",
+      "icon": "/img/lora.svg",
+      "type": "esp32",
+      "firmware": [
+        {
+          "role": "repeater",
+          "github": {
+            "type": "observer-repeater",
+            "files": {
+              "flash-wipe": "^Ebyte_EoRa-S3_repeater_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^Ebyte_EoRa-S3_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          },
+          "notice": "dev-preview-partition"
+        },
+        {
+          "role": "roomServer",
+          "github": {
+            "type": "observer-room-server",
+            "files": {
+              "flash-wipe": "^Ebyte_EoRa-S3_room_server_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^Ebyte_EoRa-S3_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          },
+          "notice": "dev-preview-partition"
+        }
+      ]
+    },
+    {
       "maker": "lilygo",
       "class": "observer",
       "name": "T-Beam S3 Supreme (SX1262)",
@@ -626,6 +848,70 @@
       ]
     },
     {
+      "maker": "lilygo",
+      "class": "observer",
+      "name": "LilyGo T3 S3 (SX1276)",
+      "tooltip": "<img class='device' src='/img/lilygo_t3s3.svg'>",
+      "icon": "/img/lora.svg",
+      "type": "esp32",
+      "firmware": [
+        {
+          "role": "repeater",
+          "github": {
+            "type": "observer-repeater",
+            "files": {
+              "flash-wipe": "^LilyGo_T3S3_sx1276_repeater_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^LilyGo_T3S3_sx1276_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          },
+          "notice": "dev-preview-partition"
+        },
+        {
+          "role": "roomServer",
+          "github": {
+            "type": "observer-room-server",
+            "files": {
+              "flash-wipe": "^LilyGo_T3S3_sx1276_room_server_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^LilyGo_T3S3_sx1276_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          },
+          "notice": "dev-preview-partition"
+        }
+      ]
+    },
+    {
+      "maker": "lilygo",
+      "class": "observer",
+      "name": "LilyGo T-ETH Elite (SX1262)",
+      "tooltip": "<img class='device' src='/img/lora.svg'>",
+      "icon": "/img/lora.svg",
+      "type": "esp32",
+      "firmware": [
+        {
+          "role": "repeater",
+          "github": {
+            "type": "observer-repeater",
+            "files": {
+              "flash-wipe": "^LilyGo_TETH_Elite_sx1262_repeater_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^LilyGo_TETH_Elite_sx1262_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          },
+          "notice": "dev-preview-teth"
+        },
+        {
+          "role": "roomServer",
+          "github": {
+            "type": "observer-room-server",
+            "files": {
+              "flash-wipe": "^LilyGo_TETH_Elite_sx1262_room_server_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^LilyGo_TETH_Elite_sx1262_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          },
+          "notice": "dev-preview-teth"
+        }
+      ]
+    },
+    {
       "maker": "seeed",
       "class": "observer",
       "name": "Xiao S3 WIO",
@@ -656,6 +942,38 @@
       ]
     },
     {
+      "maker": "seeed",
+      "class": "observer",
+      "name": "Xiao S3",
+      "tooltip": "<img class='device' src='/img/xiao_esp32s3.svg'>",
+      "icon": "/img/lora.svg",
+      "type": "esp32",
+      "firmware": [
+        {
+          "role": "repeater",
+          "github": {
+            "type": "observer-repeater",
+            "files": {
+              "flash-wipe": "^Xiao_S3_repeater_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^Xiao_S3_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          },
+          "notice": "dev-preview"
+        },
+        {
+          "role": "roomServer",
+          "github": {
+            "type": "observer-room-server",
+            "files": {
+              "flash-wipe": "^Xiao_S3_room_server_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^Xiao_S3_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          },
+          "notice": "dev-preview"
+        }
+      ]
+    },
+    {
       "maker": "elecrow",
       "class": "observer",
       "name": "Elecrow ThinkNode M7",
@@ -682,6 +1000,38 @@
               "flash-update": "^ThinkNode_M7_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
             }
           }
+        }
+      ]
+    },
+    {
+      "maker": "meshnology",
+      "class": "observer",
+      "name": "Meshnology W12",
+      "tooltip": "<img class='device' src='/img/lora.svg'>",
+      "icon": "/img/lora.svg",
+      "type": "esp32",
+      "firmware": [
+        {
+          "role": "repeater",
+          "github": {
+            "type": "observer-repeater",
+            "files": {
+              "flash-wipe": "^meshnology_w12_repeater_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^meshnology_w12_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          },
+          "notice": "dev-preview"
+        },
+        {
+          "role": "roomServer",
+          "github": {
+            "type": "observer-room-server",
+            "files": {
+              "flash-wipe": "^meshnology_w12_room_server_observer_mqtt-v.*-merged\\.bin$",
+              "flash-update": "^meshnology_w12_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
+            }
+          },
+          "notice": "dev-preview"
         }
       ]
     }
