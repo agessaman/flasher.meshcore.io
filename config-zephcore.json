@@ -1,0 +1,1037 @@
+{
+	"staticPath": "/firmware",
+	"role": {
+		"companion": {
+			"icon": "smartphone",
+			"title": "Companion",
+			"tooltip": "Unified Companion firmware: Chat via mobile phone App, Web Client, CLI"
+		},
+		"repeater": {
+			"icon": "cell_tower",
+			"title": "Repeater",
+			"tooltip": "Special role just for routing packets. Configured via Config/Console on flasher main page"
+		}
+	},
+	"notice": {
+		"otafixRecommended": "<article class='tertiary-container'>We strongly recommend installing <a target='_blank' href='/firmware/${bootloader}'>OTAFIX bootloader</a> by <a target='_blank' href='https://github.com/oltaco'>@oltaco</a> for more reliable Bluetooth OTA DFU. <a target='_blank' href='https://blog.meshcore.io/2026/04/06/otafix-bootloader'>Read more</a></article>",
+		"otafixNeeded": "<article class='tertiary-container'>WARNING: We strongly recommend installing <a target='_blank' href='/firmware/${bootloader}'>OTAFIX bootloader</a> by <a target='_blank' href='https://github.com/oltaco'>@oltaco</a> if you plan to update firmware via OTA bluetooth, as factory bootloader does not support it! <a target='_blank' href='https://blog.meshcore.io/2026/04/06/otafix-bootloader'>Read more</a></article>",
+		"rippleUserGuide": "<article class='primary-container'>For first time users, we recommend reading <a target='_blank' href='https://files.liamcottle.net/MeshCore/Documentation/Ripple_User_Guide.pdf'>Ripple User Guide</a></article>",
+		"kissRadioNotice": "<article class='primary-container'>You can use this firmware with <a target='_blank' href='https://github.com/openhop-dev/openhop_repeater'>openHop Repeater</a></article>"
+	},
+	"device": [
+		{
+			"maker": "seeed",
+			"name": "Seeed Studio Wio Tracker L1 Pro",
+			"icon": "/img/lora.svg",
+			"tooltip": "<img class='device' src='/img/wio_tracker_l1.svg'>",
+			"type": "nrf52",
+			"erase": "ZephCore_SoftDevice_v7_formatter.zip",
+			"bootloader": [
+				"wio_tracker_l1_bootloader-0.9.2-OTAFIX2.2.uf2",
+				"wio_tracker_l1_bootloader-0.9.2-OTAFIX2.2.zip"
+			],
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "wio_tracker_l1-companion-[^-]+\\.zip",
+							"download": "wio_tracker_l1-companion-[^-]+\\.uf2"
+						}
+					}
+				},
+				{
+					"class": "community",
+					"role": "repeater",
+					"notice": "otafixNeeded",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "wio_tracker_l1-repeater-[^-]+\\.zip",
+							"download": "wio_tracker_l1-repeater-[^-]+\\.uf2"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "lilygo",
+			"name": "LilyGo T-Beam (SX1262)",
+			"group": "LilyGo T-Beam",
+			"icon": "/img/lora.svg",
+			"type": "esp32",
+			"tooltip": "<img class='device' src='/img/lilygo_tbeam.svg'>",
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash-wipe": "ttgo_tbeam-esp32-procpu-companion-[^-]+-merged\\.bin",
+							"flash-update": "ttgo_tbeam-esp32-procpu-companion-[^-]+\\.bin"
+						}
+					}
+				},
+				{
+					"class": "community",
+					"role": "repeater",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash-wipe": "ttgo_tbeam-esp32-procpu-repeater-[^-]+-merged\\.bin",
+							"flash-update": "ttgo_tbeam-esp32-procpu-repeater-[^-]+\\.bin"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "lilygo",
+			"name": "LilyGo T-Lora C6",
+			"icon": "/img/lora.svg",
+			"type": "esp32",
+			"tooltip": "<img class='device' src='/img/lilygo_tlora_c6.svg'>",
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash-wipe": "lilygo_tlora_c6-esp32c6-hpcore-companion-[^-]+-merged\\.bin",
+							"flash-update": "lilygo_tlora_c6-esp32c6-hpcore-companion-[^-]+-update\\.bin"
+						}
+					}
+				},
+				{
+					"class": "community",
+					"role": "repeater",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash-wipe": "lilygo_tlora_c6-esp32c6-hpcore-repeater-[^-]+-merged\\.bin",
+							"flash-update": "lilygo_tlora_c6-esp32c6-hpcore-repeater-[^-]+-update\\.bin"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "lilygo",
+			"name": "LilyGo T-Echo",
+			"icon": "/img/lora.svg",
+			"type": "nrf52",
+			"bootloader": [
+				"lilygo_techo_bootloader-0.9.2-OTAFIX2.2.uf2",
+				"lilygo_techo_bootloader-0.9.2-OTAFIX2.2.zip"
+			],
+			"erase": "ZephCore_SoftDevice_v6_formatter.zip",
+			"tooltip": "<img class='device' src='/img/lilygo_techo.svg'>",
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "techo-companion-[^-]+\\.zip",
+							"download": "techo-companion-[^-]+\\.uf2"
+						}
+					}
+				},
+				{
+					"class": "community",
+					"role": "repeater",
+					"notice": "otafixNeeded",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "techo-repeater-[^-]+\\.zip",
+							"download": "techo-repeater-[^-]+\\.uf2"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "gat-iot",
+			"name": "GAT-IoT GAT562 30s",
+			"icon": "/img/lora.svg",
+			"tooltip": "<img class='device' src='/img/gatiot_gat562_30s.svg'>",
+			"type": "nrf52",
+			"erase": "ZephCore_SoftDevice_v6_formatter.zip",
+			"bootloader": [
+				"wiscore_rak4631_board_bootloader-0.9.2-OTAFIX2.2.uf2",
+				"wiscore_rak4631_board_bootloader-0.9.2-OTAFIX2.2.zip"
+			],
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "gat562_30s-companion-[^-]+\\.zip",
+							"download": "gat562_30s-companion-[^-]+\\.uf2"
+						}
+					}
+				},
+				{
+					"class": "community",
+					"role": "repeater",
+					"notice": "otafixNeeded",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "gat562_30s-repeater-[^-]+\\.zip",
+							"download": "gat562_30s-repeater-[^-]+\\.uf2"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "heltec",
+			"name": "Heltec v3",
+			"icon": "/img/lora.svg",
+			"type": "esp32",
+			"tooltip": "<img class='device' src='/img/heltec_v3.svg'>",
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash-wipe": "heltec_wifi_lora32_v3-esp32s3-procpu-companion-[^-]+-merged\\.bin",
+							"flash-update": "heltec_wifi_lora32_v3-esp32s3-procpu-companion-[^-]+-update\\.bin"
+						}
+					}
+				},
+				{
+					"class": "community",
+					"role": "repeater",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash-wipe": "heltec_wifi_lora32_v3-esp32s3-procpu-repeater-[^-]+-merged\\.bin",
+							"flash-update": "heltec_wifi_lora32_v3-esp32s3-procpu-repeater-[^-]+-update\\.bin"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "heltec",
+			"name": "Heltec v4",
+			"icon": "/img/lora.svg",
+			"type": "esp32",
+			"tooltip": "<img class='device' src='/img/heltec_v4.svg'>",
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash-wipe": "heltec_wifi_lora32_v4-esp32s3-procpu-companion-[^-]+-merged\\.bin",
+							"flash-update": "heltec_wifi_lora32_v4-esp32s3-procpu-companion-[^-]+-update\\.bin"
+						}
+					}
+				},
+				{
+					"class": "community",
+					"role": "repeater",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash-wipe": "heltec_wifi_lora32_v4-esp32s3-procpu-repeater-[^-]+-merged\\.bin",
+							"flash-update": "heltec_wifi_lora32_v4-esp32s3-procpu-repeater-[^-]+-update\\.bin"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "heltec",
+			"name": "Heltec Mesh Node T096",
+			"icon": "/img/lora.svg",
+			"type": "nrf52",
+			"erase": "ZephCore_SoftDevice_v6_formatter.zip",
+			"bootloader": [
+				"heltec_t096_bootloader-0.9.2-OTAFIX2.3.uf2",
+				"heltec_t096_bootloader-0.9.2-OTAFIX2.3.zip"
+			],
+			"tooltip": "<img class='device' src='/img/heltec_t096.svg'>",
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "heltec_t096-companion-[^-]+\\.zip",
+							"download": "heltec_t096-companion-[^-]+\\.uf2"
+						}
+					}
+				},
+				{
+					"class": "community",
+					"role": "repeater",
+					"notice": "otafixNeeded",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "heltec_t096-repeater-[^-]+\\.zip",
+							"download": "heltec_t096-repeater-[^-]+\\.uf2"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "heltec",
+			"name": "Heltec Mesh Node T1",
+			"icon": "/img/lora.svg",
+			"type": "nrf52",
+			"erase": "ZephCore_SoftDevice_v6_formatter.zip",
+			"bootloader": [
+				"heltec_t1_bootloader-0.9.2-OTAFIX2.3.uf2",
+				"heltec_t1_bootloader-0.9.2-OTAFIX2.3.zip"
+			],
+			"tooltip": "<img class='device' src='/img/heltec_t1.svg'>",
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "heltec_t1-companion-[^-]+\\.zip",
+							"download": "heltec_t1-companion-[^-]+\\.uf2"
+						}
+					}
+				},
+				{
+					"class": "community",
+					"role": "repeater",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "heltec_t1-repeater-[^-]+\\.zip",
+							"download": "heltec_t1-repeater-[^-]+\\.uf2"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "heltec",
+			"name": "Heltec T114",
+			"icon": "/img/lora.svg",
+			"type": "nrf52",
+			"erase": "ZephCore_SoftDevice_v6_formatter.zip",
+			"bootloader": [
+				"heltec_t114_bootloader-0.9.2-OTAFIX2.2.uf2",
+				"heltec_t114_bootloader-0.9.2-OTAFIX2.2.zip"
+			],
+			"tooltip": "<img class='device' src='/img/heltec_t114.svg'>",
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "heltec_t114-companion-[^-]+\\.zip",
+							"download": "heltec_t114-companion-[^-]+\\.uf2"
+						}
+					}
+				},
+				{
+					"class": "community",
+					"role": "repeater",
+					"notice": "otafixNeeded",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "heltec_t114-repeater-[^-]+\\.zip",
+							"download": "heltec_t114-repeater-[^-]+\\.uf2"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "heltec",
+			"name": "Heltec Wireless Tracker v2",
+			"icon": "/img/lora.svg",
+			"type": "esp32",
+			"tooltip": "<img class='device' src='/img/heltec_wt2.svg'>",
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash-wipe": "heltec_wireless_tracker_v2-esp32s3-procpu-companion-[^-]+-merged\\.bin",
+							"flash-update": "heltec_wireless_tracker_v2-esp32s3-procpu-companion-[^-]+-update\\.bin"
+						}
+					}
+				},
+				{
+					"class": "community",
+					"role": "repeater",
+					"notice": "otafixNeeded",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash-wipe": "heltec_wireless_tracker_v2-esp32s3-procpu-repeater-[^-]+-merged\\.bin",
+							"flash-update": "heltec_wireless_tracker_v2-esp32s3-procpu-repeater-[^-]+-update\\.bin"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "heltec",
+			"name": "Heltec Wireless Tracker",
+			"icon": "/img/lora.svg",
+			"type": "esp32",
+			"tooltip": "<img class='device' src='/img/heltec_wt3.svg'>",
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash-wipe": "heltec_wireless_tracker-esp32s3-procpu-companion-[^-]+-merged\\.bin",
+							"flash-update": "heltec_wireless_tracker-esp32s3-procpu-companion-[^-]+-update\\.bin"
+						}
+					}
+				},
+				{
+					"class": "community",
+					"role": "repeater",
+					"notice": "otafixNeeded",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash-wipe": "heltec_wireless_tracker-esp32s3-procpu-repeater-[^-]+-merged\\.bin",
+							"flash-update": "heltec_wireless_tracker-esp32s3-procpu-repeater-[^-]+-update\\.bin"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "Ikoka",
+			"name": "Ikoka Nano",
+			"icon": "/img/lora.svg",
+			"tooltip": "<img class='device' src='/img/ikoka_nano.svg'>",
+			"type": "nrf52",
+			"erase": "ZephCore_SoftDevice_v7_formatter.zip",
+			"bootloader": [
+				"xiao_nrf52840_ble_bootloader-0.9.2-OTAFIX2.2.uf2",
+				"xiao_nrf52840_ble_bootloader-0.9.2-OTAFIX2.2.zip"
+			],
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"title": "[30dBm] Companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "ikoka_nano_30dbm-companion-[^-]+\\.zip",
+							"download": "ikoka_nano_30dbm-companion-[^-]+\\.uf2"
+						}
+					}
+				},
+				{
+					"class": "community",
+					"role": "repeater",
+					"title": "[30dBm] Repeater",
+					"notice": "otafixNeeded",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "ikoka_nano_30dbm-repeater-[^-]+\\.zip",
+							"download": "ikoka_nano_30dbm-repeater-[^-]+\\.uf2"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "rak",
+			"name": "RAK WisBlock / WisMesh (RAK 4631)",
+			"icon": "/img/lora.svg",
+			"tooltip": "<img class='device' src='/img/rak_4631.svg'>",
+			"type": "nrf52",
+			"erase": "ZephCore_SoftDevice_v6_formatter.zip",
+			"bootloader": [
+				"wiscore_rak4631_board_bootloader-0.9.2-OTAFIX2.2.uf2",
+				"wiscore_rak4631_board_bootloader-0.9.2-OTAFIX2.2.zip"
+			],
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "rak4631-companion-[^-]+\\.zip",
+							"download": "rak4631-companion-[^-]+\\.uf2"
+						}
+					}
+				},
+				{
+					"class": "community",
+					"role": "repeater",
+					"notice": "otafixNeeded",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "rak4631-repeater-[^-]+\\.zip",
+							"download": "rak4631-repeater-[^-]+\\.uf2"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "rak",
+			"name": "RAK WisMesh 1W Booster (3401 + 13302)",
+			"icon": "/img/lora.svg",
+			"tooltip": "<img class='device' src='/img/rak_1w.svg'>",
+			"type": "nrf52",
+			"erase": "ZephCore_SoftDevice_v6_formatter.zip",
+			"bootloader": [
+				"wiscore_rak3401_board_bootloader-0.9.2-OTAFIX2.3.uf2",
+				"wiscore_rak3401_board_bootloader-0.9.2-OTAFIX2.3.zip"
+			],
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "rak3401_1watt-companion-[^-]+\\.zip",
+							"download": "rak3401_1watt-companion-[^-]+\\.uf2"
+						}
+					}
+				},
+				{
+					"class": "community",
+					"role": "repeater",
+					"notice": "otafixNeeded",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "rak3401_1watt-repeater-[^-]+\\.zip",
+							"download": "rak3401_1watt-repeater-[^-]+\\.uf2"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "rak",
+			"name": "RAK WisMesh Tag",
+			"icon": "/img/lora.svg",
+			"tooltip": "<img class='device' src='/img/rak_wismesh_tag.svg'>",
+			"type": "nrf52",
+			"erase": "ZephCore_SoftDevice_v6_formatter.zip",
+			"bootloader": [
+				"wismesh_tag_bootloader-0.9.2-OTAFIX2.2.uf2",
+				"wismesh_tag_bootloader-0.9.2-OTAFIX2.2.zip"
+			],
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "rak_wismesh_tag-companion-[^-]+\\.zip",
+							"download": "rak_wismesh_tag-companion-[^-]+\\.uf2"
+						}
+					}
+				},
+				{
+					"class": "community",
+					"role": "repeater",
+					"notice": "otafixNeeded",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "rak_wismesh_tag-repeater-[^-]+\\.zip",
+							"download": "rak_wismesh_tag-repeater-[^-]+\\.uf2"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "seeed",
+			"name": "Seeed Studio SenseCAP Solar Node P1",
+			"icon": "/img/lora.svg",
+			"tooltip": "<img class='device' src='/img/sensecap_solar.svg'>",
+			"type": "nrf52",
+			"erase": "ZephCore_SoftDevice_v7_formatter.zip",
+			"bootloader": [
+				"sensecap_solar_p1_bootloader-0.9.2-OTAFIX2.2.uf2",
+				"sensecap_solar_p1_bootloader-0.9.2-OTAFIX2.2.zip"
+			],
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "sensecap_solar-companion-[^-]+\\.zip",
+							"download": "sensecap_solar-companion-[^-]+\\.uf2"
+						}
+					}
+				},
+				{
+					"class": "community",
+					"role": "repeater",
+					"notice": "otafixNeeded",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "sensecap_solar-repeater-[^-]+\\.zip",
+							"download": "sensecap_solar-repeater-[^-]+\\.uf2"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "seeed",
+			"name": "Seeed Studio SenseCAP T1000-E",
+			"icon": "/img/lora.svg",
+			"tooltip": "<img class='device' src='/img/sensecap_t1000e.svg'>",
+			"type": "nrf52",
+			"erase": "ZephCore_SoftDevice_v7_formatter.zip",
+			"bootloader": [
+				"t1000_e_bootloader-0.9.2-OTAFIX2.2.uf2",
+				"t1000_e_bootloader-0.9.2-OTAFIX2.2.zip"
+			],
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "t1000_e-companion-[^-]+\\.zip",
+							"download": "t1000_e-companion-[^-]+\\.uf2"
+						}
+					}
+				},
+				{
+					"class": "community",
+					"role": "repeater",
+					"notice": "otafixNeeded",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "t1000_e-repeater-[^-]+\\.zip",
+							"download": "t1000_e-repeater-[^-]+\\.uf2"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "seeed",
+			"name": "Seeed Studio SenseCAP MeshTracker X1",
+			"icon": "/img/lora.svg",
+			"tooltip": "<img class='device' src='/img/meshtracker_x1.svg'>",
+			"type": "nrf52",
+			"erase": "ZephCore_SoftDevice_v7_formatter.zip",
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "meshtracker_x1-companion-[^-]+\\.zip",
+							"download": "meshtracker_x1-companion-[^-]+\\.uf2"
+						}
+					}
+				},
+				{
+					"class": "community",
+					"role": "repeater",
+					"notice": "otafixNeeded",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "meshtracker_x1-repeater-[^-]+\\.zip",
+							"download": "meshtracker_x1-repeater-[^-]+\\.uf2"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "seeed",
+			"name": "Seeed Studio Xiao C3",
+			"icon": "/img/lora.svg",
+			"tooltip": "<img class='device' src='/img/xiao_esp32c3.svg'>",
+			"type": "esp32",
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash-wipe": "xiao_esp32c3-companion-[^-]+-merged\\.bin",
+							"flash-update": "xiao_esp32c3-companion-[^-]+-update\\.bin"
+						}
+					}
+				},
+
+				{
+					"class": "community",
+					"role": "repeater",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash-wipe": "xiao_esp32c3-repeater-[^-]+-merged\\.bin",
+							"flash-update": "xiao_esp32c3-repeater-[^-]+-update\\.bin"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "seeed",
+			"name": "Seeed Studio Xiao C6",
+			"icon": "/img/lora.svg",
+			"tooltip": "<img class='device' src='/img/xiao_esp32c6.svg'>",
+			"type": "esp32",
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash-wipe": "xiao_esp32c6-esp32c6-hpcore-companion-[^-]+-merged\\.bin",
+							"flash-update": "xiao_esp32c6-esp32c6-hpcore-companion-[^-]+-update\\.bin"
+						}
+					}
+				},
+
+				{
+					"class": "community",
+					"role": "repeater",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash-wipe": "xiao_esp32c6-esp32c6-hpcore-repeater-[^-]+-merged\\.bin",
+							"flash-update": "xiao_esp32c6-esp32c6-hpcore-repeater-[^-]+-update\\.bin"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "seeed",
+			"name": "Seeed Studio Xiao S3 WIO",
+			"icon": "/img/lora.svg",
+			"tooltip": "<img class='device' src='/img/xiao_esp32s3.svg'>",
+			"type": "esp32",
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash-wipe": "xiao_esp32s3-esp32s3-procpu-companion-[^-]+-merged\\.bin",
+							"flash-update": "xiao_esp32s3-esp32s3-procpu-companion-[^-]+-update\\.bin"
+						}
+					}
+				},
+
+				{
+					"class": "community",
+					"role": "repeater",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash-wipe": "xiao_esp32s3-esp32s3-procpu-repeater-[^-]+-merged\\.bin",
+							"flash-update": "xiao_esp32s3-esp32s3-procpu-repeater-[^-]+-update\\.bin"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "seeed",
+			"name": "Seeed Studio Xiao nRF52 WIO",
+			"icon": "/img/lora.svg",
+			"tooltip": "<img class='device' src='/img/xiao_nrf52.svg'>",
+			"type": "nrf52",
+			"erase": "ZephCore_SoftDevice_v7_formatter.zip",
+			"bootloader": [
+				"xiao_nrf52840_ble_bootloader-0.9.2-OTAFIX2.2.uf2",
+				"xiao_nrf52840_ble_sense_bootloader-0.9.2-OTAFIX2.2.uf2",
+				"xiao_nrf52840_ble_bootloader-0.9.2-OTAFIX2.2.zip",
+				"xiao_nrf52840_ble_sense_bootloader-0.9.2-OTAFIX2.2.zip"
+			],
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "xiao_nrf52840-companion-[^-]+\\.zip",
+							"download": "xiao_nrf52840-companion-[^-]+\\.uf2"
+						}
+					}
+				},
+				{
+					"class": "community",
+					"role": "repeater",
+					"notice": "otafixNeeded",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "xiao_nrf52840-repeater-[^-]+\\.zip",
+							"download": "xiao_nrf52840-repeater-[^-]+\\.uf2"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "elecrow",
+			"name": "Elecrow ThinkNode M1",
+			"icon": "/img/lora.svg",
+			"tooltip": "<img class='device' src='/img/thinknode_m1.svg'>",
+			"type": "nrf52",
+			"erase": "ZephCore_SoftDevice_v6_formatter.zip",
+			"bootloader": [
+				"thinknode_m1_bootloader-0.9.2-OTAFIX2.2.uf2",
+				"thinknode_m1_bootloader-0.9.2-OTAFIX2.2.zip"
+			],
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "thinknode_m1-companion-[^-]+\\.zip",
+							"download": "thinknode_m1-companion-[^-]+\\.uf2"
+						}
+					}
+				},
+				{
+					"class": "community",
+					"role": "repeater",
+					"notice": "otafixNeeded",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "thinknode_m1-repeater-[^-]+\\.zip",
+							"download": "thinknode_m1-repeater-[^-]+\\.uf2"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "elecrow",
+			"name": "Elecrow ThinkNode M3",
+			"icon": "/img/lora.svg",
+			"tooltip": "<img class='device' src='/img/thinknode_m3.svg'>",
+			"type": "nrf52",
+			"erase": "ZephCore_SoftDevice_v6_formatter.zip",
+			"bootloader": [
+				"thinknode_m3_bootloader-0.9.2-OTAFIX2.2.uf2",
+				"thinknode_m3_bootloader-0.9.2-OTAFIX2.2.zip"
+			],
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "thinknode_m3-companion-[^-]+\\.zip",
+							"download": "thinknode_m3-companion-[^-]+\\.uf2"
+						}
+					}
+				},
+				{
+					"class": "community",
+					"role": "repeater",
+					"notice": "otafixNeeded",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "thinknode_m3-repeater-[^-]+\\.zip",
+							"download": "thinknode_m3-repeater-[^-]+\\.uf2"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "elecrow",
+			"name": "Elecrow ThinkNode M6",
+			"icon": "/img/lora.svg",
+			"tooltip": "<img class='device' src='/img/thinknode_m6.svg'>",
+			"type": "nrf52",
+			"erase": "ZephCore_SoftDevice_v6_formatter.zip",
+			"bootloader": [
+				"thinknode_m6_bootloader-0.9.2-OTAFIX2.2.uf2",
+				"thinknode_m6_bootloader-0.9.2-OTAFIX2.2.zip"
+			],
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "thinknode_m6-companion-[^-]+\\.zip",
+							"download": "thinknode_m6-companion-[^-]+\\.uf2"
+						}
+					}
+				},
+				{
+					"class": "community",
+					"role": "repeater",
+					"notice": "otafixNeeded",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "thinknode_m6-repeater-[^-]+\\.zip",
+							"download": "thinknode_m6-repeater-[^-]+\\.uf2"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "uniteng",
+			"name": "UnitEng Station G2",
+			"icon": "/img/lora.svg",
+			"tooltip": "<img class='device' src='/img/station_g2.svg'>",
+			"type": "esp32",
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash-wipe": "station_g2-esp32s3-procpu-companion-[^-]+-merged\\.bin",
+							"flash-update": "station_g2-esp32s3-procpu-companion-[^-]+-update\\.bin"
+						}
+					}
+				},
+				{
+					"class": "community",
+					"role": "repeater",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash-wipe": "station_g2-esp32s3-procpu-repeater-[^-]+-merged\\.bin",
+							"flash-update": "station_g2-esp32s3-procpu-repeater-[^-]+-update\\.bin"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "muziworks",
+			"name": "Muzi Works R1 Neo",
+			"icon": "/img/lora.svg",
+			"tooltip": "<img class='device' src='/img/muziworks_r1neo.svg'>",
+			"type": "nrf52",
+			"erase": "ZephCore_SoftDevice_v6_formatter.zip",
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "muziworks_r1neo-companion-[^-]+\\.zip",
+							"download": "muziworks_r1neo-companion-[^-]+\\.uf2"
+						}
+					}
+				},
+				{
+					"class": "community",
+					"role": "repeater",
+					"notice": "otafixNeeded",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "muziworks_r1neo-repeater-[^-]+\\.zip",
+							"download": "muziworks_r1neo-repeater-[^-]+\\.uf2"
+						}
+					}
+				}
+			]
+		},
+		{
+			"maker": "promicro",
+			"name": "ProMicro nrf52 (faketec)",
+			"icon": "/img/lora.svg",
+			"tooltip": "<img class='device' src='/img/faketec.svg'>",
+			"type": "nrf52",
+			"erase": "ZephCore_SoftDevice_v6_formatter.zip",
+			"bootloader": [
+				"promicro_nrf52840_bootloader-0.9.2-OTAFIX2.2.uf2",
+				"promicro_nrf52840_bootloader-0.9.2-OTAFIX2.2.zip"
+			],
+			"firmware": [
+				{
+					"class": "community",
+					"role": "companion",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "promicro_sx1262-companion-[^-]+\\.zip",
+							"download": "promicro_sx1262-companion-[^-]+\\.uf2"
+						}
+					}
+				},
+				{
+					"class": "community",
+					"role": "repeater",
+					"notice": "otafixNeeded",
+					"github-zephcore": {
+						"type": "zephcore",
+						"files": {
+							"flash": "promicro_sx1262-repeater-[^-]+\\.zip",
+							"download": "promicro_sx1262-repeater-[^-]+\\.uf2"
+						}
+					}
+				}
+			]
+		}
+	]
+}

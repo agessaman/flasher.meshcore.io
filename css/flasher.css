@@ -5,6 +5,10 @@
   display: none !important;
 }
 
+button {
+  min-inline-size: unset !important;
+}
+
 body {
   display: flex;
   min-height: 100vh;
@@ -58,6 +62,31 @@ body:has([v-cloak]):after {
 #app select {
   cursor: pointer
 }
+/* Tooltips are children of their button, so hovering one kept it open over the neighbouring buttons.
+   Only tooltips with links need to stay reachable. */
+#app .tooltip:not(:has(a)) {
+  pointer-events: none;
+}
+#app .tooltip:is(.start, .end) {
+  transform: translateY(-100%) scale(0.9);
+}
+#app :hover > .tooltip:is(.start, .end) {
+  transform: translateY(-100%) scale(1);
+}
+#app .tooltip.bottom:is(.start, .end) {
+  transform: translateY(100%) scale(0.9);
+}
+#app :hover > .tooltip.bottom:is(.start, .end) {
+  transform: translateY(100%) scale(1);
+}
+#app .tooltip.start {
+  left: 0;
+  right: auto;
+}
+#app .tooltip.end {
+  left: auto;
+  right: 0;
+}
 #app .tooltip:has(>.device) {
   background: #f0f0f055;
   width: auto;
@@ -75,6 +104,7 @@ body:has([v-cloak]):after {
 }
 #app pre.term {
   font-family: monospace;
+  overflow-wrap: anywhere;
 }
 #app .overlay {
   display: flex !important;
@@ -106,7 +136,8 @@ body:has([v-cloak]):after {
 }
 #app .pre {
   white-space-collapse: preserve;
-  min-width: 300px;
+  min-width: min(300px, 100%);
+  overflow-wrap: anywhere;
 }
 #app a {
   text-decoration: underline;
@@ -121,6 +152,7 @@ body:has([v-cloak]):after {
 }
 #app .version .pre {
   padding-bottom: 10px;
+  --bg: var(--surface);
 }
 #app img.icon {
   height: 20px;
@@ -136,6 +168,39 @@ body:has([v-cloak]):after {
 
 .text-wrap {
   text-wrap: auto;
+}
+
+/* BeerCSS navs and lists are nowrap, so long device names pushed small phones sideways. */
+#app header nav:not(.top-nav) {
+  white-space: normal;
+}
+#app header nav:not(.top-nav) > :is(a, span) {
+  flex-shrink: 1;
+}
+#app .list > li > .max {
+  min-width: 0;
+}
+#app .list > li > .max > h6 {
+  white-space: normal;
+}
+#app .list > li > button {
+  min-width: 0;
+  block-size: auto;
+  min-block-size: 2.5rem;
+}
+#app .list > li > button > span {
+  white-space: normal;
+  text-align: start;
+}
+@media screen and (width <= 540px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+#app li.firmware-class {
+  background-color: var(--surface-container);
+  padding: 0.25rem 1rem;
+  font-weight: bold;
 }
 
 /* Observer flasher — teal accent + teal-tinted dark backgrounds */
