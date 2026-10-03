@@ -127,7 +127,8 @@ export function formatChangeLog(changelog) {
     .replace(/change log:\r?\n/i, '')
     .replaceAll(/^[-*] /mg, '')
     .replaceAll(/(?<!["'])(https?:\/\/[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*))/gi, `<a target="_blank" href="$1">$1</a>`)
-    .replaceAll(/#(\d+)/gm, `<a target="_blank" href="https://github.com/meshcore-dev/MeshCore/pull/$1">#$1</a>`);
+    // skip numeric HTML entities such as &#9888; (the dev-channel warning sign)
+    .replaceAll(/(?<!&)#(\d+)/gm,`<a target="_blank" href="https://github.com/meshcore-dev/MeshCore/pull/$1">#$1</a>`);
 }
 
 export const firmwareUrl = (config, file) => assetUrl(config.staticPath, file.name);
