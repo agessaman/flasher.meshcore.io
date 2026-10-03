@@ -37,7 +37,7 @@ export const commandReference = {
   // --- identity & access ---
   'get public.key': 'Get public key',
   'get prv.key': 'Get private key (serial only)',
-  'set prv.key ': 'Set private key {hex} (reboot to apply)',
+  'set prv.key ': 'Restore private key for identity migration {64-hex-char-key} (reboot to apply)',
   'get role': 'Get node role',
   'get guest.password': 'Get guest password',
   'set guest.password ': 'Set guest password',
@@ -47,8 +47,8 @@ export const commandReference = {
   'setperm ': 'Set node permissions {pubkey-hex} {0=remove|1=read-only|2=read-write|3=admin}',
 
   // --- node ---
-  'get name': 'Get advertisement name',
-  'set name ': 'Set advertisement name',
+  'get name': 'Get device name',
+  'set name ': 'Set device name (also sets MQTT origin)',
   'get lat': 'Get the advertisement map latitude',
   'set lat ': 'Set the advertisement map latitude',
   'get lon': 'Get the advertisement map longitude',
