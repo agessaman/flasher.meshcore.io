@@ -7,6 +7,17 @@ existing behavior · **Internal** = refactor / under-the-hood · **Docs** = docu
 **Build** / **CI** = build system & automation. **⬆ Upstream sync** marks a merge of the
 upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software version.
 
+### October 2026
+
+- **Fix** · `ota` — Skip the bare compat search literal when scanning an image  <sub>2026-10-03 · `8ec31dda`</sub>
+- **Fix** · `ota` — Refuse a channel switch to a build that cannot carry this node  <sub>2026-10-03 · `ed8af1b7`</sub>
+- **Fix** · `ota` — Flash the channel ota update checked, not a later ota branch  <sub>2026-10-03 · `f652e7d1`</sub>
+- **Fix** · `ota` — Always offer another channel's image, even from the same commit  <sub>2026-10-03 · `a1943a8e`</sub>
+- **CI** · `ota` — Verify each published binary's native channel by tag  <sub>2026-10-03 · `65d80bc9`</sub>
+- **New** · `ota` — Prod/beta channel names for ota branch, with stable/dev aliases  <sub>2026-10-03 · `9c65e198`</sub>
+- **Build** · `ota` — Point the stable/dev channel bases at observer.gessaman.com  <sub>2026-10-03 · `4afb3f7e`</sub>
+- **Fix** · `ota` — Compare by commit hash when targeting another channel  <sub>2026-10-03 · `2633b426`</sub>
+
 ### September 2026
 
 - **New** · `mqtt` — Add bsmesh broker preset  <sub>2026-09-10 · `4226649e`</sub>
@@ -564,3 +575,4 @@ c39ab639
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 b744b42a 95f32695 6ff49201
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 b744b42a 95f32695 6ff49201
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 b744b42a 95f32695 6ff49201
+5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 b744b42a 95f32695 6ff49201 2633b426 4afb3f7e 9c65e198 65d80bc9 cbb809b8 a1943a8e f652e7d1 ed8af1b7 622fdb97 8ec31dda a37ed607
