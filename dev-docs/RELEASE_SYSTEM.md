@@ -44,9 +44,19 @@ Two fully separated release channels:
 Three invariants hold the separation together:
 
 1. **The channel IS the OTA manifest URL.** `OTA_MANIFEST_BASE` is baked into
-   each binary at build time; a node only ever fetches manifests from its own
-   channel, so it only ever updates within it. Switching channels requires a
-   cable flash.
+   each binary at build time as its *native* channel, and a node updates within
+   it by default. Since 2026-10-03 every observer binary also carries both
+   channel bases (`OTA_MANIFEST_BASE_STABLE` / `_DEV`), and `ota branch
+   prod|beta|default` (saved in `/prefs.json` as `ota_ch`) makes `ota update`
+   pull from another channel. Off the native channel, the target is always an
+   update (build numbers aren't comparable across counters), and the switch is
+   gated: the image is written without rebooting, its `ota-compat:<gen>[+eth]`
+   tag is read, and boot is pointed back at the running image unless the
+   target's state generation is at least the node's own and it keeps the node's
+   transports. Prod is gen 1 (`/mqtt_prefs`), beta gen 2 (`/mqtt.json`), so
+   beta→prod is refused until dev merges into prod (v1.18). Bump
+   `OTA_STATE_GEN` in `src/helpers/OtaChannel.h` whenever a build starts storing
+   state older builds cannot read.
 2. **Separate release tags are mandatory, not cosmetic** — asset pruning
    (`KEEP_BUILDS=2`) runs per tag; a shared tag would make each channel delete
    the other's binaries.
@@ -116,14 +126,16 @@ surfaces dispatch; push is the operative trigger.
    JSON (same base ⇒ N=prev+1, new base ⇒ N=1). Read-only; the release job is
    the sole counter writer, so failed builds never burn a number.
 2. **build** ×14 — PlatformIO toolchain cache, then `build.sh` per shard with
-   `FIRMWARE_BUILD_NUMBER` stamped. **Both** workflows then verify their own
-   manifest URL is baked into a built ELF and the other channel's is not
-   (production got this guard on 2026-09-19; beta had it from the start). The
-   manifest base is a compile-time `-D`, so a build that lost it or picked up
-   the wrong channel is invisible until a node runs `ota check`. Production
-   declares `OTA_MANIFEST_BASE_URL` explicitly in `env:` — equal to build.sh's
-   default — so the check asserts against the value the build was handed rather
-   than a second hardcoded copy.
+   `FIRMWARE_BUILD_NUMBER` stamped. **Both** workflows then run
+   `scripts/verify_ota_channel.py --expect prod|beta` over every `.bin` in
+   `out/`. Since every binary carries both channel URLs, a URL's presence proves
+   nothing; the script reads the `ota-base-native|stable|dev:` tags instead and
+   requires the native one to be this channel's URL, the other two to match the
+   workflow's `OTA_MANIFEST_BASE_STABLE_URL` / `_DEV_URL`, and exactly one
+   `ota-compat:` tag. The manifest base is a compile-time `-D`, so a build that
+   lost it or picked up the wrong channel is invisible until a node runs
+   `ota check`. Both workflows declare all three URLs in `env:`, so the check
+   asserts against the values the build was handed.
 3. **release** — runs on a **shallow clone on purpose**: `git rev-parse
    --short HEAD` yields 7 chars shallow / 8 with history, and the asset
    filenames were minted by shallow build jobs. Steps:
