@@ -9,6 +9,16 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### October 2026
 
+- ⬆ **Upstream sync** — Synced with upstream MeshCore dev  <sub>2026-10-13 · `14b487da`</sub>
+- **Fix** · `radiolib` — Keep LR1121 tx power valid across sub-GHz and 2.4 GHz  <sub>2026-10-11 · `f6a6f3db`</sub>
+- **Fix** · `radiolib` — Keep LR1121 tx power valid across sub-GHz and 2.4 GHz  <sub>2026-10-11 · `eac6e66b`</sub>
+- **New** · `variants` — Add Waveshare S3 LR1121 MQTT observer envs  <sub>2026-10-11 · `018c5e7d`</sub>
+- **New** · `variants` — Add Waveshare ESP32-S3-LR1121  <sub>2026-10-11 · `51fc3ac5`</sub>
+- **New** · `variants` — Add Waveshare ESP32-S3-LR1121  <sub>2026-10-11 · `3d1a5d4c`</sub>
+- **New** · `mqtt` — Add opt-in advert signature check before publishing  <sub>2026-10-07 · `e53755a5`</sub>
+- **Fix** · `network` — Snapshot and restore every lwIP DNS slot  <sub>2026-10-04 · `a24dade1`</sub>
+- **New** · `cli` — Add get link.dns for resolver, gateway and lease DNS  <sub>2026-10-04 · `274997e9`</sub>
+- **New** · `ota` — Dev stores /mqtt.json, so its state generation is 2  <sub>2026-10-03 · `a0856bed`</sub>
 - **Fix** · `ota` — Skip the bare compat search literal when scanning an image  <sub>2026-10-03 · `8ec31dda`</sub>
 - **Fix** · `ota` — Refuse a channel switch to a build that cannot carry this node  <sub>2026-10-03 · `ed8af1b7`</sub>
 - **Fix** · `ota` — Flash the channel ota update checked, not a later ota branch  <sub>2026-10-03 · `f652e7d1`</sub>
@@ -20,10 +30,115 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### September 2026
 
+- **Fix** · `mqtt` — Exclude unready slots from slot health and keep cf monotonic  <sub>2026-09-26 · `7d0a602b`</sub>
+- **Fix** · `mqtt` — Count only failed starts, not rejected reconnects, in cf  <sub>2026-09-26 · `f37445f8`</sub>
+- **Fix** · `mqtt` — Count failed starts and ignore bounced sessions in cf  <sub>2026-09-26 · `6390763c`</sub>
+- **Fix** · `mqtt` — Count connect failures from a flag set before the attempt  <sub>2026-09-26 · `73098a44`</sub>
+- **New** · `mqtt` — Count connect failures and report tripped breakers  <sub>2026-09-26 · `7004b81c`</sub>
+- **Fix** · `mqtt` — Size the status buffer for real field maxima  <sub>2026-09-26 · `383339ec`</sub>
+- **Fix** · `mqtt` — Omit SNR/RSSI instead of publishing placeholder values  <sub>2026-09-26 · `a91009e3`</sub>
+- **New** · `observer` — Add dev-preview observer envs for 11 more ESP32-S3 boards  <sub>2026-09-26 · `33f1b109`</sub>
+- ⬆ **Upstream sync** — Synced with upstream MeshCore dev  <sub>2026-09-26 · `6baffa75`</sub>
+- **Fix** · `webconfig` — Publish the board probe safely and test the gap  <sub>2026-09-19 · `2c057b0f`</sub>
+- **New** · `webconfig` — Let the portal discover board-specific CLI commands  <sub>2026-09-19 · `3d2d0b5d`</sub>
+- **CI** · `observer` — Prune stale manifests and verify the production OTA channel  <sub>2026-09-19 · `4dca3688`</sub>
+- **Build** · `mqtt` — Make the preset table byte-identical across channels  <sub>2026-09-19 · `1bfbbf4b`</sub>
+- **Fix** · `network` — Rebuild the DHCP hostname when the node is renamed  <sub>2026-09-19 · `da6406e9`</sub>
+- **Fix** · `network` — Keep the DNS snapshot typed and on the lwIP thread  <sub>2026-09-19 · `c7818623`</sub>
+- **Fix** · `network` — Bound link transitions and restore each medium's DNS  <sub>2026-09-19 · `6e7f3cdb`</sub>
+- **Fix** · `mqtt` — Gate room-server OTA on an unproven stop; reap late acks  <sub>2026-09-19 · `16562621`</sub>
+- **Fix** · `mqtt` — An explicit bridge stop cancels a pending late-ack resume  <sub>2026-09-19 · `d180f097`</sub>
+- **Fix** · `mqtt` — Record the renewed token as applied after a successful bounce  <sub>2026-09-19 · `f72bdbad`</sub>
+- **Fix** · `mqtt` — Resume after a late stop ack; bound the hourly NTP refresh  <sub>2026-09-19 · `f50a6a39`</sub>
+- **Fix** · `wifi` — Keep the legacy power-save default off; store explicit min as 3  <sub>2026-09-19 · `946d6c4f`</sub>
+- **Fix** · `webconfig` — Read the LAN address after pinning the route  <sub>2026-09-19 · `3c399087`</sub>
+- **Fix** · `webconfig` — Persist the admin password before completing Ethernet onboarding  <sub>2026-09-19 · `eb39ca59`</sub>
+- **Fix** · `network` — Cap the per-slot transition disconnect wait at 2 s  <sub>2026-09-19 · `de19fccf`</sub>
+- **Fix** · `network` — Bound link-transition teardown and gate Ethernet restarts  <sub>2026-09-19 · `7aed5907`</sub>
+- **New** · `thinknode-m7` — Make the MQTT observer envs Ethernet-preferred  <sub>2026-09-19 · `62ad163f`</sub>
+- **Fix** · `network` — Pre-merge review fixes  <sub>2026-09-19 · `4c683b13`</sub>
+- **New** — Restore WiFi flags dropped from ThinkNode M7 companion wifi env in upstream merge  <sub>2026-09-19 · `f83a789a`</sub>
+- ⬆ **Upstream sync** — Synced with upstream MeshCore dev  <sub>2026-09-17 · `d42c4249`</sub>
+- **Fix** · `mqtt` — Stop accepting time from lwIP SNTP, which validates nothing here (F07)  <sub>2026-09-09 · `4cf0038a`</sub>
+- **Fix** · `mqtt` — Close the review's P1 and P2 findings on the F01/F04/F06 work  <sub>2026-09-09 · `b4daf8ca`</sub>
+- **Fix** · `mqtt` — Write every owned field on every apply; recreate only where needed (F02)  <sub>2026-09-09 · `7c2e78b9`</sub>
+- **Fix** · `mqtt` — Decide slot teardown by SDK lifecycle state, not connectivity (F04)  <sub>2026-09-09 · `a1a8c194`</sub>
+- **Fix** · `mqtt` — Typed results for client operations, and stop advancing state on failure (F06)  <sub>2026-09-09 · `abe838bf`</sub>
+- **Fix** · `mqtt` — Size every client's buffers for a JWT CONNECT (F03)  <sub>2026-09-09 · `ca986d40`</sub>
+- **New** · `mqtt` — Effective-config value type and the recreate decision (F02/F03)  <sub>2026-09-09 · `0a78712e`</sub>
+- **Fix** · `mqtt` — Release nothing after a stop the MQTT task never acknowledged (F01)  <sub>2026-09-09 · `2d4490bc`</sub>
+- **New** · `mqtt` — Log the Wi-Fi power-save mode read back from the SDK  <sub>2026-09-09 · `d52192f7`</sub>
+- **Fix** · `mqtt` — Validate NTP replies before trusting them  <sub>2026-09-09 · `4c7b6450`</sub>
+- **Fix** · `mqtt` — Honour `mqtt.status off` for the on-connect status message  <sub>2026-09-09 · `a728d754`</sub>
+- **Fix** · `mqtt` — Label SDK errors from named constants; report broker refusals  <sub>2026-09-09 · `5ce284f0`</sub>
+- **Fix** · `wifi` — One power-save mapping for CLI, startup and reconnect  <sub>2026-09-09 · `dfdcc25b`</sub>
+- **Fix** · `dispatcher` — Pick radio-watchdog activity by age, not largest timestamp  <sub>2026-09-09 · `d8ffae32`</sub>
+- **New** · `station-g3` — Add second RF slot (r2) build targets  <sub>2026-09-05 · `d8d72b78`</sub>
+- **Fix** — Fix T-Beam 1W fan races and remove PWM controls  <sub>2026-09-04 · `6c1f4c09`</sub>
+- **New** — Add T-Beam 1W thermal fan control  <sub>2026-09-04 · `8fd68931`</sub>
+- **Fix** · `network` — Harden Ethernet-preferred lifecycle  <sub>2026-09-04 · `9b739a9b`</sub>
+- **Fix** · `network` — Harden automatic link transitions  <sub>2026-09-03 · `50543c9b`</sub>
+- **Fix** · `network` — Set ethernet hostname before startup  <sub>2026-09-03 · `2c214063`</sub>
+- **New** · `network` — Implement hostname configuration for automatic interfaces  <sub>2026-09-03 · `17409e56`</sub>
+- **New** · `mqtt` — Initialize shared network event runtime for Ethernet  <sub>2026-09-03 · `af2e3d98`</sub>
+- **New** · `mqtt` — Add link diagnostics and improve network logging  <sub>2026-09-02 · `cdde4bf6`</sub>
+- **New** — Add automatic network failover  <sub>2026-09-01 · `50e2b2ac`</sub>
+- **New** — Abstract MQTT network transport  <sub>2026-09-01 · `3975bc0b`</sub>
 - **New** · `mqtt` — Add bsmesh broker preset  <sub>2026-09-10 · `4226649e`</sub>
 
 ### August 2026
 
+- **New** · `mqtt` — Report slot connection health so an outage is visible  <sub>2026-08-08 · `f7ed2f17`</sub>
+- **Docs** — Document display.timeout and display.flip  <sub>2026-08-28 · `7ea615da`</sub>
+- **Change** · `display` — Log the persisted display.flip state at boot  <sub>2026-08-28 · `445eaf83`</sub>
+- **Fix** · `display` — Default the R8 portrait panels to DISPLAY_ROTATION=0  <sub>2026-08-28 · `06656d43`</sub>
+- **Fix** · `display` — Make the USER button click immediate, 3 s hold to power off  <sub>2026-08-28 · `3e7e0322`</sub>
+- **Fix** · `display` — Harden CHSC6X polling and long-gap activity accounting  <sub>2026-08-28 · `018d6806`</sub>
+- **New** · `display` — Add runtime display.flip for panel orientation  <sub>2026-08-28 · `f3c81b55`</sub>
+- **Fix** · `display` — Correct R8 touch decode, display wake and power-off  <sub>2026-08-28 · `86c4849e`</sub>
+- **New** · `display` — Add R8 observer TFT dashboard, touch toggle and display.timeout  <sub>2026-08-28 · `fcd92e98`</sub>
+- **New** · `display` — Add R8 portrait observer layouts  <sub>2026-08-28 · `fc361ca9`</sub>
+- **Fix** · `boards` — Update Heltec V4 R8 TFT LEDA control to active HIGH  <sub>2026-08-28 · `85fd9b09`</sub>
+- **Fix** · `boards` — Initialize Heltec V4 R8 TFT  <sub>2026-08-23 · `4a58d807`</sub>
+- **Fix** · `boards` — Reset Heltec V4 R8 TFT on GPIO 21  <sub>2026-08-23 · `c5d987df`</sub>
+- **New** — Add Heltec V4 R8 FEM LNA controls  <sub>2026-08-20 · `0cc6fdfe`</sub>
+- **Fix** · `examples` — Add MQTT teardown delay before OTA allocation  <sub>2026-08-20 · `8fc07332`</sub>
+- **New** · `alert` — Add WiFi fault policy host tests  <sub>2026-08-20 · `0a3b50bc`</sub>
+- **Fix** · `mqtt` — Preserve WiFi outage state for alerts  <sub>2026-08-20 · `3666cb6d`</sub>
+- **Fix** · `mqtt` — Stop a wedged client before deleting it on the dirty-stop path  <sub>2026-08-19 · `3c7eb13d`</sub>
+- **Fix** · `mqtt` — Clear a slot that preferences say is disabled on bridge start  <sub>2026-08-19 · `a00bad2a`</sub>
+- **Fix** · `mqtt` — Render the mbedtls diagnostic magnitude correctly  <sub>2026-08-18 · `a0aec91c`</sub>
+- **New** · `mqtt` — Add ntxmesh broker preset  <sub>2026-08-18 · `73480d50`</sub>
+- **Fix** · `sensors` — Probe BMP/BME at both 0x76 and 0x77  <sub>2026-08-17 · `44beeab0`</sub>
+- **Fix** · `sensors` — Claim an I2C address after a successful init  <sub>2026-08-17 · `1fe78ef9`</sub>
+- **Fix** · `sensors` — Probe BMP/BME at both 0x76 and 0x77  <sub>2026-08-17 · `2a6eabe1`</sub>
+- **Fix** · `sensors` — Claim an I2C address after a successful init  <sub>2026-08-17 · `2b0ed000`</sub>
+- **Fix** · `mqtt` — Align JWT reuse with renewal buffer  <sub>2026-08-17 · `4bdbe33a`</sub>
+- **Fix** · `mqtt` — Report an undeletable rejected /mqtt.json temp as unresolved  <sub>2026-08-15 · `28877f30`</sub>
+- **Fix** · `mqtt` — Keep an unclassifiable /mqtt.json candidate across boots  <sub>2026-08-15 · `dad6d39c`</sub>
+- **Fix** · `mqtt` — Undo a failed /mqtt.json publish instead of claiming a rollback  <sub>2026-08-15 · `cba8074b`</sub>
+- **Fix** · `mqtt` — Do not send an NTP request to a name that failed to resolve  <sub>2026-08-14 · `9597d9ca`</sub>
+- **Fix** · `mqtt` — Consult the RTC when libc cannot vouch for the fallback clock  <sub>2026-08-14 · `436bb65a`</sub>
+- **Fix** · `mqtt` — Clear the stale SNTP status before starting the new request  <sub>2026-08-14 · `ee2f866b`</sub>
+- **Fix** · `mqtt` — Keep the usable-clock fallback the SNTP strictness removed  <sub>2026-08-14 · `1a01344e`</sub>
+- **Fix** · `mqtt` — Defer the stale-token reconnect when the mint fails  <sub>2026-08-14 · `0d12ec7d`</sub>
+- **Fix** · `mqtt` — Make the accepted NTP epoch authoritative before any JWT work  <sub>2026-08-14 · `168d4a0a`</sub>
+- **Fix** · `mqtt` — Require real SNTP completion before crediting a fallback server  <sub>2026-08-14 · `b1ceaf01`</sub>
+- **Build** · `tls` — Bind the reduced-TLS archives to the framework they were built against  <sub>2026-08-14 · `74a3df32`</sub>
+- **Fix** · `mqtt` — Reconnect the NTP-corrected slot instead of no-opping on a live client  <sub>2026-08-14 · `21737949`</sub>
+- **Fix** · `mqtt` — Log a failed client start instead of reporting success  <sub>2026-08-14 · `f64852e2`</sub>
+- **Fix** · `mqtt` — Route both reconnect ladders through the stopped-client guard  <sub>2026-08-14 · `6ffadd6e`</sub>
+- **Fix** · `mqtt` — Reuse a still-valid JWT on ordinary reconnects  <sub>2026-08-12 · `c0c823b6`</sub>
+- **Docs** · `mqtt` — Correct what the WS buffer padding actually fixes  <sub>2026-08-11 · `88c824c1`</sub>
+- **Fix** · `mqtt` — Stop bouncing a live waev session to renew its token  <sub>2026-08-11 · `f4ba55be`</sub>
+- **Fix** · `mqtt` — Address review — stopped clients, late allocation, fail-open map check  <sub>2026-08-10 · `daec2e4e`</sub>
+- **Build** · `mqtt` — Make the reduced-TLS mbedTLS archives shippable, opt-in and verified  <sub>2026-08-10 · `82755129`</sub>
+- **Fix** · `mqtt` — Allocate the neighbors JSON buffer on first use, not at bridge start  <sub>2026-08-10 · `8ee21d2c`</sub>
+- **Fix** · `mqtt` — Renew JWT credentials without stopping the esp-mqtt client  <sub>2026-08-05 · `4c90db21`</sub>
+- **New** · `mqtt` — Persist observer preferences as JSON  <sub>2026-08-09 · `75f3e446`</sub>
+- **Change** · `native` — Declare stdlib in the Arduino mock so ConfigSerializer builds  <sub>2026-08-14 · `40635a53`</sub>
+- **Docs** — Refresh firmware-notes.html for v1.17.1  <sub>2026-08-14 · `d489159c`</sub>
+- **New** · `mqtt` — Persist observer preferences as JSON  <sub>2026-08-09 · `da204b8f`</sub>
 - **New** · `mqtt` — Add ntxmesh broker preset  <sub>2026-08-18 · `8998409f`</sub>
 - **Docs** — Refresh firmware-notes.html for v1.17.1  <sub>2026-08-14 · `f110a0b1`</sub>
 - **CI** — Bump observer channel base version to v1.17.1  <sub>2026-08-14 · `47c80fec`</sub>
@@ -577,3 +692,4 @@ c39ab639
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 b744b42a 95f32695 6ff49201
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 b744b42a 95f32695 6ff49201 2633b426 4afb3f7e 9c65e198 65d80bc9 cbb809b8 a1943a8e f652e7d1 ed8af1b7 622fdb97 8ec31dda a37ed607
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 b744b42a 95f32695 6ff49201 cbb809b8 622fdb97 a37ed607
+5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 b744b42a 95f32695 da204b8f dbfaefae 6ff49201 d489159c 40635a53 75f3e446 4c90db21 8ee21d2c 82755129 daec2e4e f4ba55be 88c824c1 c0c823b6 6ffadd6e f64852e2 21737949 74a3df32 b1ceaf01 168d4a0a 0d12ec7d 1a01344e ee2f866b 436bb65a 9597d9ca e88f7abe ec87ad1a cba8074b dad6d39c 28877f30 4bdbe33a 2b0ed000 2a6eabe1 1fe78ef9 44beeab0 73480d50 a0aec91c a00bad2a 3c7eb13d 3666cb6d 0a3b50bc 8fc07332 0cc6fdfe c5d987df 4a58d807 85fd9b09 fc361ca9 fcd92e98 86c4849e f3c81b55 018d6806 3e7e0322 06656d43 445eaf83 7ea615da 3975bc0b 50e2b2ac cdde4bf6 af2e3d98 17409e56 2c214063 50543c9b 9b739a9b 8fd68931 6c1f4c09 d8d72b78 d8ffae32 dfdcc25b 5ce284f0 a728d754 4c7b6450 d52192f7 2d4490bc 0a78712e ca986d40 abe838bf a1a8c194 7c2e78b9 b4daf8ca 4cf0038a d42c4249 f83a789a ad65f641 4c683b13 62ad163f 7aed5907 de19fccf eb39ca59 3c399087 9316f50d 946d6c4f f50a6a39 f72bdbad d180f097 16562621 25f26c30 6e7f3cdb c7818623 da6406e9 1bfbbf4b 4dca3688 3d2d0b5d 2c057b0f 6baffa75 33f1b109 91d9db9c a91009e3 43b55de2 f7ed2f17 383339ec 7004b81c 73098a44 6390763c f37445f8 7d0a602b cbb809b8 ee88192a 622fdb97 baf01a5c a0856bed 45d8f150 a37ed607 274997e9 a24dade1 e53755a5 3d1a5d4c 51fc3ac5 018c5e7d eac6e66b f6a6f3db 14b487da 79a0e840
