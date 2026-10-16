@@ -17,9 +17,7 @@
     "partition-change": "<p><b>&#9888; PARTITION TABLE CHANGED:</b> First flash <b>must</b> use &quot;Erase device&quot; (merged firmware). NVS settings will be wiped. After the first flash, standard updates work normally.</p>",
     "tlora-observer": "<p><b>&#9888; NO PSRAM:</b> Only <b>one</b> active WSS/TLS MQTT broker is supported. Configure your preferred broker in slot 1 and set unused slots to <code>none</code>.</p><p><b>&#9888; PARTITION TABLE CHANGED:</b> First flash <b>must</b> use &quot;Erase device&quot; (merged firmware). NVS settings will be wiped. After the first flash, standard updates work normally.</p>",
     "station-g3-r2": "<p><b>&#9888; SECOND RF SLOT:</b> This firmware is designed for a Station G3 with the LoRa card in the <b>second RF slot</b>. This is not the default configuration.</p><p><b>&#9888; PARTITION TABLE CHANGED:</b> First flash <b>must</b> use &quot;Erase device&quot; (merged firmware). NVS settings will be wiped. After the first flash, standard updates work normally.</p>",
-    "dev-preview": "<p><b>&#9888; DEV PREVIEW:</b> This board is new to the observer firmware and has not been hardware-tested yet. It is only published on the <b>-dev</b> version. Please report what works and what doesn't.</p>",
-    "dev-preview-partition": "<p><b>&#9888; DEV PREVIEW:</b> This board is new to the observer firmware and has not been hardware-tested yet. It is only published on the <b>-dev</b> version. Please report what works and what doesn't.</p><p><b>&#9888; PARTITION TABLE CHANGED:</b> First flash <b>must</b> use &quot;Erase device&quot; (merged firmware). NVS settings will be wiped. After the first flash, standard updates work normally.</p>",
-    "dev-preview-teth": "<p><b>&#9888; DEV PREVIEW:</b> This board is new to the observer firmware and has not been hardware-tested yet. It is only published on the <b>-dev</b> version. Please report what works and what doesn't.</p><p>The observer connects over <b>WiFi</b> only; the T-ETH Elite's Ethernet port is not used yet.</p>"
+    "teth-wifi-only": "<p>The observer connects over <b>WiFi</b> only; the T-ETH Elite's Ethernet port is not used yet.</p>"
   },
   "maker": {
     "heltec": {
@@ -343,8 +341,7 @@
               "flash-wipe": "^heltec_rc32_repeater_observer_mqtt-v.*-merged\\.bin$",
               "flash-update": "^heltec_rc32_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
             }
-          },
-          "notice": "dev-preview"
+          }
         },
         {
           "role": "roomServer",
@@ -354,8 +351,7 @@
               "flash-wipe": "^heltec_rc32_room_server_observer_mqtt-v.*-merged\\.bin$",
               "flash-update": "^heltec_rc32_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
             }
-          },
-          "notice": "dev-preview"
+          }
         },
         {
           "role": "repeater",
@@ -366,8 +362,7 @@
               "flash-wipe": "^heltec_rc32_without_display_repeater_observer_mqtt-v.*-merged\\.bin$",
               "flash-update": "^heltec_rc32_without_display_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
             }
-          },
-          "notice": "dev-preview"
+          }
         },
         {
           "role": "roomServer",
@@ -378,8 +373,7 @@
               "flash-wipe": "^heltec_rc32_without_display_room_server_observer_mqtt-v.*-merged\\.bin$",
               "flash-update": "^heltec_rc32_without_display_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
             }
-          },
-          "notice": "dev-preview"
+          }
         }
       ]
     },
@@ -399,8 +393,7 @@
               "flash-wipe": "^Heltec_Wireless_Tracker_repeater_observer_mqtt-v.*-merged\\.bin$",
               "flash-update": "^Heltec_Wireless_Tracker_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
             }
-          },
-          "notice": "dev-preview"
+          }
         },
         {
           "role": "roomServer",
@@ -410,8 +403,7 @@
               "flash-wipe": "^Heltec_Wireless_Tracker_room_server_observer_mqtt-v.*-merged\\.bin$",
               "flash-update": "^Heltec_Wireless_Tracker_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
             }
-          },
-          "notice": "dev-preview"
+          }
         }
       ]
     },
@@ -431,8 +423,7 @@
               "flash-wipe": "^Heltec_Wireless_Paper_repeater_observer_mqtt-v.*-merged\\.bin$",
               "flash-update": "^Heltec_Wireless_Paper_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
             }
-          },
-          "notice": "dev-preview"
+          }
         },
         {
           "role": "roomServer",
@@ -442,8 +433,7 @@
               "flash-wipe": "^Heltec_Wireless_Paper_room_server_observer_mqtt-v.*-merged\\.bin$",
               "flash-update": "^Heltec_Wireless_Paper_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
             }
-          },
-          "notice": "dev-preview"
+          }
         }
       ]
     },
@@ -463,8 +453,7 @@
               "flash-wipe": "^Heltec_E213_repeater_observer_mqtt-v.*-merged\\.bin$",
               "flash-update": "^Heltec_E213_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
             }
-          },
-          "notice": "dev-preview"
+          }
         },
         {
           "role": "roomServer",
@@ -474,8 +463,7 @@
               "flash-wipe": "^Heltec_E213_room_server_observer_mqtt-v.*-merged\\.bin$",
               "flash-update": "^Heltec_E213_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
             }
-          },
-          "notice": "dev-preview"
+          }
         }
       ]
     },
@@ -495,8 +483,7 @@
               "flash-wipe": "^Heltec_E290_repeater_observer_mqtt-v.*-merged\\.bin$",
               "flash-update": "^Heltec_E290_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
             }
-          },
-          "notice": "dev-preview"
+          }
         },
         {
           "role": "roomServer",
@@ -506,8 +493,7 @@
               "flash-wipe": "^Heltec_E290_room_server_observer_mqtt-v.*-merged\\.bin$",
               "flash-update": "^Heltec_E290_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
             }
-          },
-          "notice": "dev-preview"
+          }
         }
       ]
     },
@@ -742,7 +728,7 @@
               "flash-update": "^Ebyte_EoRa-S3_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
             }
           },
-          "notice": "dev-preview-partition"
+          "notice": "partition-change"
         },
         {
           "role": "roomServer",
@@ -753,7 +739,7 @@
               "flash-update": "^Ebyte_EoRa-S3_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
             }
           },
-          "notice": "dev-preview-partition"
+          "notice": "partition-change"
         }
       ]
     },
@@ -864,7 +850,7 @@
               "flash-update": "^LilyGo_T3S3_sx1276_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
             }
           },
-          "notice": "dev-preview-partition"
+          "notice": "partition-change"
         },
         {
           "role": "roomServer",
@@ -875,7 +861,7 @@
               "flash-update": "^LilyGo_T3S3_sx1276_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
             }
           },
-          "notice": "dev-preview-partition"
+          "notice": "partition-change"
         }
       ]
     },
@@ -896,7 +882,7 @@
               "flash-update": "^LilyGo_TETH_Elite_sx1262_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
             }
           },
-          "notice": "dev-preview-teth"
+          "notice": "teth-wifi-only"
         },
         {
           "role": "roomServer",
@@ -907,7 +893,7 @@
               "flash-update": "^LilyGo_TETH_Elite_sx1262_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
             }
           },
-          "notice": "dev-preview-teth"
+          "notice": "teth-wifi-only"
         }
       ]
     },
@@ -957,8 +943,7 @@
               "flash-wipe": "^Xiao_S3_repeater_observer_mqtt-v.*-merged\\.bin$",
               "flash-update": "^Xiao_S3_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
             }
-          },
-          "notice": "dev-preview"
+          }
         },
         {
           "role": "roomServer",
@@ -968,8 +953,7 @@
               "flash-wipe": "^Xiao_S3_room_server_observer_mqtt-v.*-merged\\.bin$",
               "flash-update": "^Xiao_S3_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
             }
-          },
-          "notice": "dev-preview"
+          }
         }
       ]
     },
@@ -1019,8 +1003,7 @@
               "flash-wipe": "^meshnology_w12_repeater_observer_mqtt-v.*-merged\\.bin$",
               "flash-update": "^meshnology_w12_repeater_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
             }
-          },
-          "notice": "dev-preview"
+          }
         },
         {
           "role": "roomServer",
@@ -1030,8 +1013,7 @@
               "flash-wipe": "^meshnology_w12_room_server_observer_mqtt-v.*-merged\\.bin$",
               "flash-update": "^meshnology_w12_room_server_observer_mqtt-v.*-[0-9a-f]{7,8}\\.bin$"
             }
-          },
-          "notice": "dev-preview"
+          }
         }
       ]
     }
