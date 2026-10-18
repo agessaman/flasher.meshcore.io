@@ -9,6 +9,7 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### October 2026
 
+- **Docs** — Refresh observer docs and document ota commands  <sub>2026-10-18 · `401d1c6a`</sub>
 - ⬆ **Upstream sync** — Synced with upstream MeshCore dev  <sub>2026-10-13 · `14b487da`</sub>
 - **Fix** · `radiolib` — Keep LR1121 tx power valid across sub-GHz and 2.4 GHz  <sub>2026-10-11 · `f6a6f3db`</sub>
 - **Fix** · `radiolib` — Keep LR1121 tx power valid across sub-GHz and 2.4 GHz  <sub>2026-10-11 · `eac6e66b`</sub>
@@ -694,3 +695,4 @@ c39ab639
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 b744b42a 95f32695 6ff49201 cbb809b8 622fdb97 a37ed607
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 b744b42a 95f32695 da204b8f dbfaefae 6ff49201 d489159c 40635a53 75f3e446 4c90db21 8ee21d2c 82755129 daec2e4e f4ba55be 88c824c1 c0c823b6 6ffadd6e f64852e2 21737949 74a3df32 b1ceaf01 168d4a0a 0d12ec7d 1a01344e ee2f866b 436bb65a 9597d9ca e88f7abe ec87ad1a cba8074b dad6d39c 28877f30 4bdbe33a 2b0ed000 2a6eabe1 1fe78ef9 44beeab0 73480d50 a0aec91c a00bad2a 3c7eb13d 3666cb6d 0a3b50bc 8fc07332 0cc6fdfe c5d987df 4a58d807 85fd9b09 fc361ca9 fcd92e98 86c4849e f3c81b55 018d6806 3e7e0322 06656d43 445eaf83 7ea615da 3975bc0b 50e2b2ac cdde4bf6 af2e3d98 17409e56 2c214063 50543c9b 9b739a9b 8fd68931 6c1f4c09 d8d72b78 d8ffae32 dfdcc25b 5ce284f0 a728d754 4c7b6450 d52192f7 2d4490bc 0a78712e ca986d40 abe838bf a1a8c194 7c2e78b9 b4daf8ca 4cf0038a d42c4249 f83a789a ad65f641 4c683b13 62ad163f 7aed5907 de19fccf eb39ca59 3c399087 9316f50d 946d6c4f f50a6a39 f72bdbad d180f097 16562621 25f26c30 6e7f3cdb c7818623 da6406e9 1bfbbf4b 4dca3688 3d2d0b5d 2c057b0f 6baffa75 33f1b109 91d9db9c a91009e3 43b55de2 f7ed2f17 383339ec 7004b81c 73098a44 6390763c f37445f8 7d0a602b cbb809b8 ee88192a 622fdb97 baf01a5c a0856bed 45d8f150 a37ed607 274997e9 a24dade1 e53755a5 3d1a5d4c 51fc3ac5 018c5e7d eac6e66b f6a6f3db 14b487da 79a0e840
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 b744b42a 95f32695 dbfaefae 6ff49201 e88f7abe ec87ad1a ad65f641 9316f50d 25f26c30 91d9db9c 43b55de2 cbb809b8 ee88192a 622fdb97 baf01a5c 45d8f150 a37ed607 79a0e840
+5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 b744b42a 95f32695 dbfaefae 6ff49201 e88f7abe ec87ad1a ad65f641 9316f50d 25f26c30 91d9db9c 43b55de2 cbb809b8 ee88192a 622fdb97 baf01a5c 45d8f150 a37ed607 79a0e840 401d1c6a
