@@ -9,6 +9,7 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### October 2026
 
+- **New** · `mqtt` — Add sacmesh broker preset  <sub>2026-10-24 · `e11a45e7`</sub>
 - **Docs** — Update firmware notes for v1.18.0  <sub>2026-10-20 · `7a855310`</sub>
 - **Docs** — Firmware notes mention ota branch channel switching  <sub>2026-10-03 · `ff508d54`</sub>
 - **Docs** — Refresh observer docs and document ota commands  <sub>2026-10-18 · `401d1c6a`</sub>
@@ -699,3 +700,4 @@ c39ab639
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 b744b42a 95f32695 dbfaefae 6ff49201 e88f7abe ec87ad1a ad65f641 9316f50d 25f26c30 91d9db9c 43b55de2 cbb809b8 ee88192a 622fdb97 baf01a5c 45d8f150 a37ed607 79a0e840
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 b744b42a 95f32695 dbfaefae 6ff49201 e88f7abe ec87ad1a ad65f641 9316f50d 25f26c30 91d9db9c 43b55de2 cbb809b8 ee88192a 622fdb97 baf01a5c 45d8f150 a37ed607 79a0e840 401d1c6a
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 b744b42a 95f32695 dbfaefae 6ff49201 e88f7abe ec87ad1a ad65f641 9316f50d 25f26c30 91d9db9c 43b55de2 cbb809b8 ee88192a 622fdb97 baf01a5c 45d8f150 a37ed607 ff508d54 79a0e840 7a855310
+5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 b744b42a 95f32695 dbfaefae 6ff49201 e88f7abe ec87ad1a ad65f641 9316f50d 25f26c30 91d9db9c 43b55de2 cbb809b8 ee88192a 622fdb97 baf01a5c 45d8f150 a37ed607 79a0e840 e11a45e7
