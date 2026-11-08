@@ -9,6 +9,10 @@ upstream MeshCore `dev` branch, which generally pulls in a new MeshCore software
 
 ### November 2026
 
+- **CI** — Skip observer builds for test-only changes  <sub>2026-11-08 · `303c21ce`</sub>
+- **Fix** · `mqtt` — Rename meshcore-analyzer preset to meshcore-analyzer-eu  <sub>2026-11-08 · `f28d25fa`</sub>
+- **New** · `mqtt` — Add meshcore-analyzer broker preset  <sub>2026-11-07 · `0e342e07`</sub>
+- **New** · `mqtt` — Add virginiamesh broker preset  <sub>2026-11-07 · `b715f75c`</sub>
 - **New** · `mqtt` — Add comchan broker preset  <sub>2026-11-04 · `c0847cbd`</sub>
 
 ### October 2026
@@ -708,3 +712,4 @@ c39ab639
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 b744b42a 95f32695 dbfaefae 6ff49201 e88f7abe ec87ad1a ad65f641 9316f50d 25f26c30 91d9db9c 43b55de2 cbb809b8 ee88192a 622fdb97 baf01a5c 45d8f150 a37ed607 79a0e840
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 b744b42a 95f32695 dbfaefae 6ff49201 e88f7abe ec87ad1a ad65f641 9316f50d 25f26c30 91d9db9c 43b55de2 cbb809b8 ee88192a 622fdb97 baf01a5c 45d8f150 a37ed607 79a0e840 c0847cbd
 5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 b744b42a 95f32695 dbfaefae 6ff49201 e88f7abe ec87ad1a ad65f641 9316f50d 25f26c30 91d9db9c 43b55de2 cbb809b8 ee88192a 622fdb97 baf01a5c 45d8f150 a37ed607 79a0e840
+5a1a0cd5 3e1b8638 ae9c01f0 1d521613 9bbc4382 0c41f683 0e7a07af 17e68ecc 4b390dfc 28e586f0 b744b42a 95f32695 dbfaefae 6ff49201 e88f7abe ec87ad1a ad65f641 9316f50d 25f26c30 91d9db9c 43b55de2 cbb809b8 ee88192a 622fdb97 baf01a5c 45d8f150 a37ed607 79a0e840 b715f75c 0e342e07 f28d25fa 303c21ce
