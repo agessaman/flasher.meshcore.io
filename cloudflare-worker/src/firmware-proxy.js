@@ -109,6 +109,7 @@ const UA = "meshcore-firmware-proxy";
 // OTA through here with an ~8 s header timeout, so prefer the REST endpoint
 // and keep the download path only as a fallback.
 async function fetchAsset(base, filename, method, env) {
+  let via = "download";
   const m = /github\.com\/([^/]+\/[^/]+)\/releases\/download\/([^/]+)\/?$/.exec(base);
   if (m) {
     try {
@@ -118,23 +119,31 @@ async function fetchAsset(base, filename, method, env) {
         cf: { cacheEverything: true, cacheTtl: 60 },
       });
       if (rel.ok) {
-        const asset = ((await rel.json()).assets || []).find((a) => a.name === filename);
+        // The download path matches names case-insensitively; keep that contract.
+        const want = filename.toLowerCase();
+        const asset = ((await rel.json()).assets || []).find((a) => a.name.toLowerCase() === want);
         if (asset) {
           const resp = await fetch(asset.url, {
             method,
             redirect: "follow",
             headers: { "User-Agent": UA, Accept: "application/octet-stream", ...auth },
           });
-          if (resp.ok) return resp;
+          if (resp.ok) return { resp, via: "api" };
+          via = `api-asset-${resp.status}`;
+        } else {
+          via = "api-missing";
         }
+      } else {
+        via = `api-release-${rel.status}`;
       }
-    } catch (e) { /* fall through to the download path */ }
+    } catch (e) { via = "api-error"; }
   }
-  return fetch(`${base}/${filename}`, {
+  const resp = await fetch(`${base}/${filename}`, {
     method,
     redirect: "follow",
     cf: { cacheEverything: true, cacheTtl: 86400 },
   });
+  return { resp, via: via === "download" ? via : `download(${via})` };
 }
 
 // Only proxy firmware artifacts; never act as an open redirector/proxy.
@@ -189,12 +198,12 @@ export default {
     }
 
     const base = (env && env.RELEASE_BASE) || DEFAULT_RELEASE_BASE;
-    const resp = await fetchAsset(base, filename, request.method, env);
+    const { resp, via } = await fetchAsset(base, filename, request.method, env);
 
     if (!resp.ok) {
       return new Response(`Upstream returned ${resp.status}`, {
         status: resp.status === 404 ? 404 : 502,
-        headers: CORS_HEADERS,
+        headers: { ...CORS_HEADERS, "X-Upstream": via },
       });
     }
 
@@ -203,6 +212,7 @@ export default {
     headers.set("Cache-Control", "public, max-age=86400, immutable");
     const len = resp.headers.get("Content-Length");
     if (len) headers.set("Content-Length", len);
+    headers.set("X-Upstream", via);
 
     if (request.method === "HEAD") {
       return new Response(null, { status: 200, headers });
