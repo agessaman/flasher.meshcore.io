@@ -101,6 +101,51 @@ async function buildReleasesFeed(env) {
   return feed;
 }
 
+const UA = "meshcore-firmware-proxy";
+
+// Release-asset bytes. The github.com/<repo>/releases/download/<tag>/<name>
+// path can 504 indefinitely for one asset while the REST asset endpoint serves
+// it fine (seen 2026-11-08), and it is slow (~10 s) on a cold edge. Devices
+// OTA through here with an ~8 s header timeout, so prefer the REST endpoint
+// and keep the download path only as a fallback.
+async function fetchAsset(base, filename, method, env) {
+  let via = "download";
+  const m = /github\.com\/([^/]+\/[^/]+)\/releases\/download\/([^/]+)\/?$/.exec(base);
+  if (m) {
+    try {
+      const auth = env && env.GITHUB_TOKEN ? { Authorization: `Bearer ${env.GITHUB_TOKEN}` } : {};
+      const rel = await fetch(`https://api.github.com/repos/${m[1]}/releases/tags/${m[2]}`, {
+        headers: { "User-Agent": UA, ...auth },
+        cf: { cacheEverything: true, cacheTtl: 60 },
+      });
+      if (rel.ok) {
+        // The download path matches names case-insensitively; keep that contract.
+        const want = filename.toLowerCase();
+        const asset = ((await rel.json()).assets || []).find((a) => a.name.toLowerCase() === want);
+        if (asset) {
+          const resp = await fetch(asset.url, {
+            method,
+            redirect: "follow",
+            headers: { "User-Agent": UA, Accept: "application/octet-stream", ...auth },
+          });
+          if (resp.ok) return { resp, via: "api" };
+          via = `api-asset-${resp.status}`;
+        } else {
+          via = "api-missing";
+        }
+      } else {
+        via = `api-release-${rel.status}`;
+      }
+    } catch (e) { via = "api-error"; }
+  }
+  const resp = await fetch(`${base}/${filename}`, {
+    method,
+    redirect: "follow",
+    cf: { cacheEverything: true, cacheTtl: 86400 },
+  });
+  return { resp, via: via === "download" ? via : `download(${via})` };
+}
+
 // Only proxy firmware artifacts; never act as an open redirector/proxy.
 const ALLOWED_FILENAME = /^[A-Za-z0-9._-]+\.(bin|uf2|hex|zip)$/;
 
@@ -144,22 +189,21 @@ export default {
       return new Response("Not Found", { status: 404, headers: CORS_HEADERS });
     }
 
-    const base = (env && env.RELEASE_BASE) || DEFAULT_RELEASE_BASE;
-    const upstream = `${base}/${filename}`;
-
-    // fetch() follows the 302 to the signed asset URL automatically.
     // Filenames are content-addressed (they embed the git short hash), so the
-    // bytes for a given name never change — safe to cache hard.
-    const resp = await fetch(upstream, {
-      method: request.method,
-      redirect: "follow",
-      cf: { cacheEverything: true, cacheTtl: 86400 },
-    });
+    // bytes for a given name never change: serve repeats from the edge cache.
+    const cacheKey = new Request(`${url.origin}/${filename}`);
+    if (request.method === "GET") {
+      const hit = await caches.default.match(cacheKey);
+      if (hit) return hit;
+    }
+
+    const base = (env && env.RELEASE_BASE) || DEFAULT_RELEASE_BASE;
+    const { resp, via } = await fetchAsset(base, filename, request.method, env);
 
     if (!resp.ok) {
       return new Response(`Upstream returned ${resp.status}`, {
         status: resp.status === 404 ? 404 : 502,
-        headers: CORS_HEADERS,
+        headers: { ...CORS_HEADERS, "X-Upstream": via },
       });
     }
 
@@ -168,10 +212,13 @@ export default {
     headers.set("Cache-Control", "public, max-age=86400, immutable");
     const len = resp.headers.get("Content-Length");
     if (len) headers.set("Content-Length", len);
+    headers.set("X-Upstream", via);
 
-    return new Response(request.method === "HEAD" ? null : resp.body, {
-      status: 200,
-      headers,
-    });
+    if (request.method === "HEAD") {
+      return new Response(null, { status: 200, headers });
+    }
+    const out = new Response(resp.body, { status: 200, headers });
+    ctx.waitUntil(caches.default.put(cacheKey, out.clone()));
+    return out;
   },
 };
